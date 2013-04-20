@@ -1,0 +1,418 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		43ABDECA1722FC5400262AEC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43ABDEC91722FC5400262AEC /* Foundation.framework */; };
+		43ABDECF1722FC5400262AEC /* BMExtendablePageController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 43ABDECE1722FC5400262AEC /* BMExtendablePageController.h */; };
+		43ABDED11722FC5400262AEC /* BMExtendablePageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43ABDED01722FC5400262AEC /* BMExtendablePageController.m */; };
+		43ABDED91722FC5400262AEC /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43ABDED81722FC5400262AEC /* SenTestingKit.framework */; };
+		43ABDEDB1722FC5400262AEC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43ABDEDA1722FC5400262AEC /* UIKit.framework */; };
+		43ABDEDC1722FC5400262AEC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43ABDEC91722FC5400262AEC /* Foundation.framework */; };
+		43ABDEDF1722FC5400262AEC /* libBMExtendablePageController.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 43ABDEC61722FC5400262AEC /* libBMExtendablePageController.a */; };
+		43ABDEE51722FC5400262AEC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 43ABDEE31722FC5400262AEC /* InfoPlist.strings */; };
+		43ABDEE81722FC5400262AEC /* BMExtendablePageControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 43ABDEE71722FC5400262AEC /* BMExtendablePageControllerTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		43ABDEDD1722FC5400262AEC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 43ABDEBE1722FC5400262AEC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 43ABDEC51722FC5400262AEC;
+			remoteInfo = BMExtendablePageController;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		43ABDEC41722FC5400262AEC /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/${PRODUCT_NAME}";
+			dstSubfolderSpec = 16;
+			files = (
+				43ABDECF1722FC5400262AEC /* BMExtendablePageController.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		43ABDEC61722FC5400262AEC /* libBMExtendablePageController.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libBMExtendablePageController.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		43ABDEC91722FC5400262AEC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		43ABDECD1722FC5400262AEC /* BMExtendablePageController-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BMExtendablePageController-Prefix.pch"; sourceTree = "<group>"; };
+		43ABDECE1722FC5400262AEC /* BMExtendablePageController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BMExtendablePageController.h; sourceTree = "<group>"; };
+		43ABDED01722FC5400262AEC /* BMExtendablePageController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BMExtendablePageController.m; sourceTree = "<group>"; };
+		43ABDED71722FC5400262AEC /* BMExtendablePageControllerTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BMExtendablePageControllerTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		43ABDED81722FC5400262AEC /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		43ABDEDA1722FC5400262AEC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		43ABDEE21722FC5400262AEC /* BMExtendablePageControllerTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BMExtendablePageControllerTests-Info.plist"; sourceTree = "<group>"; };
+		43ABDEE41722FC5400262AEC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		43ABDEE61722FC5400262AEC /* BMExtendablePageControllerTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BMExtendablePageControllerTests.h; sourceTree = "<group>"; };
+		43ABDEE71722FC5400262AEC /* BMExtendablePageControllerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BMExtendablePageControllerTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		43ABDEC31722FC5400262AEC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				43ABDECA1722FC5400262AEC /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		43ABDED31722FC5400262AEC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				43ABDED91722FC5400262AEC /* SenTestingKit.framework in Frameworks */,
+				43ABDEDB1722FC5400262AEC /* UIKit.framework in Frameworks */,
+				43ABDEDC1722FC5400262AEC /* Foundation.framework in Frameworks */,
+				43ABDEDF1722FC5400262AEC /* libBMExtendablePageController.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		43ABDEBD1722FC5400262AEC = {
+			isa = PBXGroup;
+			children = (
+				43ABDECB1722FC5400262AEC /* BMExtendablePageController */,
+				43ABDEE01722FC5400262AEC /* BMExtendablePageControllerTests */,
+				43ABDEC81722FC5400262AEC /* Frameworks */,
+				43ABDEC71722FC5400262AEC /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		43ABDEC71722FC5400262AEC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				43ABDEC61722FC5400262AEC /* libBMExtendablePageController.a */,
+				43ABDED71722FC5400262AEC /* BMExtendablePageControllerTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		43ABDEC81722FC5400262AEC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				43ABDEC91722FC5400262AEC /* Foundation.framework */,
+				43ABDED81722FC5400262AEC /* SenTestingKit.framework */,
+				43ABDEDA1722FC5400262AEC /* UIKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		43ABDECB1722FC5400262AEC /* BMExtendablePageController */ = {
+			isa = PBXGroup;
+			children = (
+				43ABDECE1722FC5400262AEC /* BMExtendablePageController.h */,
+				43ABDED01722FC5400262AEC /* BMExtendablePageController.m */,
+				43ABDECC1722FC5400262AEC /* Supporting Files */,
+			);
+			path = BMExtendablePageController;
+			sourceTree = "<group>";
+		};
+		43ABDECC1722FC5400262AEC /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				43ABDECD1722FC5400262AEC /* BMExtendablePageController-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		43ABDEE01722FC5400262AEC /* BMExtendablePageControllerTests */ = {
+			isa = PBXGroup;
+			children = (
+				43ABDEE61722FC5400262AEC /* BMExtendablePageControllerTests.h */,
+				43ABDEE71722FC5400262AEC /* BMExtendablePageControllerTests.m */,
+				43ABDEE11722FC5400262AEC /* Supporting Files */,
+			);
+			path = BMExtendablePageControllerTests;
+			sourceTree = "<group>";
+		};
+		43ABDEE11722FC5400262AEC /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				43ABDEE21722FC5400262AEC /* BMExtendablePageControllerTests-Info.plist */,
+				43ABDEE31722FC5400262AEC /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		43ABDEC51722FC5400262AEC /* BMExtendablePageController */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 43ABDEEB1722FC5400262AEC /* Build configuration list for PBXNativeTarget "BMExtendablePageController" */;
+			buildPhases = (
+				43ABDEC21722FC5400262AEC /* Sources */,
+				43ABDEC31722FC5400262AEC /* Frameworks */,
+				43ABDEC41722FC5400262AEC /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BMExtendablePageController;
+			productName = BMExtendablePageController;
+			productReference = 43ABDEC61722FC5400262AEC /* libBMExtendablePageController.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		43ABDED61722FC5400262AEC /* BMExtendablePageControllerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 43ABDEEE1722FC5400262AEC /* Build configuration list for PBXNativeTarget "BMExtendablePageControllerTests" */;
+			buildPhases = (
+				43ABDED21722FC5400262AEC /* Sources */,
+				43ABDED31722FC5400262AEC /* Frameworks */,
+				43ABDED41722FC5400262AEC /* Resources */,
+				43ABDED51722FC5400262AEC /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				43ABDEDE1722FC5400262AEC /* PBXTargetDependency */,
+			);
+			name = BMExtendablePageControllerTests;
+			productName = BMExtendablePageControllerTests;
+			productReference = 43ABDED71722FC5400262AEC /* BMExtendablePageControllerTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		43ABDEBE1722FC5400262AEC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = "Benjamin Müller";
+			};
+			buildConfigurationList = 43ABDEC11722FC5400262AEC /* Build configuration list for PBXProject "BMExtendablePageController" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 43ABDEBD1722FC5400262AEC;
+			productRefGroup = 43ABDEC71722FC5400262AEC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				43ABDEC51722FC5400262AEC /* BMExtendablePageController */,
+				43ABDED61722FC5400262AEC /* BMExtendablePageControllerTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		43ABDED41722FC5400262AEC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				43ABDEE51722FC5400262AEC /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		43ABDED51722FC5400262AEC /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		43ABDEC21722FC5400262AEC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				43ABDED11722FC5400262AEC /* BMExtendablePageController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		43ABDED21722FC5400262AEC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				43ABDEE81722FC5400262AEC /* BMExtendablePageControllerTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		43ABDEDE1722FC5400262AEC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 43ABDEC51722FC5400262AEC /* BMExtendablePageController */;
+			targetProxy = 43ABDEDD1722FC5400262AEC /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		43ABDEE31722FC5400262AEC /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				43ABDEE41722FC5400262AEC /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		43ABDEE91722FC5400262AEC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		43ABDEEA1722FC5400262AEC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		43ABDEEC1722FC5400262AEC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/BMExtendablePageController.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BMExtendablePageController/BMExtendablePageController-Prefix.pch";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		43ABDEED1722FC5400262AEC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/BMExtendablePageController.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BMExtendablePageController/BMExtendablePageController-Prefix.pch";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		43ABDEEF1722FC5400262AEC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BMExtendablePageController/BMExtendablePageController-Prefix.pch";
+				INFOPLIST_FILE = "BMExtendablePageControllerTests/BMExtendablePageControllerTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		43ABDEF01722FC5400262AEC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BMExtendablePageController/BMExtendablePageController-Prefix.pch";
+				INFOPLIST_FILE = "BMExtendablePageControllerTests/BMExtendablePageControllerTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		43ABDEC11722FC5400262AEC /* Build configuration list for PBXProject "BMExtendablePageController" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				43ABDEE91722FC5400262AEC /* Debug */,
+				43ABDEEA1722FC5400262AEC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		43ABDEEB1722FC5400262AEC /* Build configuration list for PBXNativeTarget "BMExtendablePageController" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				43ABDEEC1722FC5400262AEC /* Debug */,
+				43ABDEED1722FC5400262AEC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		43ABDEEE1722FC5400262AEC /* Build configuration list for PBXNativeTarget "BMExtendablePageControllerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				43ABDEEF1722FC5400262AEC /* Debug */,
+				43ABDEF01722FC5400262AEC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 43ABDEBE1722FC5400262AEC /* Project object */;
+}
