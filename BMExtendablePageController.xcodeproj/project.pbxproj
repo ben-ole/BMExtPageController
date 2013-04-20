@@ -8,14 +8,20 @@
 
 /* Begin PBXBuildFile section */
 		43ABDECA1722FC5400262AEC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43ABDEC91722FC5400262AEC /* Foundation.framework */; };
-		43ABDECF1722FC5400262AEC /* BMExtendablePageController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 43ABDECE1722FC5400262AEC /* BMExtendablePageController.h */; };
-		43ABDED11722FC5400262AEC /* BMExtendablePageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43ABDED01722FC5400262AEC /* BMExtendablePageController.m */; };
 		43ABDED91722FC5400262AEC /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43ABDED81722FC5400262AEC /* SenTestingKit.framework */; };
 		43ABDEDB1722FC5400262AEC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43ABDEDA1722FC5400262AEC /* UIKit.framework */; };
 		43ABDEDC1722FC5400262AEC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43ABDEC91722FC5400262AEC /* Foundation.framework */; };
 		43ABDEDF1722FC5400262AEC /* libBMExtendablePageController.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 43ABDEC61722FC5400262AEC /* libBMExtendablePageController.a */; };
 		43ABDEE51722FC5400262AEC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 43ABDEE31722FC5400262AEC /* InfoPlist.strings */; };
 		43ABDEE81722FC5400262AEC /* BMExtendablePageControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 43ABDEE71722FC5400262AEC /* BMExtendablePageControllerTests.m */; };
+		43ABDEF91722FD7900262AEC /* BMExtandablePageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43ABDEF21722FD7900262AEC /* BMExtandablePageController.m */; };
+		43ABDEFA1722FD7900262AEC /* BMExtandablePageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43ABDEF21722FD7900262AEC /* BMExtandablePageController.m */; };
+		43ABDEFB1722FD7900262AEC /* BMFadeTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 43ABDEF41722FD7900262AEC /* BMFadeTransition.m */; };
+		43ABDEFC1722FD7900262AEC /* BMFadeTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 43ABDEF41722FD7900262AEC /* BMFadeTransition.m */; };
+		43ABDEFD1722FD7900262AEC /* BMFoldTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 43ABDEF61722FD7900262AEC /* BMFoldTransition.m */; };
+		43ABDEFE1722FD7900262AEC /* BMFoldTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 43ABDEF61722FD7900262AEC /* BMFoldTransition.m */; };
+		43ABDEFF1722FD7900262AEC /* BMHorizontalCTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 43ABDEF81722FD7900262AEC /* BMHorizontalCTransition.m */; };
+		43ABDF001722FD7900262AEC /* BMHorizontalCTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 43ABDEF81722FD7900262AEC /* BMHorizontalCTransition.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,7 +41,6 @@
 			dstPath = "include/${PRODUCT_NAME}";
 			dstSubfolderSpec = 16;
 			files = (
-				43ABDECF1722FC5400262AEC /* BMExtendablePageController.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -45,8 +50,6 @@
 		43ABDEC61722FC5400262AEC /* libBMExtendablePageController.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libBMExtendablePageController.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		43ABDEC91722FC5400262AEC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		43ABDECD1722FC5400262AEC /* BMExtendablePageController-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BMExtendablePageController-Prefix.pch"; sourceTree = "<group>"; };
-		43ABDECE1722FC5400262AEC /* BMExtendablePageController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BMExtendablePageController.h; sourceTree = "<group>"; };
-		43ABDED01722FC5400262AEC /* BMExtendablePageController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BMExtendablePageController.m; sourceTree = "<group>"; };
 		43ABDED71722FC5400262AEC /* BMExtendablePageControllerTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BMExtendablePageControllerTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		43ABDED81722FC5400262AEC /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		43ABDEDA1722FC5400262AEC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
@@ -54,6 +57,14 @@
 		43ABDEE41722FC5400262AEC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		43ABDEE61722FC5400262AEC /* BMExtendablePageControllerTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BMExtendablePageControllerTests.h; sourceTree = "<group>"; };
 		43ABDEE71722FC5400262AEC /* BMExtendablePageControllerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BMExtendablePageControllerTests.m; sourceTree = "<group>"; };
+		43ABDEF11722FD7900262AEC /* BMExtandablePageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMExtandablePageController.h; sourceTree = "<group>"; };
+		43ABDEF21722FD7900262AEC /* BMExtandablePageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMExtandablePageController.m; sourceTree = "<group>"; };
+		43ABDEF31722FD7900262AEC /* BMFadeTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMFadeTransition.h; sourceTree = "<group>"; };
+		43ABDEF41722FD7900262AEC /* BMFadeTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMFadeTransition.m; sourceTree = "<group>"; };
+		43ABDEF51722FD7900262AEC /* BMFoldTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMFoldTransition.h; sourceTree = "<group>"; };
+		43ABDEF61722FD7900262AEC /* BMFoldTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMFoldTransition.m; sourceTree = "<group>"; };
+		43ABDEF71722FD7900262AEC /* BMHorizontalCTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMHorizontalCTransition.h; sourceTree = "<group>"; };
+		43ABDEF81722FD7900262AEC /* BMHorizontalCTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMHorizontalCTransition.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,8 +122,14 @@
 		43ABDECB1722FC5400262AEC /* BMExtendablePageController */ = {
 			isa = PBXGroup;
 			children = (
-				43ABDECE1722FC5400262AEC /* BMExtendablePageController.h */,
-				43ABDED01722FC5400262AEC /* BMExtendablePageController.m */,
+				43ABDEF11722FD7900262AEC /* BMExtandablePageController.h */,
+				43ABDEF21722FD7900262AEC /* BMExtandablePageController.m */,
+				43ABDEF31722FD7900262AEC /* BMFadeTransition.h */,
+				43ABDEF41722FD7900262AEC /* BMFadeTransition.m */,
+				43ABDEF51722FD7900262AEC /* BMFoldTransition.h */,
+				43ABDEF61722FD7900262AEC /* BMFoldTransition.m */,
+				43ABDEF71722FD7900262AEC /* BMHorizontalCTransition.h */,
+				43ABDEF81722FD7900262AEC /* BMHorizontalCTransition.m */,
 				43ABDECC1722FC5400262AEC /* Supporting Files */,
 			);
 			path = BMExtendablePageController;
@@ -243,7 +260,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				43ABDED11722FC5400262AEC /* BMExtendablePageController.m in Sources */,
+				43ABDEF91722FD7900262AEC /* BMExtandablePageController.m in Sources */,
+				43ABDEFB1722FD7900262AEC /* BMFadeTransition.m in Sources */,
+				43ABDEFD1722FD7900262AEC /* BMFoldTransition.m in Sources */,
+				43ABDEFF1722FD7900262AEC /* BMHorizontalCTransition.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -252,6 +272,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				43ABDEE81722FC5400262AEC /* BMExtendablePageControllerTests.m in Sources */,
+				43ABDEFA1722FD7900262AEC /* BMExtandablePageController.m in Sources */,
+				43ABDEFC1722FD7900262AEC /* BMFadeTransition.m in Sources */,
+				43ABDEFE1722FD7900262AEC /* BMFoldTransition.m in Sources */,
+				43ABDF001722FD7900262AEC /* BMHorizontalCTransition.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
