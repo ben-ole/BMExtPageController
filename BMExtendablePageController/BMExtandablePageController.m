@@ -7,6 +7,7 @@
 //
 
 #import "BMExtandablePageController.h"
+#import <ObjectiveSugar/ObjectiveSugar.h>
 
 @implementation BMExtandablePageController{
     NSMutableArray* _pages;

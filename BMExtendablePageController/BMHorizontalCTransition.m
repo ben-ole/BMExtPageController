@@ -7,6 +7,7 @@
 //
 
 #import "BMHorizontalCTransition.h"
+#import <ObjectiveSugar/ObjectiveSugar.h>
 
 @implementation BMHorizontalCTransition{
     UIView* _containerView;
