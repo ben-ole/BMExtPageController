@@ -6,10 +6,10 @@
 //  Copyright (c) 2013 urbn. All rights reserved.
 //
 
-#import "BMExtandablePageController.h"
+#import "BMExtendablePageController.h"
 #import <ObjectiveSugar/ObjectiveSugar.h>
 
-@implementation BMExtandablePageController{
+@implementation BMExtendablePageController{
     NSMutableArray* _pages;
     NSMutableDictionary* _freeViewController;
 }
@@ -23,7 +23,7 @@
     return self;
 }
 
--(id)initWithDelegate:(id<URBNCustomPageControllerDelegate>)aDelegate{
+-(id)initWithDelegate:(id<BMExtendablePageControllerDelegate>)aDelegate{
     if ((self = [self init])) {
         self.delegate = aDelegate;
     }
@@ -76,7 +76,7 @@
     [self presentSelectedViewController];
 }
 
--(void)setSelectedIndex:(NSInteger)selectedIndex withTransitionStyle:(Class<URBNCustomPageTransition>)transitionStyle{
+-(void)setSelectedIndex:(NSInteger)selectedIndex withTransition:(id<BMExtendablePageTransition>)transition{
     
     // check bounds
     NSAssert(selectedIndex < _pages.count, @"selected index beyond bounds (was %i but max is %i)",(int)selectedIndex,(int)_arrangedObjects.count-1);
@@ -85,7 +85,7 @@
     UIView* nextView = [(UIViewController*)[_pages objectAtIndex:selectedIndex] view];
     
     
-    [((id <URBNCustomPageTransition>) transitionStyle) transitionFromIndex:(int)_selectedIndex
+    [((id <BMExtendablePageTransition>) transition) transitionFromIndex:(int)_selectedIndex
                                                                    toIndex:(int)selectedIndex
                                                               withDuration:0.8
                                                              andCurrenView:currentView
@@ -98,21 +98,21 @@
 
 }
 
--(void)nextPageWithTransitionStyle:(Class<URBNCustomPageTransition>)transitionStyle{
+-(void)nextPageWithTransitionStyle:(id<BMExtendablePageTransition>)transition{
     
     if (_selectedIndex < _arrangedObjects.count - 1) {
-        [self setSelectedIndex:_selectedIndex+1 withTransitionStyle:transitionStyle];
+        [self setSelectedIndex:_selectedIndex+1 withTransition:transition];
     }
 }
 
--(void)prevPageWithTransitionStyle:(Class<URBNCustomPageTransition>)transitionStyle{
+-(void)prevPageWithTransitionStyle:(id<BMExtendablePageTransition>)transition{
     
     if (_selectedIndex > 0) {
-        [self setSelectedIndex:_selectedIndex-1 withTransitionStyle:transitionStyle];
+        [self setSelectedIndex:_selectedIndex-1 withTransition:transition];
     }
 }
 
--(id<URBNCustomContinuousePageTransition>)attachContinuouseTransition:(id<URBNCustomContinuousePageTransition>)transition{
+-(id<BMExtendableContinuousePageTransition>)attachContinuouseTransition:(id<BMExtendableContinuousePageTransition>)transition{
     
     UIView* currentView = [(UIViewController*)[_pages objectAtIndex:_selectedIndex] view];
     

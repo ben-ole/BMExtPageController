@@ -15,8 +15,8 @@
 		43ABDEDF1722FC5400262AEC /* libBMExtendablePageController.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 43ABDEC61722FC5400262AEC /* libBMExtendablePageController.a */; };
 		43ABDEE51722FC5400262AEC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 43ABDEE31722FC5400262AEC /* InfoPlist.strings */; };
 		43ABDEE81722FC5400262AEC /* BMExtendablePageControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 43ABDEE71722FC5400262AEC /* BMExtendablePageControllerTests.m */; };
-		43ABDEF91722FD7900262AEC /* BMExtandablePageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43ABDEF21722FD7900262AEC /* BMExtandablePageController.m */; };
-		43ABDEFA1722FD7900262AEC /* BMExtandablePageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43ABDEF21722FD7900262AEC /* BMExtandablePageController.m */; };
+		43ABDEF91722FD7900262AEC /* BMExtendablePageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43ABDEF21722FD7900262AEC /* BMExtendablePageController.m */; };
+		43ABDEFA1722FD7900262AEC /* BMExtendablePageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43ABDEF21722FD7900262AEC /* BMExtendablePageController.m */; };
 		43ABDEFB1722FD7900262AEC /* BMFadeTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 43ABDEF41722FD7900262AEC /* BMFadeTransition.m */; };
 		43ABDEFC1722FD7900262AEC /* BMFadeTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 43ABDEF41722FD7900262AEC /* BMFadeTransition.m */; };
 		43ABDEFD1722FD7900262AEC /* BMFoldTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 43ABDEF61722FD7900262AEC /* BMFoldTransition.m */; };
@@ -58,8 +58,8 @@
 		43ABDEE41722FC5400262AEC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		43ABDEE61722FC5400262AEC /* BMExtendablePageControllerTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BMExtendablePageControllerTests.h; sourceTree = "<group>"; };
 		43ABDEE71722FC5400262AEC /* BMExtendablePageControllerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BMExtendablePageControllerTests.m; sourceTree = "<group>"; };
-		43ABDEF11722FD7900262AEC /* BMExtandablePageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMExtandablePageController.h; sourceTree = "<group>"; };
-		43ABDEF21722FD7900262AEC /* BMExtandablePageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMExtandablePageController.m; sourceTree = "<group>"; };
+		43ABDEF11722FD7900262AEC /* BMExtendablePageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMExtendablePageController.h; sourceTree = "<group>"; };
+		43ABDEF21722FD7900262AEC /* BMExtendablePageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMExtendablePageController.m; sourceTree = "<group>"; };
 		43ABDEF31722FD7900262AEC /* BMFadeTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMFadeTransition.h; sourceTree = "<group>"; };
 		43ABDEF41722FD7900262AEC /* BMFadeTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMFadeTransition.m; sourceTree = "<group>"; };
 		43ABDEF51722FD7900262AEC /* BMFoldTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMFoldTransition.h; sourceTree = "<group>"; };
@@ -128,8 +128,8 @@
 		43ABDECB1722FC5400262AEC /* BMExtendablePageController */ = {
 			isa = PBXGroup;
 			children = (
-				43ABDEF11722FD7900262AEC /* BMExtandablePageController.h */,
-				43ABDEF21722FD7900262AEC /* BMExtandablePageController.m */,
+				43ABDEF11722FD7900262AEC /* BMExtendablePageController.h */,
+				43ABDEF21722FD7900262AEC /* BMExtendablePageController.m */,
 				43ABDEF31722FD7900262AEC /* BMFadeTransition.h */,
 				43ABDEF41722FD7900262AEC /* BMFadeTransition.m */,
 				43ABDEF51722FD7900262AEC /* BMFoldTransition.h */,
@@ -296,7 +296,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				43ABDEF91722FD7900262AEC /* BMExtandablePageController.m in Sources */,
+				43ABDEF91722FD7900262AEC /* BMExtendablePageController.m in Sources */,
 				43ABDEFB1722FD7900262AEC /* BMFadeTransition.m in Sources */,
 				43ABDEFD1722FD7900262AEC /* BMFoldTransition.m in Sources */,
 				43ABDEFF1722FD7900262AEC /* BMHorizontalCTransition.m in Sources */,
@@ -308,7 +308,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				43ABDEE81722FC5400262AEC /* BMExtendablePageControllerTests.m in Sources */,
-				43ABDEFA1722FD7900262AEC /* BMExtandablePageController.m in Sources */,
+				43ABDEFA1722FD7900262AEC /* BMExtendablePageController.m in Sources */,
 				43ABDEFC1722FD7900262AEC /* BMFadeTransition.m in Sources */,
 				43ABDEFE1722FD7900262AEC /* BMFoldTransition.m in Sources */,
 				43ABDF001722FD7900262AEC /* BMHorizontalCTransition.m in Sources */,

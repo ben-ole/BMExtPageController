@@ -7,12 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "BMExtandablePageController.h"
+#import "BMExtendablePageController.h"
 
 #define HORIZONTAL_TRANSITION_DURATION_DEFAULT       1.5
 #define HORIZONTAL_TRANSITION_LOWER_LIMIT_DEFAULT   -0.5
 #define HORIZONTAL_TRANSITION_UPPER_LIMIT_DEFAULT   +0.5
 
-@interface BMHorizontalCTransition : NSObject <URBNCustomPageTransition, URBNCustomContinuousePageTransition>
+@interface BMHorizontalCTransition : NSObject <BMExtendablePageTransition, BMExtendableContinuousePageTransition>
 
 @end

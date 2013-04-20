@@ -23,7 +23,7 @@
 
 
 
-+(id<URBNCustomContinuousePageTransition>)transition{
++(id<BMExtendableContinuousePageTransition>)transition{
     return [[BMHorizontalCTransition alloc] init];
 }
 

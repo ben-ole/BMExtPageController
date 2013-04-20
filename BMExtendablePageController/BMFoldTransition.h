@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "BMExtandablePageController.h"
+#import "BMExtendablePageController.h"
 
-@interface BMFoldTransition : NSObject <URBNCustomPageTransition>
+@interface BMFoldTransition : NSObject <BMExtendablePageTransition>
 
 @end
