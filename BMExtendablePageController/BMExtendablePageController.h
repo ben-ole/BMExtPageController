@@ -30,7 +30,7 @@
 @protocol BMExtendableContinuousePageTransition;
 
 
-@interface BMExtendablePageController : VIEW_CONTROLLER
+@interface BMExtendablePageController : VIEW
 
 @property(weak) IBOutlet id<BMExtendablePageControllerDelegate> delegate;
 

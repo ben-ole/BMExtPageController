@@ -30,20 +30,19 @@
     return self;
 }
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        [self setup];
-    }
-    
-    return self;
-}
 
 -(id)initWithCoder:(NSCoder *)aDecoder{
     if ((self = [super initWithCoder:aDecoder])) {
         [self setup];
     }
+    return self;
+}
+
+-(id)initWithFrame:(NSRect)frameRect{
+    if ((self = [super initWithFrame:frameRect])) {
+        [self setup];
+    }
+    
     return self;
 }
 
@@ -89,7 +88,7 @@
                                                               withDuration:0.8
                                                              andCurrenView:currentView
                                                                 toNextView:nextView
-                                                           onContainerView:self.view
+                                                           onContainerView:self
                                                             withCompletion:^(){
                                                                 _selectedIndex = selectedIndex;
                                                                 [self updatePageCache];
@@ -125,7 +124,7 @@
     
     [transition beginTransitionWithCurrentView:currentView
                                       nextView:nextView prevView:prevView
-                               onContainerView:self.view
+                               onContainerView:self
                                 withCompletion:^(VIEW *nowActiveView) {
         
                                     if (nowActiveView == nextView) {
@@ -140,10 +139,17 @@
     return transition;
 }
 
+#pragma mark - PROPERTIES
+-(void)setBounds:(NSRect)aRect{
+    [super setBounds:aRect];
+    
+    _selectedViewController.view.frame = self.bounds;
+}
+
 #pragma mark - VIEW STUFF
 -(void)presentSelectedViewController{
-    [self.view addSubview:_selectedViewController.view];
-    _selectedViewController.view.frame = self.view.bounds;
+    [self addSubview:_selectedViewController.view];
+    _selectedViewController.view.frame = self.bounds;
 }
 
 
