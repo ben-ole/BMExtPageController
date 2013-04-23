@@ -7,17 +7,21 @@
 //
 
 #import "BMHorizontalCTransition.h"
-#import <ObjectiveSugar/ObjectiveSugar.h>
 
 @implementation BMHorizontalCTransition{
-    UIView* _containerView;
-    UIView* _currentView;
-    UIView* _prevView;
-    UIView* _nextView;
+    
+    VIEW* _containerView;
+    VIEW* _currentView;
+    VIEW* _prevView;
+    VIEW* _nextView;
+    
+#if TARGET_OS_IPHONE
     CGRect  _currentViewStartFrame;
     CGRect  _nextViewStartFrame;
     CGRect  _prevViewStartFrame;
-    void (^_completionBlock)(UIView* nowActiveView);
+#endif
+    
+    void (^_completionBlock)(VIEW* nowActiveView);
     float _currentValue;
 }
 
@@ -30,10 +34,12 @@
 #pragma mark - Custom Page Transition
 -(void)transitionFromIndex:(int)fromIdx toIndex:(int)toIdx
               withDuration:(float)duration
-             andCurrenView:(UIView *)currentView toNextView:(UIView *)nextView
-           onContainerView:(UIView *)containerView
+             andCurrenView:(VIEW *)currentView toNextView:(VIEW *)nextView
+           onContainerView:(VIEW *)containerView
             withCompletion:(void (^)())completion{
     
+#if TARGET_OS_IPHONE
+
     nextView.frame = CGRectOffset(currentView.frame, currentView.frame.size.width * (toIdx > fromIdx ? +1 : -1), 0);
     [containerView addSubview:nextView];
     
@@ -48,10 +54,11 @@
                          [currentView removeFromSuperview];
                          completion();
                      }];
+#endif
 }
 
 #pragma mark - Custom Continuouse Transition
--(void)beginTransitionWithCurrentView:(UIView *)currentView nextView:(UIView *)nextView prevView:(UIView *)previousView onContainerView:(UIView *)containerView withCompletion:(void (^)(UIView *nowActiveView))completion{
+-(void)beginTransitionWithCurrentView:(VIEW *)currentView nextView:(VIEW *)nextView prevView:(VIEW *)previousView onContainerView:(VIEW *)containerView withCompletion:(void (^)(VIEW *nowActiveView))completion{
  
     _currentView = currentView;
     _nextView = nextView;
@@ -59,7 +66,8 @@
     _containerView = containerView;
     _completionBlock = completion;
     _currentValue = 0.;
-    
+
+#if TARGET_OS_IPHONE
     _currentViewStartFrame = _currentView.frame;
     
     _nextView.frame = CGRectOffset(_currentView.frame, _currentView.frame.size.width, 0);
@@ -69,6 +77,8 @@
     _prevView.frame = CGRectOffset(_currentView.frame, - _currentView.frame.size.width, 0);
     _prevViewStartFrame = _prevView.frame;
     [_containerView addSubview:_prevView];
+#endif
+    
 }
 
 -(void)updateTransitionWithValue:(float)value{
@@ -79,9 +89,11 @@
     float size = _containerView.frame.size.width;
     float newOffset = size * value;
     
+#if TARGET_OS_IPHONE
     _currentView.frame = CGRectOffset(_currentViewStartFrame, newOffset, 0);
     _nextView.frame = CGRectOffset(_nextViewStartFrame, newOffset, 0);
     _prevView.frame = CGRectOffset(_prevViewStartFrame, newOffset, 0);
+#endif
     
     _currentValue = value;
 }
@@ -90,7 +102,7 @@
     float size = _containerView.frame.size.width;
     float newOffset = size;
     NSArray* removeViews;
-    UIView* finalView;
+    VIEW* finalView;
     
     if (_currentValue < HORIZONTAL_TRANSITION_LOWER_LIMIT_DEFAULT) {
         // move to prev view
@@ -111,6 +123,7 @@
 
     float duration = HORIZONTAL_TRANSITION_DURATION_DEFAULT * fabsf(_currentValue - newOffset);
 
+#if TARGET_OS_IPHONE
     [UIView animateWithDuration:duration
                           delay:0. options:UIViewAnimationOptionCurveEaseInOut
                      animations:^{
@@ -120,18 +133,22 @@
                          _prevView.frame = CGRectOffset(_prevViewStartFrame, newOffset, 0);
                  } completion:^(BOOL finished) {
                      
-                     [removeViews each:^(id object) {
-                         [object removeFromSuperview];
+                     [removeViews enumerateObjectsWithOptions:NSEnumerationConcurrent usingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+                         
+                         [obj removeFromSuperview];
                      }];
                      
                      _completionBlock(finalView);
                  }];
+#endif
 }
 
 -(void)cancelTransition{
 
     float duration = HORIZONTAL_TRANSITION_DURATION_DEFAULT * fabsf(_currentValue);
     
+#if TARGET_OS_IPHONE
+
     [UIView animateWithDuration:duration
                           delay:0. options:UIViewAnimationOptionCurveEaseInOut
                      animations:^{
@@ -142,6 +159,7 @@
                      } completion:^(BOOL finished) {
                          
                      }];
+#endif
 }
 
 @end

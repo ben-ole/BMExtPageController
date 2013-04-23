@@ -6,7 +6,6 @@
 //  Copyright (c) 2013 urbn. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
 
 #define PAGE_CONTROLLER_PRELOAD_RANGE 1
@@ -16,7 +15,7 @@
 @protocol BMExtendableContinuousePageTransition;
 
 
-@interface BMExtendablePageController : UIViewController
+@interface BMExtendablePageController : VIEW_CONTROLLER
 
 @property(weak) IBOutlet id<BMExtendablePageControllerDelegate> delegate;
 
@@ -29,7 +28,7 @@
 
 /* The viewController associated with the selected arrangedObject. May be nil if delegate is not supplying viewControllers.
  */
-@property(retain, readonly) UIViewController *selectedViewController;
+@property(retain, readonly) VIEW_CONTROLLER *selectedViewController;
 
 /* Convenience init method as a delegate is required for any use of the page controller.
  */
@@ -67,7 +66,7 @@
 
 /* NSPageController will cache as many viewControllers and views as necessary to maintain performance. This method is called whenever another instance is required. Note: The viewController may become the selectedViewController after a transition if necessary.
  */
-- (UIViewController *)pageController:(BMExtendablePageController *)pageController viewControllerForIdentifier:(NSString *)identifier;
+- (VIEW_CONTROLLER *)pageController:(BMExtendablePageController *)pageController viewControllerForIdentifier:(NSString *)identifier;
 
 /* NOTE: The following 2 methods are only useful if you also implement the above two methods.
  */
@@ -80,7 +79,7 @@
 
 /* Prepare the viewController and view for drawing. Setup data sources and perform layout. Note: this method is called on the main thread and should return immediately. The view will be asked to draw on a background thread and must support background drawing. If this method is not implemented, then viewController's representedObject is set to the representedObject.
  */
-- (void)pageController:(BMExtendablePageController *)pageController prepareViewController:(UIViewController *)viewController withObject:(id)object;
+- (void)pageController:(BMExtendablePageController *)pageController prepareViewController:(VIEW_CONTROLLER *)viewController withObject:(id)object;
 
 /* Note: You may find these useful regardless of which way you use NSPageController (History vs Custom).
  */
@@ -101,7 +100,7 @@
 @protocol BMExtendablePageTransition <NSObject>
 @required
 
--(void)transitionFromIndex:(int)fromIdx toIndex:(int)toIdx withDuration:(float)duration andCurrenView:(UIView*)currentView toNextView:(UIView*)nextView onContainerView:(UIView*)containerView withCompletion:(void (^)())completion;
+-(void)transitionFromIndex:(int)fromIdx toIndex:(int)toIdx withDuration:(float)duration andCurrenView:(VIEW*)currentView toNextView:(VIEW*)nextView onContainerView:(VIEW*)containerView withCompletion:(void (^)())completion;
 
 @optional
 
@@ -114,7 +113,7 @@
 @required
 
 /* setup a transition. The completion block expects an argument to be filled with the proper prevView/nextView/currentView depending on the movement direction */
--(void)beginTransitionWithCurrentView:(UIView*)currentView nextView:(UIView*)nextView prevView:(UIView*)previousView onContainerView:(UIView*)containerView withCompletion:(void (^)(UIView* nowActiveView))completion;
+-(void)beginTransitionWithCurrentView:(VIEW*)currentView nextView:(VIEW*)nextView prevView:(VIEW*)previousView onContainerView:(VIEW*)containerView withCompletion:(void (^)(VIEW* nowActiveView))completion;
 
 /* Update the transition to reflect user interaction.
  @param value should be in a range of -1.0 to 1.0

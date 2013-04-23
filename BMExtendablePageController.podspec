@@ -40,15 +40,15 @@ Pod::Spec.new do |s|
   # If this Pod runs only on iOS or OS X, then specify the platform and
   # the deployment target.
   #
-  s.platform     = :ios, '5.0'
+  # s.platform     = :ios, '5.0'
 
   # ――― MULTI-PLATFORM VALUES ――――――――――――――――――――――――――――――――――――――――――――――――― #
 
   # If this Pod runs on both platforms, then specify the deployment
   # targets.
   #
-  # s.ios.deployment_target = '5.0'
-  # s.osx.deployment_target = '10.7'
+  s.ios.deployment_target = '5.0'
+  s.osx.deployment_target = '10.7'
 
   # A list of file patterns which select the source files that should be
   # added to the Pods project. If the pattern is a directory then the

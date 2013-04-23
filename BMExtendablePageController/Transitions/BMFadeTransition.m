@@ -10,8 +10,9 @@
 
 @implementation BMFadeTransition
 
--(void)transitionFromIndex:(int)fromIdx toIndex:(int)toIdx withDuration:(float)duration andCurrenView:(UIView *)currentView toNextView:(UIView *)nextView onContainerView:(UIView *)containerView withCompletion:(void (^)())completion{
+-(void)transitionFromIndex:(int)fromIdx toIndex:(int)toIdx withDuration:(float)duration andCurrenView:(VIEW *)currentView toNextView:(VIEW *)nextView onContainerView:(VIEW *)containerView withCompletion:(void (^)())completion{
 
+#if TARGET_OS_IPHONE
     if (toIdx > fromIdx) {  // forward
             // insert new view controller behind and fade current out
         [containerView insertSubview:nextView
@@ -42,6 +43,8 @@
             completion();
         }];
     }
+#endif
+    
 }
 
 @end

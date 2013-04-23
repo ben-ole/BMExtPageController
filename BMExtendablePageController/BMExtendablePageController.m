@@ -7,7 +7,6 @@
 //
 
 #import "BMExtendablePageController.h"
-#import <ObjectiveSugar/ObjectiveSugar.h>
 
 @implementation BMExtendablePageController{
     NSMutableArray* _pages;
@@ -81,8 +80,8 @@
     // check bounds
     NSAssert(selectedIndex < _pages.count, @"selected index beyond bounds (was %i but max is %i)",(int)selectedIndex,(int)_arrangedObjects.count-1);
     
-    UIView* currentView = [(UIViewController*)[_pages objectAtIndex:_selectedIndex] view];
-    UIView* nextView = [(UIViewController*)[_pages objectAtIndex:selectedIndex] view];
+    VIEW* currentView = [(VIEW_CONTROLLER*)[_pages objectAtIndex:_selectedIndex] view];
+    VIEW* nextView = [(VIEW_CONTROLLER*)[_pages objectAtIndex:selectedIndex] view];
     
     
     [((id <BMExtendablePageTransition>) transition) transitionFromIndex:(int)_selectedIndex
@@ -114,20 +113,20 @@
 
 -(id<BMExtendableContinuousePageTransition>)attachContinuouseTransition:(id<BMExtendableContinuousePageTransition>)transition{
     
-    UIView* currentView = [(UIViewController*)[_pages objectAtIndex:_selectedIndex] view];
+    VIEW* currentView = [(VIEW_CONTROLLER*)[_pages objectAtIndex:_selectedIndex] view];
     
-    UIView* nextView = nil;
+    VIEW* nextView = nil;
     if (_selectedIndex+1 < _arrangedObjects.count)
-        nextView = [(UIViewController*)[_pages objectAtIndex:_selectedIndex+1] view];
+        nextView = [(VIEW_CONTROLLER*)[_pages objectAtIndex:_selectedIndex+1] view];
     
-    UIView* prevView = nil;
+    VIEW* prevView = nil;
     if (_selectedIndex > 0)
-        prevView = [(UIViewController*)[_pages objectAtIndex:_selectedIndex-1] view];
+        prevView = [(VIEW_CONTROLLER*)[_pages objectAtIndex:_selectedIndex-1] view];
     
     [transition beginTransitionWithCurrentView:currentView
                                       nextView:nextView prevView:prevView
                                onContainerView:self.view
-                                withCompletion:^(UIView *nowActiveView) {
+                                withCompletion:^(VIEW *nowActiveView) {
         
                                     if (nowActiveView == nextView) {
                                         _selectedIndex++;
@@ -197,7 +196,7 @@
     NSLog(@"load page with idx: %i",index);
 
     // get a viewcontroller for index
-    UIViewController* pageCtrl = [self requireViewControllerForIndex:index];
+    VIEW_CONTROLLER* pageCtrl = [self requireViewControllerForIndex:index];
     [_delegate pageController:self prepareViewController:pageCtrl withObject:[_arrangedObjects objectAtIndex:index]];
 
     // store viewcontroller
@@ -205,7 +204,7 @@
 }
 
 
--(UIViewController*)requireViewControllerForIndex:(int)index{
+-(VIEW_CONTROLLER*)requireViewControllerForIndex:(int)index{
     // ask delegate for viewcontroller
     NSString* pageId = [_delegate pageController:self identifierForIndex:index];
     
@@ -213,7 +212,9 @@
     
     if (freeViewCtrlForPageId && freeViewCtrlForPageId.count > 0) {
         // if there is one - recycle
-        return [freeViewCtrlForPageId pop];
+        id obj = [freeViewCtrlForPageId lastObject];
+        [freeViewCtrlForPageId removeLastObject];
+        return obj;
     }else{
         // or recreate a new
         return [_delegate pageController:self
@@ -229,13 +230,13 @@
     NSMutableArray* freeViewCtrlForPageId = [_freeViewController valueForKey:pageId];
     
     // if there is not an array already - create one
-    unless (freeViewCtrlForPageId){
+    if (!freeViewCtrlForPageId){
         freeViewCtrlForPageId = [NSMutableArray array];
         [_freeViewController setObject:freeViewCtrlForPageId
                                 forKey:_freeViewController];
     }
     
-    [freeViewCtrlForPageId push:[_pages objectAtIndex:index]];    
+    [freeViewCtrlForPageId addObject:[_pages objectAtIndex:index]];
 }
 
 @end

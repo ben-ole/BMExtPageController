@@ -4,4 +4,17 @@
 
 #ifdef __OBJC__
     #import <Foundation/Foundation.h>
+    #import <TargetConditionals.h>
+
+    #if TARGET_OS_IPHONE
+        #import <UIKit/UIKit.h>
+        #define VIEW_CONTROLLER UIViewController
+        #define VIEW UIView
+    #else
+        #import <Cocoa/Cocoa.h>
+        #define VIEW_CONTROLLER NSViewController
+        #define VIEW NSView
+    #endif
+
+
 #endif

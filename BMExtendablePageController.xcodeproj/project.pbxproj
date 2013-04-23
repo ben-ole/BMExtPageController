@@ -7,22 +7,36 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1E6EE2F08F314980B3B78FFF /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E7A10589D5E94A3F8A0803FE /* libPods.a */; };
 		43ABDECA1722FC5400262AEC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43ABDEC91722FC5400262AEC /* Foundation.framework */; };
 		43ABDED91722FC5400262AEC /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43ABDED81722FC5400262AEC /* SenTestingKit.framework */; };
-		43ABDEDB1722FC5400262AEC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43ABDEDA1722FC5400262AEC /* UIKit.framework */; };
 		43ABDEDC1722FC5400262AEC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43ABDEC91722FC5400262AEC /* Foundation.framework */; };
 		43ABDEDF1722FC5400262AEC /* libBMExtendablePageController.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 43ABDEC61722FC5400262AEC /* libBMExtendablePageController.a */; };
 		43ABDEE51722FC5400262AEC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 43ABDEE31722FC5400262AEC /* InfoPlist.strings */; };
 		43ABDEE81722FC5400262AEC /* BMExtendablePageControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 43ABDEE71722FC5400262AEC /* BMExtendablePageControllerTests.m */; };
 		43ABDEF91722FD7900262AEC /* BMExtendablePageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43ABDEF21722FD7900262AEC /* BMExtendablePageController.m */; };
 		43ABDEFA1722FD7900262AEC /* BMExtendablePageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43ABDEF21722FD7900262AEC /* BMExtendablePageController.m */; };
-		43ABDEFB1722FD7900262AEC /* BMFadeTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 43ABDEF41722FD7900262AEC /* BMFadeTransition.m */; };
-		43ABDEFC1722FD7900262AEC /* BMFadeTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 43ABDEF41722FD7900262AEC /* BMFadeTransition.m */; };
-		43ABDEFD1722FD7900262AEC /* BMFoldTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 43ABDEF61722FD7900262AEC /* BMFoldTransition.m */; };
-		43ABDEFE1722FD7900262AEC /* BMFoldTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 43ABDEF61722FD7900262AEC /* BMFoldTransition.m */; };
-		43ABDEFF1722FD7900262AEC /* BMHorizontalCTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 43ABDEF81722FD7900262AEC /* BMHorizontalCTransition.m */; };
-		43ABDF001722FD7900262AEC /* BMHorizontalCTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 43ABDEF81722FD7900262AEC /* BMHorizontalCTransition.m */; };
+		43FFF5E217268BE7006E9301 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43ABDED81722FC5400262AEC /* SenTestingKit.framework */; };
+		43FFF5E617268BE7006E9301 /* BMExtendablePageControllerOSX.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 43FFF5CF17268BE7006E9301 /* BMExtendablePageControllerOSX.dylib */; };
+		43FFF5EC17268BE7006E9301 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 43FFF5EA17268BE7006E9301 /* InfoPlist.strings */; };
+		43FFF5EF17268BE7006E9301 /* BMExtendablePageControllerOSXTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 43FFF5EE17268BE7006E9301 /* BMExtendablePageControllerOSXTests.m */; };
+		43FFF5F717268C03006E9301 /* BMExtendablePageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43ABDEF21722FD7900262AEC /* BMExtendablePageController.m */; };
+		43FFF5FF17268DAD006E9301 /* BMExtendablePageController.h in Headers */ = {isa = PBXBuildFile; fileRef = 43ABDEF11722FD7900262AEC /* BMExtendablePageController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		43FFF60917269321006E9301 /* BMFadeTransition.h in Headers */ = {isa = PBXBuildFile; fileRef = 43FFF60317269321006E9301 /* BMFadeTransition.h */; };
+		43FFF60A17269321006E9301 /* BMFadeTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 43FFF60417269321006E9301 /* BMFadeTransition.m */; };
+		43FFF60B17269321006E9301 /* BMFadeTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 43FFF60417269321006E9301 /* BMFadeTransition.m */; };
+		43FFF60C17269321006E9301 /* BMFoldTransition.h in Headers */ = {isa = PBXBuildFile; fileRef = 43FFF60517269321006E9301 /* BMFoldTransition.h */; };
+		43FFF60D17269321006E9301 /* BMFoldTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 43FFF60617269321006E9301 /* BMFoldTransition.m */; };
+		43FFF60E17269321006E9301 /* BMFoldTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 43FFF60617269321006E9301 /* BMFoldTransition.m */; };
+		43FFF60F17269321006E9301 /* BMHorizontalCTransition.h in Headers */ = {isa = PBXBuildFile; fileRef = 43FFF60717269321006E9301 /* BMHorizontalCTransition.h */; };
+		43FFF61017269321006E9301 /* BMHorizontalCTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 43FFF60817269321006E9301 /* BMHorizontalCTransition.m */; };
+		43FFF61117269321006E9301 /* BMHorizontalCTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 43FFF60817269321006E9301 /* BMHorizontalCTransition.m */; };
+		43FFF613172699F3006E9301 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43FFF612172699F3006E9301 /* QuartzCore.framework */; };
+		43FFF61617269A06006E9301 /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43FFF61417269A06006E9301 /* Quartz.framework */; };
+		43FFF61717269A06006E9301 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43FFF61517269A06006E9301 /* QuartzCore.framework */; };
+		43FFF61917269A1F006E9301 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43FFF61817269A1F006E9301 /* UIKit.framework */; };
+		43FFF61B17269A2C006E9301 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43FFF61A17269A2C006E9301 /* Cocoa.framework */; };
+		43FFF61D17269A66006E9301 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43FFF61C17269A66006E9301 /* AppKit.framework */; };
+		43FFF61F17269A81006E9301 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43FFF61E17269A81006E9301 /* Foundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,6 +46,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 43ABDEC51722FC5400262AEC;
 			remoteInfo = BMExtendablePageController;
+		};
+		43FFF5E417268BE7006E9301 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 43ABDEBE1722FC5400262AEC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 43FFF5CE17268BE7006E9301;
+			remoteInfo = BMExtendablePageControllerOSX;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -53,21 +74,31 @@
 		43ABDECD1722FC5400262AEC /* BMExtendablePageController-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BMExtendablePageController-Prefix.pch"; sourceTree = "<group>"; };
 		43ABDED71722FC5400262AEC /* BMExtendablePageControllerTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BMExtendablePageControllerTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		43ABDED81722FC5400262AEC /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		43ABDEDA1722FC5400262AEC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		43ABDEE21722FC5400262AEC /* BMExtendablePageControllerTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BMExtendablePageControllerTests-Info.plist"; sourceTree = "<group>"; };
 		43ABDEE41722FC5400262AEC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		43ABDEE61722FC5400262AEC /* BMExtendablePageControllerTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BMExtendablePageControllerTests.h; sourceTree = "<group>"; };
 		43ABDEE71722FC5400262AEC /* BMExtendablePageControllerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BMExtendablePageControllerTests.m; sourceTree = "<group>"; };
 		43ABDEF11722FD7900262AEC /* BMExtendablePageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMExtendablePageController.h; sourceTree = "<group>"; };
 		43ABDEF21722FD7900262AEC /* BMExtendablePageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMExtendablePageController.m; sourceTree = "<group>"; };
-		43ABDEF31722FD7900262AEC /* BMFadeTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMFadeTransition.h; sourceTree = "<group>"; };
-		43ABDEF41722FD7900262AEC /* BMFadeTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMFadeTransition.m; sourceTree = "<group>"; };
-		43ABDEF51722FD7900262AEC /* BMFoldTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMFoldTransition.h; sourceTree = "<group>"; };
-		43ABDEF61722FD7900262AEC /* BMFoldTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMFoldTransition.m; sourceTree = "<group>"; };
-		43ABDEF71722FD7900262AEC /* BMHorizontalCTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMHorizontalCTransition.h; sourceTree = "<group>"; };
-		43ABDEF81722FD7900262AEC /* BMHorizontalCTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMHorizontalCTransition.m; sourceTree = "<group>"; };
-		D727D592E39D4FD5904B294D /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
-		E7A10589D5E94A3F8A0803FE /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		43FFF5CF17268BE7006E9301 /* BMExtendablePageControllerOSX.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = BMExtendablePageControllerOSX.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
+		43FFF5E117268BE7006E9301 /* BMExtendablePageControllerOSXTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BMExtendablePageControllerOSXTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		43FFF5E917268BE7006E9301 /* BMExtendablePageControllerOSXTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BMExtendablePageControllerOSXTests-Info.plist"; sourceTree = "<group>"; };
+		43FFF5EB17268BE7006E9301 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		43FFF5ED17268BE7006E9301 /* BMExtendablePageControllerOSXTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BMExtendablePageControllerOSXTests.h; sourceTree = "<group>"; };
+		43FFF5EE17268BE7006E9301 /* BMExtendablePageControllerOSXTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BMExtendablePageControllerOSXTests.m; sourceTree = "<group>"; };
+		43FFF60317269321006E9301 /* BMFadeTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMFadeTransition.h; sourceTree = "<group>"; };
+		43FFF60417269321006E9301 /* BMFadeTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMFadeTransition.m; sourceTree = "<group>"; };
+		43FFF60517269321006E9301 /* BMFoldTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMFoldTransition.h; sourceTree = "<group>"; };
+		43FFF60617269321006E9301 /* BMFoldTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMFoldTransition.m; sourceTree = "<group>"; };
+		43FFF60717269321006E9301 /* BMHorizontalCTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMHorizontalCTransition.h; sourceTree = "<group>"; };
+		43FFF60817269321006E9301 /* BMHorizontalCTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMHorizontalCTransition.m; sourceTree = "<group>"; };
+		43FFF612172699F3006E9301 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		43FFF61417269A06006E9301 /* Quartz.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quartz.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/Quartz.framework; sourceTree = DEVELOPER_DIR; };
+		43FFF61517269A06006E9301 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
+		43FFF61817269A1F006E9301 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		43FFF61A17269A2C006E9301 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
+		43FFF61C17269A66006E9301 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/AppKit.framework; sourceTree = DEVELOPER_DIR; };
+		43FFF61E17269A81006E9301 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,8 +106,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43FFF61917269A1F006E9301 /* UIKit.framework in Frameworks */,
+				43FFF613172699F3006E9301 /* QuartzCore.framework in Frameworks */,
 				43ABDECA1722FC5400262AEC /* Foundation.framework in Frameworks */,
-				1E6EE2F08F314980B3B78FFF /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,9 +117,29 @@
 			buildActionMask = 2147483647;
 			files = (
 				43ABDED91722FC5400262AEC /* SenTestingKit.framework in Frameworks */,
-				43ABDEDB1722FC5400262AEC /* UIKit.framework in Frameworks */,
 				43ABDEDC1722FC5400262AEC /* Foundation.framework in Frameworks */,
 				43ABDEDF1722FC5400262AEC /* libBMExtendablePageController.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		43FFF5CC17268BE7006E9301 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				43FFF61F17269A81006E9301 /* Foundation.framework in Frameworks */,
+				43FFF61D17269A66006E9301 /* AppKit.framework in Frameworks */,
+				43FFF61B17269A2C006E9301 /* Cocoa.framework in Frameworks */,
+				43FFF61617269A06006E9301 /* Quartz.framework in Frameworks */,
+				43FFF61717269A06006E9301 /* QuartzCore.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		43FFF5DD17268BE7006E9301 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				43FFF5E217268BE7006E9301 /* SenTestingKit.framework in Frameworks */,
+				43FFF5E617268BE7006E9301 /* BMExtendablePageControllerOSX.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,9 +151,9 @@
 			children = (
 				43ABDECB1722FC5400262AEC /* BMExtendablePageController */,
 				43ABDEE01722FC5400262AEC /* BMExtendablePageControllerTests */,
+				43FFF5E717268BE7006E9301 /* BMExtendablePageControllerOSXTests */,
 				43ABDEC81722FC5400262AEC /* Frameworks */,
 				43ABDEC71722FC5400262AEC /* Products */,
-				D727D592E39D4FD5904B294D /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -110,6 +162,8 @@
 			children = (
 				43ABDEC61722FC5400262AEC /* libBMExtendablePageController.a */,
 				43ABDED71722FC5400262AEC /* BMExtendablePageControllerTests.octest */,
+				43FFF5CF17268BE7006E9301 /* BMExtendablePageControllerOSX.dylib */,
+				43FFF5E117268BE7006E9301 /* BMExtendablePageControllerOSXTests.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -117,10 +171,15 @@
 		43ABDEC81722FC5400262AEC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				43FFF61E17269A81006E9301 /* Foundation.framework */,
+				43FFF61C17269A66006E9301 /* AppKit.framework */,
+				43FFF61A17269A2C006E9301 /* Cocoa.framework */,
+				43FFF61817269A1F006E9301 /* UIKit.framework */,
+				43FFF61417269A06006E9301 /* Quartz.framework */,
+				43FFF61517269A06006E9301 /* QuartzCore.framework */,
+				43FFF612172699F3006E9301 /* QuartzCore.framework */,
 				43ABDEC91722FC5400262AEC /* Foundation.framework */,
 				43ABDED81722FC5400262AEC /* SenTestingKit.framework */,
-				43ABDEDA1722FC5400262AEC /* UIKit.framework */,
-				E7A10589D5E94A3F8A0803FE /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -128,14 +187,9 @@
 		43ABDECB1722FC5400262AEC /* BMExtendablePageController */ = {
 			isa = PBXGroup;
 			children = (
+				43FFF6021726929E006E9301 /* Transitions */,
 				43ABDEF11722FD7900262AEC /* BMExtendablePageController.h */,
 				43ABDEF21722FD7900262AEC /* BMExtendablePageController.m */,
-				43ABDEF31722FD7900262AEC /* BMFadeTransition.h */,
-				43ABDEF41722FD7900262AEC /* BMFadeTransition.m */,
-				43ABDEF51722FD7900262AEC /* BMFoldTransition.h */,
-				43ABDEF61722FD7900262AEC /* BMFoldTransition.m */,
-				43ABDEF71722FD7900262AEC /* BMHorizontalCTransition.h */,
-				43ABDEF81722FD7900262AEC /* BMHorizontalCTransition.m */,
 				43ABDECC1722FC5400262AEC /* Supporting Files */,
 			);
 			path = BMExtendablePageController;
@@ -168,18 +222,62 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		43FFF5E717268BE7006E9301 /* BMExtendablePageControllerOSXTests */ = {
+			isa = PBXGroup;
+			children = (
+				43FFF5ED17268BE7006E9301 /* BMExtendablePageControllerOSXTests.h */,
+				43FFF5EE17268BE7006E9301 /* BMExtendablePageControllerOSXTests.m */,
+				43FFF5E817268BE7006E9301 /* Supporting Files */,
+			);
+			path = BMExtendablePageControllerOSXTests;
+			sourceTree = "<group>";
+		};
+		43FFF5E817268BE7006E9301 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				43FFF5E917268BE7006E9301 /* BMExtendablePageControllerOSXTests-Info.plist */,
+				43FFF5EA17268BE7006E9301 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		43FFF6021726929E006E9301 /* Transitions */ = {
+			isa = PBXGroup;
+			children = (
+				43FFF60317269321006E9301 /* BMFadeTransition.h */,
+				43FFF60417269321006E9301 /* BMFadeTransition.m */,
+				43FFF60517269321006E9301 /* BMFoldTransition.h */,
+				43FFF60617269321006E9301 /* BMFoldTransition.m */,
+				43FFF60717269321006E9301 /* BMHorizontalCTransition.h */,
+				43FFF60817269321006E9301 /* BMHorizontalCTransition.m */,
+			);
+			path = Transitions;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		43FFF5CD17268BE7006E9301 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				43FFF5FF17268DAD006E9301 /* BMExtendablePageController.h in Headers */,
+				43FFF60917269321006E9301 /* BMFadeTransition.h in Headers */,
+				43FFF60C17269321006E9301 /* BMFoldTransition.h in Headers */,
+				43FFF60F17269321006E9301 /* BMHorizontalCTransition.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
 		43ABDEC51722FC5400262AEC /* BMExtendablePageController */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 43ABDEEB1722FC5400262AEC /* Build configuration list for PBXNativeTarget "BMExtendablePageController" */;
 			buildPhases = (
-				EE292EFC454A46D8A21F8F14 /* Check Pods Manifest.lock */,
 				43ABDEC21722FC5400262AEC /* Sources */,
 				43ABDEC31722FC5400262AEC /* Frameworks */,
 				43ABDEC41722FC5400262AEC /* CopyFiles */,
-				4803D49C9E96465F8E3FD147 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -209,6 +307,42 @@
 			productReference = 43ABDED71722FC5400262AEC /* BMExtendablePageControllerTests.octest */;
 			productType = "com.apple.product-type.bundle";
 		};
+		43FFF5CE17268BE7006E9301 /* BMExtendablePageControllerOSX */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 43FFF5F417268BE7006E9301 /* Build configuration list for PBXNativeTarget "BMExtendablePageControllerOSX" */;
+			buildPhases = (
+				43FFF5CB17268BE7006E9301 /* Sources */,
+				43FFF5CC17268BE7006E9301 /* Frameworks */,
+				43FFF5CD17268BE7006E9301 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BMExtendablePageControllerOSX;
+			productName = BMExtendablePageControllerOSX;
+			productReference = 43FFF5CF17268BE7006E9301 /* BMExtendablePageControllerOSX.dylib */;
+			productType = "com.apple.product-type.library.dynamic";
+		};
+		43FFF5E017268BE7006E9301 /* BMExtendablePageControllerOSXTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 43FFF5F517268BE7006E9301 /* Build configuration list for PBXNativeTarget "BMExtendablePageControllerOSXTests" */;
+			buildPhases = (
+				43FFF5DC17268BE7006E9301 /* Sources */,
+				43FFF5DD17268BE7006E9301 /* Frameworks */,
+				43FFF5DE17268BE7006E9301 /* Resources */,
+				43FFF5DF17268BE7006E9301 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				43FFF5E517268BE7006E9301 /* PBXTargetDependency */,
+			);
+			name = BMExtendablePageControllerOSXTests;
+			productName = BMExtendablePageControllerOSXTests;
+			productReference = 43FFF5E117268BE7006E9301 /* BMExtendablePageControllerOSXTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -232,6 +366,8 @@
 			targets = (
 				43ABDEC51722FC5400262AEC /* BMExtendablePageController */,
 				43ABDED61722FC5400262AEC /* BMExtendablePageControllerTests */,
+				43FFF5CE17268BE7006E9301 /* BMExtendablePageControllerOSX */,
+				43FFF5E017268BE7006E9301 /* BMExtendablePageControllerOSXTests */,
 			);
 		};
 /* End PBXProject section */
@@ -242,6 +378,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				43ABDEE51722FC5400262AEC /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		43FFF5DE17268BE7006E9301 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				43FFF5EC17268BE7006E9301 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,33 +405,18 @@
 			shellPath = /bin/sh;
 			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
 		};
-		4803D49C9E96465F8E3FD147 /* Copy Pods Resources */ = {
+		43FFF5DF17268BE7006E9301 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
-		};
-		EE292EFC454A46D8A21F8F14 /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sanbox is not in sync with the Podfile.lock. Run 'pod install'.\nEOM\n    exit 1\nfi\n";
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -297,9 +426,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				43ABDEF91722FD7900262AEC /* BMExtendablePageController.m in Sources */,
-				43ABDEFB1722FD7900262AEC /* BMFadeTransition.m in Sources */,
-				43ABDEFD1722FD7900262AEC /* BMFoldTransition.m in Sources */,
-				43ABDEFF1722FD7900262AEC /* BMHorizontalCTransition.m in Sources */,
+				43FFF60A17269321006E9301 /* BMFadeTransition.m in Sources */,
+				43FFF60D17269321006E9301 /* BMFoldTransition.m in Sources */,
+				43FFF61017269321006E9301 /* BMHorizontalCTransition.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -309,9 +438,25 @@
 			files = (
 				43ABDEE81722FC5400262AEC /* BMExtendablePageControllerTests.m in Sources */,
 				43ABDEFA1722FD7900262AEC /* BMExtendablePageController.m in Sources */,
-				43ABDEFC1722FD7900262AEC /* BMFadeTransition.m in Sources */,
-				43ABDEFE1722FD7900262AEC /* BMFoldTransition.m in Sources */,
-				43ABDF001722FD7900262AEC /* BMHorizontalCTransition.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		43FFF5CB17268BE7006E9301 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				43FFF5F717268C03006E9301 /* BMExtendablePageController.m in Sources */,
+				43FFF60B17269321006E9301 /* BMFadeTransition.m in Sources */,
+				43FFF60E17269321006E9301 /* BMFoldTransition.m in Sources */,
+				43FFF61117269321006E9301 /* BMHorizontalCTransition.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		43FFF5DC17268BE7006E9301 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				43FFF5EF17268BE7006E9301 /* BMExtendablePageControllerOSXTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -323,6 +468,11 @@
 			target = 43ABDEC51722FC5400262AEC /* BMExtendablePageController */;
 			targetProxy = 43ABDEDD1722FC5400262AEC /* PBXContainerItemProxy */;
 		};
+		43FFF5E517268BE7006E9301 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 43FFF5CE17268BE7006E9301 /* BMExtendablePageControllerOSX */;
+			targetProxy = 43FFF5E417268BE7006E9301 /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
@@ -330,6 +480,14 @@
 			isa = PBXVariantGroup;
 			children = (
 				43ABDEE41722FC5400262AEC /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		43FFF5EA17268BE7006E9301 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				43FFF5EB17268BE7006E9301 /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -361,7 +519,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 			};
@@ -384,7 +542,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -392,7 +550,6 @@
 		};
 		43ABDEEC1722FC5400262AEC /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D727D592E39D4FD5904B294D /* Pods.xcconfig */;
 			buildSettings = {
 				DSTROOT = /tmp/BMExtendablePageController.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -405,7 +562,6 @@
 		};
 		43ABDEED1722FC5400262AEC /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D727D592E39D4FD5904B294D /* Pods.xcconfig */;
 			buildSettings = {
 				DSTROOT = /tmp/BMExtendablePageController.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -446,6 +602,84 @@
 			};
 			name = Release;
 		};
+		43FFF5F017268BE7006E9301 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/Developer/Library/Frameworks\"",
+				);
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BMExtendablePageController/BMExtendablePageController-Prefix.pch";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		43FFF5F117268BE7006E9301 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/Developer/Library/Frameworks\"",
+				);
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BMExtendablePageController/BMExtendablePageController-Prefix.pch";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		43FFF5F217268BE7006E9301 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = "\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"";
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BMExtendablePageControllerOSX/BMExtendablePageControllerOSX-Prefix.pch";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				INFOPLIST_FILE = "BMExtendablePageControllerOSXTests/BMExtendablePageControllerOSXTests-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		43FFF5F317268BE7006E9301 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = "\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"";
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BMExtendablePageControllerOSX/BMExtendablePageControllerOSX-Prefix.pch";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				INFOPLIST_FILE = "BMExtendablePageControllerOSXTests/BMExtendablePageControllerOSXTests-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -475,6 +709,22 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		43FFF5F417268BE7006E9301 /* Build configuration list for PBXNativeTarget "BMExtendablePageControllerOSX" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				43FFF5F017268BE7006E9301 /* Debug */,
+				43FFF5F117268BE7006E9301 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		43FFF5F517268BE7006E9301 /* Build configuration list for PBXNativeTarget "BMExtendablePageControllerOSXTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				43FFF5F217268BE7006E9301 /* Debug */,
+				43FFF5F317268BE7006E9301 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};

@@ -6,7 +6,6 @@
 //  Copyright (c) 2013 Benjamin Müller. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
 #import "BMExtendablePageController.h"
 
 #define HORIZONTAL_TRANSITION_DURATION_DEFAULT       1.5
