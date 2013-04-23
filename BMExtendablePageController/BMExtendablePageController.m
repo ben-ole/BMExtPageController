@@ -81,6 +81,10 @@
 
 -(void)setSelectedIndex:(NSInteger)selectedIndex withTransition:(id<BMExtendablePageTransition>)transition{
     
+    if(_temporaryDisabled) return;
+    
+    _temporaryDisabled = TRUE;
+    
     // check bounds
     NSAssert(selectedIndex < _pages.count, @"selected index beyond bounds (was %i but max is %i)",(int)selectedIndex,(int)_arrangedObjects.count-1);
     
@@ -96,6 +100,7 @@
                                                            onContainerView:self
                                                             withCompletion:^(){
                                                                 _selectedIndex = selectedIndex;
+                                                                _temporaryDisabled = FALSE;
                                                                 [self updatePageCache:nil];
                                                             }];
 
