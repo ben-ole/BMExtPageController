@@ -11,6 +11,8 @@
 @implementation BMExtendablePageController{
     NSMutableArray* _pages;
     NSMutableDictionary* _freeViewController;
+    
+    Boolean _temporaryDisabled;
 }
 
 #pragma mark - INIT
@@ -47,6 +49,7 @@
 }
 
 -(void)setup{
+    _temporaryDisabled = false;
     _selectedIndex = 0;
     _arrangedObjects = nil;
     _pages = [[NSMutableArray alloc] init];
@@ -65,13 +68,15 @@
     
     NSAssert(_delegate, @"Make sure to assign a delegate for the page controller");
     
-    [self updatePageCache];
-    
-    assert(![[_pages objectAtIndex:_selectedIndex] isKindOfClass:[NSNull class]]);
-    
-    _selectedViewController = [_pages objectAtIndex:_selectedIndex];
-    
-    [self presentSelectedViewController];
+    [self updatePageCache:^{
+        
+        assert(![[_pages objectAtIndex:_selectedIndex] isKindOfClass:[NSNull class]]);
+        
+        _selectedViewController = [_pages objectAtIndex:_selectedIndex];
+        
+        [self presentSelectedViewController];
+    }];
+
 }
 
 -(void)setSelectedIndex:(NSInteger)selectedIndex withTransition:(id<BMExtendablePageTransition>)transition{
@@ -91,7 +96,7 @@
                                                            onContainerView:self
                                                             withCompletion:^(){
                                                                 _selectedIndex = selectedIndex;
-                                                                [self updatePageCache];
+                                                                [self updatePageCache:nil];
                                                             }];
 
 }
@@ -133,7 +138,7 @@
                                         _selectedIndex--;
                                     }
                                     
-                                    [self updatePageCache];
+                                    [self updatePageCache:nil];
     }];
     
     return transition;
@@ -148,50 +153,60 @@
 
 #pragma mark - VIEW STUFF
 -(void)presentSelectedViewController{
-    [self addSubview:_selectedViewController.view];
-    _selectedViewController.view.frame = self.bounds;
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        
+        [self addSubview:_selectedViewController.view];
+        _selectedViewController.view.frame = self.bounds;
+    });
 }
 
 
 #pragma mark - HELPER
--(void)updatePageCache{
+-(void)updatePageCache:(void (^)())complete{
     // first unload exisiting page to possibly free recyclable controllers
     // second load newly required pages
     
-    // try beein fast :)
-    [_pages enumerateObjectsWithOptions:NSEnumerationConcurrent
-                                       usingBlock:^(id obj, NSUInteger i, BOOL *stop) {
-       
-        // don't delete pages in active range
-        if (i >= MAX(0,_selectedIndex - PAGE_CONTROLLER_PRELOAD_RANGE) &&
-            i <= MIN(_arrangedObjects.count - 1,
-                     _selectedIndex + PAGE_CONTROLLER_PRELOAD_RANGE) )
-            return;
-        
-        // don't care about empty pages
-        if ([obj isKindOfClass:[NSNull class]])
-            return;
-        
-        // recycle objects
-        [self depositViewControllerWithIndex:(int)i];
-        [_pages replaceObjectAtIndex:i withObject:[NSNull null]];
-    }];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
     
-    // now process the currently active indices
-
-    int startIndx = (int) MAX(0, _selectedIndex-PAGE_CONTROLLER_PRELOAD_RANGE);
-    int l = (int) MIN(_arrangedObjects.count - startIndx, _selectedIndex + PAGE_CONTROLLER_PRELOAD_RANGE +1 - startIndx);
-    NSLog(@"loading active indices at %i with length %i",startIndx,l);
-    NSIndexSet *activeIndices = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(startIndx,l)];
+        [_pages enumerateObjectsWithOptions:NSEnumerationConcurrent
+                                 usingBlock:^(id obj, NSUInteger i, BOOL *stop) {
+                                     
+                                     // don't delete pages in active range
+                                     if (i >= MAX(0,_selectedIndex - PAGE_CONTROLLER_PRELOAD_RANGE) &&
+                                         i <= MIN(_arrangedObjects.count - 1,
+                                                  _selectedIndex + PAGE_CONTROLLER_PRELOAD_RANGE) )
+                                         return;
+                                     
+                                     // don't care about empty pages
+                                     if ([obj isKindOfClass:[NSNull class]])
+                                         return;
+                                     
+                                     // recycle objects
+                                     [self depositViewControllerWithIndex:(int)i];
+                                     [_pages replaceObjectAtIndex:i withObject:[NSNull null]];
+                                 }];
+        
+        // now process the currently active indices
+        
+        int startIndx = (int) MAX(0, _selectedIndex-PAGE_CONTROLLER_PRELOAD_RANGE);
+        int l = (int) MIN(_arrangedObjects.count - startIndx, _selectedIndex + PAGE_CONTROLLER_PRELOAD_RANGE +1 - startIndx);
+        NSLog(@"loading active indices at %i with length %i",startIndx,l);
+        NSIndexSet *activeIndices = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(startIndx,l)];
+        
+        [_pages enumerateObjectsAtIndexes:activeIndices
+                                  options:NSEnumerationConcurrent
+                               usingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+                                   
+                                   if ([obj isKindOfClass:[NSNull class]]) {
+                                       [self loadPageWithIndex:(int)idx];
+                                   }
+                               }];
+        
+        if (complete)
+            complete();
+    });
     
-    [_pages enumerateObjectsAtIndexes:activeIndices
-                              options:NSEnumerationConcurrent
-                           usingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-                               
-        if ([obj isKindOfClass:[NSNull class]]) {
-            [self loadPageWithIndex:(int)idx];
-        }
-    }];
 }
 
 -(void)loadPageWithIndex:(int)index{
@@ -201,12 +216,16 @@
     
     NSLog(@"load page with idx: %i",index);
 
-    // get a viewcontroller for index
-    VIEW_CONTROLLER* pageCtrl = [self requireViewControllerForIndex:index];
-    [_delegate pageController:self prepareViewController:pageCtrl withObject:[_arrangedObjects objectAtIndex:index]];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
 
-    // store viewcontroller
-    [_pages replaceObjectAtIndex:index withObject:pageCtrl];
+        // get a viewcontroller for index
+        VIEW_CONTROLLER* pageCtrl = [self requireViewControllerForIndex:index];
+        [_delegate pageController:self prepareViewController:pageCtrl withObject:[_arrangedObjects objectAtIndex:index]];
+
+        // store viewcontroller
+        [_pages replaceObjectAtIndex:index withObject:pageCtrl];
+        
+    });
 }
 
 
@@ -229,20 +248,25 @@
 }
 
 -(void)depositViewControllerWithIndex:(int)index{
-    NSLog(@"deposit page with idx: %i",index);
     
-    NSString* pageId = [_delegate pageController:self identifierForIndex:index];
-    
-    NSMutableArray* freeViewCtrlForPageId = [_freeViewController valueForKey:pageId];
-    
-    // if there is not an array already - create one
-    if (!freeViewCtrlForPageId){
-        freeViewCtrlForPageId = [NSMutableArray array];
-        [_freeViewController setObject:freeViewCtrlForPageId
-                                forKey:_freeViewController];
-    }
-    
-    [freeViewCtrlForPageId addObject:[_pages objectAtIndex:index]];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+
+        NSLog(@"deposit page with idx: %i",index);
+        
+        NSString* pageId = [_delegate pageController:self identifierForIndex:index];
+        
+        NSMutableArray* freeViewCtrlForPageId = [_freeViewController valueForKey:pageId];
+        
+        // if there is not an array already - create one
+        if (!freeViewCtrlForPageId){
+            freeViewCtrlForPageId = [NSMutableArray array];
+            [_freeViewController setObject:freeViewCtrlForPageId
+                                    forKey:_freeViewController];
+        }
+        
+        [freeViewCtrlForPageId addObject:[_pages objectAtIndex:index]];
+        
+    });
 }
 
 @end

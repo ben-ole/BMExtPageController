@@ -46,6 +46,7 @@
                    relativeTo:currentView];
 
     [[NSAnimationContext currentContext] setDuration:duration];
+    [[NSAnimationContext currentContext] setTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut]];    
     [NSAnimationContext runAnimationGroup:^(NSAnimationContext *context) {
         [[currentView animator] setFrame:CGRectOffset(currentView.frame, -destOffset, 0)];
         [[nextView animator] setFrame:containerView.bounds];
