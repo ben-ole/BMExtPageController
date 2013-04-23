@@ -1,2 +1,1 @@
-appledoc --project-name BMExtendablePageController  --project-company "Benjamin müller"  --company-id com.codebility  --output ./help  --ignore .m .
-# --no-create-docset 
+appledoc --project-name BMExtendablePageController --project-company "Benjamin Müller" --company-id com.codebility --output ./help --ignore .m --no-create-docset .
