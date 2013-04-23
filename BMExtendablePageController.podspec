@@ -101,5 +101,7 @@ Pod::Spec.new do |s|
 
   # Finally, specify any Pods that this Pod depends on.
   #
-  s.dependency 'ObjectiveSugar', '~> 0.6.2'
+  # s.dependency 'ObjectiveSugar', '~> 0.6.2'
+  
+  s.prefix_header_file = 'BMExtendablePageController/BMExtendablePageController-Prefix.pch'
 end

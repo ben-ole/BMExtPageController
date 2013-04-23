@@ -6,6 +6,21 @@
 //  Copyright (c) 2013 urbn. All rights reserved.
 //
 
+#ifdef __OBJC__
+    #import <Foundation/Foundation.h>
+    #import <TargetConditionals.h>
+
+    #if TARGET_OS_IPHONE
+        #import <UIKit/UIKit.h>
+        #define VIEW_CONTROLLER UIViewController
+        #define VIEW UIView
+    #else
+        #import <Cocoa/Cocoa.h>
+        #define VIEW_CONTROLLER NSViewController
+        #define VIEW NSView
+    #endif
+#endif
+
 #import <QuartzCore/QuartzCore.h>
 
 #define PAGE_CONTROLLER_PRELOAD_RANGE 1
@@ -128,9 +143,9 @@
 /* Finish the transition without further user interaction. This animate to the previous/next page or back to current page in case a given limit was not reached yet. This methold will call the completion block set in beginTransition: .*/
 -(void)finishTransition;
 
-@optional
-
 /* Implement this method for easy access to a default version of the transition.*/
 +(id<BMExtendableContinuousePageTransition>)transition;
+
+@optional
 
 @end

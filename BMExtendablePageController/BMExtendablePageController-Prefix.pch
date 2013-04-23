@@ -16,5 +16,4 @@
         #define VIEW NSView
     #endif
 
-
 #endif
