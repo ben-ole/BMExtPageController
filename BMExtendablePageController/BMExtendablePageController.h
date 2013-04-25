@@ -14,10 +14,12 @@
         #import <UIKit/UIKit.h>
         #define VIEW_CONTROLLER UIViewController
         #define VIEW UIView
+        #define RECT CGRect
     #else
         #import <Cocoa/Cocoa.h>
         #define VIEW_CONTROLLER NSViewController
         #define VIEW NSView
+        #define RECT NSRect
     #endif
 #endif
 
@@ -140,8 +142,10 @@
  */
 -(void)cancelTransition;
 
-/* Finish the transition without further user interaction. This animate to the previous/next page or back to current page in case a given limit was not reached yet. This methold will call the completion block set in beginTransition: .*/
--(void)finishTransition;
+/* Finish the transition without further user interaction. This animates to the previous/next page or back to current page in case a given limit was not reached yet. This methold will call the completion block set in beginTransition: .
+    @param idx is meant relative from the currently selectedIndex.
+ */
+-(void)finishTransitionWithRelativeIndex:(int)idx;
 
 /* Implement this method for easy access to a default version of the transition.*/
 +(id<BMExtendableContinuousePageTransition>)transition;

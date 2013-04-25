@@ -40,7 +40,7 @@
     return self;
 }
 
--(id)initWithFrame:(NSRect)frameRect{
+-(id)initWithFrame:(RECT)frameRect{
     if ((self = [super initWithFrame:frameRect])) {
         [self setup];
     }
@@ -70,11 +70,12 @@
     
     [self updatePageCache:^{
         
-        assert(![[_pages objectAtIndex:_selectedIndex] isKindOfClass:[NSNull class]]);
-        
-        _selectedViewController = [_pages objectAtIndex:_selectedIndex];
-        
-        [self presentSelectedViewController];
+            NSLog(@"selected index: %i",self.selectedIndex);
+            assert(![[_pages objectAtIndex:_selectedIndex] isKindOfClass:[NSNull class]]);
+            
+            _selectedViewController = [_pages objectAtIndex:_selectedIndex];
+
+            [self presentSelectedViewController];
     }];
 
 }
@@ -150,7 +151,7 @@
 }
 
 #pragma mark - PROPERTIES
--(void)setBounds:(NSRect)aRect{
+-(void)setBounds:(RECT)aRect{
     [super setBounds:aRect];
     
     _selectedViewController.view.frame = self.bounds;
@@ -158,9 +159,7 @@
 
 #pragma mark - VIEW STUFF
 -(void)presentSelectedViewController{
-    
     dispatch_async(dispatch_get_main_queue(), ^{
-        
         [self addSubview:_selectedViewController.view];
         _selectedViewController.view.frame = self.bounds;
     });
@@ -172,42 +171,40 @@
     // first unload exisiting page to possibly free recyclable controllers
     // second load newly required pages
     
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
-    
-        [_pages enumerateObjectsWithOptions:NSEnumerationConcurrent
-                                 usingBlock:^(id obj, NSUInteger i, BOOL *stop) {
-                                     
-                                     // don't delete pages in active range
-                                     if (i >= MAX(0,_selectedIndex - PAGE_CONTROLLER_PRELOAD_RANGE) &&
-                                         i <= MIN(_arrangedObjects.count - 1,
-                                                  _selectedIndex + PAGE_CONTROLLER_PRELOAD_RANGE) )
-                                         return;
-                                     
-                                     // don't care about empty pages
-                                     if ([obj isKindOfClass:[NSNull class]])
-                                         return;
-                                     
-                                     // recycle objects
-                                     [self depositViewControllerWithIndex:(int)i];
-                                     [_pages replaceObjectAtIndex:i withObject:[NSNull null]];
-                                 }];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
+
+        for (int idx = 0;idx <_pages.count;idx++) {
+            id obj = [_pages objectAtIndex:idx];
+            // don't delete pages in active range
+            if (idx >= MAX(0,_selectedIndex - PAGE_CONTROLLER_PRELOAD_RANGE) &&
+             idx <= MIN(_arrangedObjects.count - 1,
+                      _selectedIndex + PAGE_CONTROLLER_PRELOAD_RANGE) )
+             continue;
+
+            // don't care about empty pages
+            if ([obj isKindOfClass:[NSNull class]])
+             continue;
+
+            // recycle objects
+            [self depositViewControllerWithIndex:idx];
+            [_pages replaceObjectAtIndex:idx withObject:[NSNull null]];
+
+            idx++;
+        }
         
         // now process the currently active indices
-        
         int startIndx = (int) MAX(0, _selectedIndex-PAGE_CONTROLLER_PRELOAD_RANGE);
-        int l = (int) MIN(_arrangedObjects.count - startIndx, _selectedIndex + PAGE_CONTROLLER_PRELOAD_RANGE +1 - startIndx);
-        NSLog(@"loading active indices at %i with length %i",startIndx,l);
-        NSIndexSet *activeIndices = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(startIndx,l)];
+        int stopIdx = (int) MIN(_arrangedObjects.count, _selectedIndex + PAGE_CONTROLLER_PRELOAD_RANGE +1);
+        NSLog(@"loading active indices at %i - %i",startIndx,stopIdx);
         
-        [_pages enumerateObjectsAtIndexes:activeIndices
-                                  options:NSEnumerationConcurrent
-                               usingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-                                   
-                                   if ([obj isKindOfClass:[NSNull class]]) {
-                                       [self loadPageWithIndex:(int)idx];
-                                   }
-                               }];
-        
+        for (int idx=startIndx; idx<stopIdx; idx++) {
+            id obj = [_pages objectAtIndex:idx];
+            
+            if ([obj isKindOfClass:[NSNull class]]) {
+                [self loadPageWithIndex:idx];
+            }
+        }
+
         if (complete)
             complete();
     });
@@ -221,7 +218,7 @@
     
     NSLog(@"load page with idx: %i",index);
 
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
 
         // get a viewcontroller for index
         VIEW_CONTROLLER* pageCtrl = [self requireViewControllerForIndex:index];
@@ -254,7 +251,7 @@
 
 -(void)depositViewControllerWithIndex:(int)index{
     
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
 
         NSLog(@"deposit page with idx: %i",index);
         

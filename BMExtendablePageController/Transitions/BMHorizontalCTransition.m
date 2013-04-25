@@ -31,32 +31,6 @@
     return [[BMHorizontalCTransition alloc] init];
 }
 
-#pragma mark - Custom Page Transition
--(void)transitionFromIndex:(int)fromIdx toIndex:(int)toIdx
-              withDuration:(float)duration
-             andCurrenView:(VIEW *)currentView toNextView:(VIEW *)nextView
-           onContainerView:(VIEW *)containerView
-            withCompletion:(void (^)())completion{
-    
-#if TARGET_OS_IPHONE
-
-    nextView.frame = CGRectOffset(currentView.frame, currentView.frame.size.width * (toIdx > fromIdx ? +1 : -1), 0);
-    [containerView addSubview:nextView];
-    
-    [UIView animateWithDuration:duration delay:0. options:UIViewAnimationOptionCurveEaseInOut
-                     animations:^{
-                         
-                         currentView.frame = CGRectOffset(currentView.frame, currentView.frame.size.width * (toIdx > fromIdx ? -1 : +1), 0);
-                         nextView.frame = containerView.bounds;
-                         
-                     } completion:^(BOOL finished) {
-                        
-                         [currentView removeFromSuperview];
-                         completion();
-                     }];
-#endif
-}
-
 #pragma mark - Custom Continuouse Transition
 -(void)beginTransitionWithCurrentView:(VIEW *)currentView nextView:(VIEW *)nextView prevView:(VIEW *)previousView onContainerView:(VIEW *)containerView withCompletion:(void (^)(VIEW *nowActiveView))completion{
  
@@ -98,30 +72,26 @@
     _currentValue = value;
 }
 
--(void)finishTransition{
+-(void)finishTransitionWithRelativeIndex:(int)index{
     float size = _containerView.frame.size.width;
     float newOffset = size;
-    NSArray* removeViews;
-    VIEW* finalView;
+    VIEW* destinationView;
     
-    if (_currentValue < HORIZONTAL_TRANSITION_LOWER_LIMIT_DEFAULT) {
+    if (index == -1) {
         // move to prev view
         newOffset *= -1.0;
-        finalView = _prevView;
-        removeViews = @[_currentView,_nextView];
-    }else if(_currentValue > HORIZONTAL_TRANSITION_UPPER_LIMIT_DEFAULT){
+        destinationView = _prevView;
+    }else if(index == +1){
         // move to next view
         newOffset *= +1.0;
-        finalView = _nextView;
-        removeViews = @[_currentView,_prevView];
+        destinationView = _nextView;
     }else{
         // move back to current view
         newOffset = 0.;
-        finalView = _currentView;
-        removeViews = @[_prevView,_nextView];
+        destinationView = _currentView;
     }
 
-    float duration = HORIZONTAL_TRANSITION_DURATION_DEFAULT * fabsf(_currentValue - newOffset);
+    float duration = HORIZONTAL_TRANSITION_DURATION_DEFAULT * fabsf(_currentValue - (float)index);
 
 #if TARGET_OS_IPHONE
     [UIView animateWithDuration:duration
@@ -133,12 +103,22 @@
                          _prevView.frame = CGRectOffset(_prevViewStartFrame, newOffset, 0);
                  } completion:^(BOOL finished) {
                      
-                     [removeViews enumerateObjectsWithOptions:NSEnumerationConcurrent usingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+                     if (destinationView == _nextView) {
+
+                         [_currentView removeFromSuperview];
+                         [_prevView removeFromSuperview];
                          
-                         [obj removeFromSuperview];
-                     }];
+                     }else if(destinationView == _prevView){
+                         
+                         [_currentView removeFromSuperview];
+                         [_nextView removeFromSuperview];
+                     }else{
+                         
+                         [_nextView removeFromSuperview];
+                         [_prevView removeFromSuperview];
+                     }
                      
-                     _completionBlock(finalView);
+                     _completionBlock(destinationView);
                  }];
 #endif
 }
