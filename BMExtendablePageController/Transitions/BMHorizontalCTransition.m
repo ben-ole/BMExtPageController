@@ -60,6 +60,8 @@
     // ensure boundaries
     value = MAX(-1.0,MIN(1.0, value));
     
+    NSLog(@"value: %f",value);
+    
     float size = _containerView.frame.size.width;
     float newOffset = size * value;
     
@@ -74,7 +76,7 @@
 
 -(void)finishTransitionWithRelativeIndex:(int)index{
     
-    NSLog(@"move to page: %i",index);
+    NSLog(@"move: %i",index);
     
     float size = _containerView.frame.size.width;
     float newOffset = size;
