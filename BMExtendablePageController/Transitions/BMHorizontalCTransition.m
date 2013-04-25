@@ -73,6 +73,9 @@
 }
 
 -(void)finishTransitionWithRelativeIndex:(int)index{
+    
+    NSLog(@"move to page: %i",index);
+    
     float size = _containerView.frame.size.width;
     float newOffset = size;
     VIEW* destinationView;

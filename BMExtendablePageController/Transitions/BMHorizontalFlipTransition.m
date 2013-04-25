@@ -32,7 +32,7 @@
     [UIView animateWithDuration:duration delay:0. options:UIViewAnimationOptionCurveEaseInOut
                      animations:^{
                          
-                         currentView.frame = CGRectOffset(currentView.frame, destOffset, 0);
+                         currentView.frame = CGRectOffset(currentView.frame, -destOffset, 0);
                          nextView.frame = containerView.bounds;
                          
                      } completion:^(BOOL finished) {
