@@ -83,7 +83,6 @@
     
     [self updatePageCache:^{
         
-        NSLog(@"selected index: %i",self.selectedIndex);
         assert(![[_pages objectAtIndex:_selectedIndex] isKindOfClass:[NSNull class]]);
         
         _selectedViewController = [_pages objectAtIndex:_selectedIndex];
@@ -188,7 +187,7 @@
 
 #pragma mark - VIEW STUFF
 -(void)presentSelectedViewController{
-    for (UIView* sub in self.subviews) {
+    for (VIEW* sub in self.subviews) {
         [sub removeFromSuperview];
     }
     

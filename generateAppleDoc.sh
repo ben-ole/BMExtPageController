@@ -1,1 +1,1 @@
-appledoc --project-name "BMExtendablePageController" --project-company "Benjamin Müller" --company-id "com.codebility" --output ./doc .
+appledoc --project-name "BMExtendablePageController" --project-company "Benjamin Müller" --company-id "com.codebility" --no-install-docset --output ./doc .

@@ -1,0 +1,542 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="html/html; charset=utf-8" />
+		<title>BMHorizontalCTransition Class Reference</title>
+		<meta id="xcode-display" name="xcode-display" content="render"/>
+		<meta name="viewport" content="width=550" />
+		<link rel="stylesheet" type="text/css" href="../css/styles.css" media="all" />
+		<link rel="stylesheet" type="text/css" media="print" href="../css/stylesPrint.css" />
+		<meta name="generator" content="appledoc 2.1 (build 840)" />
+	</head>
+	<body>
+		<header id="top_header">
+			<div id="library" class="hideInXcode">
+				<h1><a id="libraryTitle" href="../index.html">BMExtendablePageController </a></h1>
+				<a id="developerHome" href="../index.html">Benjamin Müller</a>
+			</div>
+			
+			<div id="title" role="banner">
+				<h1 class="hideInXcode">BMHorizontalCTransition Class Reference</h1>
+			</div>
+			<ul id="headerButtons" role="toolbar">
+				<li id="toc_button">
+					<button aria-label="Show Table of Contents" role="checkbox" class="open" id="table_of_contents"><span class="disclosure"></span>Table of Contents</button>
+				</li>
+				<li id="jumpto_button" role="navigation">
+					<select id="jumpTo">
+	<option value="top">Jump To&#133;</option>
+	
+	
+	
+	
+	<option value="tasks">Tasks</option>
+	
+	
+	
+	
+	
+	
+	
+	<option value="class_methods">Class Methods</option>
+	
+	<option value="//api/name/transition">&nbsp;&nbsp;&nbsp;&nbsp;+ transition</option>
+	
+	
+	
+	
+	<option value="instance_methods">Instance Methods</option>
+	
+	<option value="//api/name/beginTransitionWithCurrentView:nextView:prevView:onContainerView:withCompletion:">&nbsp;&nbsp;&nbsp;&nbsp;- beginTransitionWithCurrentView:nextView:prevView:onContainerView:withCompletion:</option>
+	
+	<option value="//api/name/cancelTransition">&nbsp;&nbsp;&nbsp;&nbsp;- cancelTransition</option>
+	
+	<option value="//api/name/finishTransitionWithRelativeIndex:">&nbsp;&nbsp;&nbsp;&nbsp;- finishTransitionWithRelativeIndex:</option>
+	
+	<option value="//api/name/updateTransitionWithValue:">&nbsp;&nbsp;&nbsp;&nbsp;- updateTransitionWithValue:</option>
+	
+	
+	
+</select>
+				</li>
+			</ul>
+		</header>
+		<nav id="tocContainer" class="isShowingTOC">
+			<ul id="toc" role="tree">
+				
+
+
+
+<li role="treeitem" id="task_treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#tasks">Tasks</a></span><ul>
+	
+</ul></li>
+
+
+
+
+
+
+
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#class_methods">Class Methods</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/transition">transition</a></span></li>
+	
+</ul></li>
+
+
+
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#instance_methods">Instance Methods</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/beginTransitionWithCurrentView:nextView:prevView:onContainerView:withCompletion:">beginTransitionWithCurrentView:nextView:prevView:onContainerView:withCompletion:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/cancelTransition">cancelTransition</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/finishTransitionWithRelativeIndex:">finishTransitionWithRelativeIndex:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/updateTransitionWithValue:">updateTransitionWithValue:</a></span></li>
+	
+</ul></li>
+
+
+			</ul>
+		</nav>
+		<article>
+			<div id="contents" class="isShowingTOC" role="main">
+				<a title="BMHorizontalCTransition Class Reference" name="top"></a>
+				<div class="main-navigation navigation-top">
+					<ul>
+	<li><a href="../index.html">Index</a></li>
+	<li><a href="../hierarchy.html">Hierarchy</a></li>
+</ul>
+				</div>
+				<div id="header">
+					<div class="section-header">
+						<h1 class="title title-header">BMHorizontalCTransition Class Reference</h1>
+					</div>		
+				</div>
+				<div id="container">	
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<td class="specification-title">Inherits from</td>
+	<td class="specification-value">NSObject</td>
+</tr><tr>
+	<td class="specification-title">Conforms to</td>
+	<td class="specification-value"><a href="../Protocols/BMExtendableContinuousePageTransition.html">BMExtendableContinuousePageTransition</a></td>
+</tr><tr>
+	<td class="specification-title">Declared in</td>
+	<td class="specification-value">BMHorizontalCTransition.h<br />BMHorizontalCTransition.m</td>
+</tr>
+						</tbody></table></div>
+					
+					
+					
+					
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						<h2 class="subtitle subtitle-tasks">Tasks</h2>
+						
+						
+						
+						
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/transition">+&nbsp;transition</a></code>
+		<span class="tooltip"><p>Implement this method for easy access to a default version of the transition.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/beginTransitionWithCurrentView:nextView:prevView:onContainerView:withCompletion:">&ndash;&nbsp;beginTransitionWithCurrentView:nextView:prevView:onContainerView:withCompletion:</a></code>
+		<span class="tooltip"><p>setup a <a href="../Protocols/BMExtendableContinuousePageTransition.html#//api/name/transition">transition</a>. The completion block expects an argument to be filled with the proper prevView/nextView/currentView depending on the movement direction</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/updateTransitionWithValue:">&ndash;&nbsp;updateTransitionWithValue:</a></code>
+		<span class="tooltip"><p>Update the <a href="../Protocols/BMExtendableContinuousePageTransition.html#//api/name/transition">transition</a> to reflect user interaction.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/finishTransitionWithRelativeIndex:">&ndash;&nbsp;finishTransitionWithRelativeIndex:</a></code>
+		<span class="tooltip"><p>Finish the <a href="../Protocols/BMExtendableContinuousePageTransition.html#//api/name/transition">transition</a> without further user interaction. This animates to the previous/next page or back to current page in case a given limit was not reached yet. This methold will call the completion block set in beginTransition: .</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/cancelTransition">&ndash;&nbsp;cancelTransition</a></code>
+		<span class="tooltip"><p>Cancel the <a href="../Protocols/BMExtendableContinuousePageTransition.html#//api/name/transition">transition</a> and move back to current page. This method does not call the completion block set in beginTransition:</p></span>
+	</span>
+	
+	
+</li>
+						</ul>
+						
+					</div>
+					
+					
+					
+					
+					
+					
+					
+					<div class="section section-methods">
+						<a title="Class Methods" name="class_methods"></a>
+						<h2 class="subtitle subtitle-methods">Class Methods</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/transition" title="transition"></a>
+	<h3 class="subsubtitle method-title">transition</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Implement this method for easy access to a default version of the transition.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (id&lt;BMExtendableContinuousePageTransition&gt;)transition</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Implement this method for easy access to a default version of the transition.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">BMExtendablePageController.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+					</div>
+					
+					
+					
+					<div class="section section-methods">
+						<a title="Instance Methods" name="instance_methods"></a>
+						<h2 class="subtitle subtitle-methods">Instance Methods</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/beginTransitionWithCurrentView:nextView:prevView:onContainerView:withCompletion:" title="beginTransitionWithCurrentView:nextView:prevView:onContainerView:withCompletion:"></a>
+	<h3 class="subsubtitle method-title">beginTransitionWithCurrentView:nextView:prevView:onContainerView:withCompletion:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>setup a <a href="../Protocols/BMExtendableContinuousePageTransition.html#//api/name/transition">transition</a>. The completion block expects an argument to be filled with the proper prevView/nextView/currentView depending on the movement direction</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)beginTransitionWithCurrentView:(VIEW *)<em>currentView</em> nextView:(VIEW *)<em>nextView</em> prevView:(VIEW *)<em>previousView</em> onContainerView:(VIEW *)<em>containerView</em> withCompletion:(void ( ^ ) ( VIEW *nowActiveView ))<em>completion</em></code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>setup a <a href="../Protocols/BMExtendableContinuousePageTransition.html#//api/name/transition">transition</a>. The completion block expects an argument to be filled with the proper prevView/nextView/currentView depending on the movement direction</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">BMExtendablePageController.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/cancelTransition" title="cancelTransition"></a>
+	<h3 class="subsubtitle method-title">cancelTransition</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Cancel the <a href="../Protocols/BMExtendableContinuousePageTransition.html#//api/name/transition">transition</a> and move back to current page. This method does not call the completion block set in beginTransition:</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)cancelTransition</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Cancel the <a href="../Protocols/BMExtendableContinuousePageTransition.html#//api/name/transition">transition</a> and move back to current page. This method does not call the completion block set in beginTransition:</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">BMExtendablePageController.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/finishTransitionWithRelativeIndex:" title="finishTransitionWithRelativeIndex:"></a>
+	<h3 class="subsubtitle method-title">finishTransitionWithRelativeIndex:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Finish the <a href="../Protocols/BMExtendableContinuousePageTransition.html#//api/name/transition">transition</a> without further user interaction. This animates to the previous/next page or back to current page in case a given limit was not reached yet. This methold will call the completion block set in beginTransition: .</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)finishTransitionWithRelativeIndex:(int)<em>index</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>idx</em></dt>
+			<dd><p>is meant relative from the currently selectedIndex.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Finish the <a href="../Protocols/BMExtendableContinuousePageTransition.html#//api/name/transition">transition</a> without further user interaction. This animates to the previous/next page or back to current page in case a given limit was not reached yet. This methold will call the completion block set in beginTransition: .</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">BMExtendablePageController.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/updateTransitionWithValue:" title="updateTransitionWithValue:"></a>
+	<h3 class="subsubtitle method-title">updateTransitionWithValue:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Update the <a href="../Protocols/BMExtendableContinuousePageTransition.html#//api/name/transition">transition</a> to reflect user interaction.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)updateTransitionWithValue:(float)<em>value</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>value</em></dt>
+			<dd><p>should be in a range of -1.0 to 1.0</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Update the <a href="../Protocols/BMExtendableContinuousePageTransition.html#//api/name/transition">transition</a> to reflect user interaction.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">BMExtendablePageController.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+					</div>
+					
+					
+				</div>
+				<div class="main-navigation navigation-bottom">
+					<ul>
+	<li><a href="../index.html">Index</a></li>
+	<li><a href="../hierarchy.html">Hierarchy</a></li>
+</ul>
+				</div>
+				<div id="footer">
+					<hr />
+					<div class="footer-copyright">
+						<p><span class="copyright">&copy; 2013 Benjamin Müller. All rights reserved. (Last updated: 2013-04-26)</span><br />
+						
+						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.1 (build 840)</a>.</span></p>
+						
+					</div>
+				</div>
+			</div>
+		</article>
+		<script type="text/javascript">
+			function jumpToChange()
+			{
+				window.location.hash = this.options[this.selectedIndex].value;
+			}
+			
+			function toggleTOC()
+			{
+				var contents = document.getElementById('contents');
+				var tocContainer = document.getElementById('tocContainer');
+				
+				if (this.getAttribute('class') == 'open')
+				{
+					this.setAttribute('class', '');
+					contents.setAttribute('class', '');
+					tocContainer.setAttribute('class', '');
+					
+					window.name = "hideTOC";
+				}
+				else
+				{
+					this.setAttribute('class', 'open');
+					contents.setAttribute('class', 'isShowingTOC');
+					tocContainer.setAttribute('class', 'isShowingTOC');
+					
+					window.name = "";
+				}
+				return false;
+			}
+			
+			function toggleTOCEntryChildren(e)
+			{
+				e.stopPropagation();
+				var currentClass = this.getAttribute('class');
+				if (currentClass == 'children') {
+					this.setAttribute('class', 'children open');
+				}
+				else if (currentClass == 'children open') {
+					this.setAttribute('class', 'children');
+				}
+				return false;
+			}
+			
+			function tocEntryClick(e)
+			{
+				e.stopPropagation();
+				return true;
+			}
+			
+			function init()
+			{
+				var selectElement = document.getElementById('jumpTo');
+				selectElement.addEventListener('change', jumpToChange, false);
+				
+				var tocButton = document.getElementById('table_of_contents');
+				tocButton.addEventListener('click', toggleTOC, false);
+				
+				var taskTreeItem = document.getElementById('task_treeitem');
+				if (taskTreeItem.getElementsByTagName('li').length > 0)
+				{
+					taskTreeItem.setAttribute('class', 'children');
+					taskTreeItem.firstChild.setAttribute('class', 'disclosure');
+				}
+				
+				var tocList = document.getElementById('toc');
+				
+				var tocEntries = tocList.getElementsByTagName('li');
+				for (var i = 0; i < tocEntries.length; i++) {
+					tocEntries[i].addEventListener('click', toggleTOCEntryChildren, false);
+				}
+				
+				var tocLinks = tocList.getElementsByTagName('a');
+				for (var i = 0; i < tocLinks.length; i++) {
+					tocLinks[i].addEventListener('click', tocEntryClick, false);
+				}
+				
+				if (window.name == "hideTOC") {
+					toggleTOC.call(tocButton);
+				}
+			}
+			
+			window.onload = init;
+			
+			// If showing in Xcode, hide the TOC and Header
+			if (navigator.userAgent.match(/xcode/i)) {
+				document.getElementById("contents").className = "hideInXcode"
+				document.getElementById("tocContainer").className = "hideInXcode"
+				document.getElementById("top_header").className = "hideInXcode"
+			}
+			
+		</script>
+	</body>
+</html>
