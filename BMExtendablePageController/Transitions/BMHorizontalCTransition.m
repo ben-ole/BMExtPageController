@@ -42,15 +42,15 @@
     _currentValue = 0.;
 
 #if TARGET_OS_IPHONE
-    _currentViewStartFrame = _currentView.frame;
+    _currentViewStartFrame = _containerView.bounds;
     
-    _nextView.frame = CGRectOffset(_currentView.frame, _currentView.frame.size.width, 0);
+    _nextView.frame = CGRectOffset(_containerView.bounds, _containerView.bounds.size.width, 0);
     _nextViewStartFrame = _nextView.frame;
-    [_containerView addSubview:_nextView];
+//    [_containerView addSubview:_nextView];
     
-    _prevView.frame = CGRectOffset(_currentView.frame, - _currentView.frame.size.width, 0);
+    _prevView.frame = CGRectOffset(_containerView.bounds, - _containerView.bounds.size.width, 0);
     _prevViewStartFrame = _prevView.frame;
-    [_containerView addSubview:_prevView];
+//    [_containerView addSubview:_prevView];
 #endif
     
 }
@@ -58,7 +58,7 @@
 -(void)updateTransitionWithValue:(float)value{
     
     // ensure boundaries
-    value = MAX(-1.0,MIN(1.0, value));
+//    value = MAX(-1.0,MIN(1.0, value));
     
     NSLog(@"value: %f",value);
     
@@ -85,11 +85,11 @@
     if (index == -1) {
         // move to prev view
         newOffset *= -1.0;
-        destinationView = _prevView;
+        destinationView = _nextView;
     }else if(index == +1){
         // move to next view
         newOffset *= +1.0;
-        destinationView = _nextView;
+        destinationView = _prevView;
     }else{
         // move back to current view
         newOffset = 0.;
@@ -108,20 +108,20 @@
                          _prevView.frame = CGRectOffset(_prevViewStartFrame, newOffset, 0);
                  } completion:^(BOOL finished) {
                      
-                     if (destinationView == _nextView) {
-
-                         [_currentView removeFromSuperview];
-                         [_prevView removeFromSuperview];
-                         
-                     }else if(destinationView == _prevView){
-                         
-                         [_currentView removeFromSuperview];
-                         [_nextView removeFromSuperview];
-                     }else{
-                         
-                         [_nextView removeFromSuperview];
-                         [_prevView removeFromSuperview];
-                     }
+//                     if (destinationView == _nextView) {
+//
+//                         [_currentView removeFromSuperview];
+//                         [_prevView removeFromSuperview];
+//                         
+//                     }else if(destinationView == _prevView){
+//                         
+//                         [_currentView removeFromSuperview];
+//                         [_nextView removeFromSuperview];
+//                     }else{
+//                         
+//                         [_nextView removeFromSuperview];
+//                         [_prevView removeFromSuperview];
+//                     }
                      
                      _completionBlock(destinationView);
                  }];

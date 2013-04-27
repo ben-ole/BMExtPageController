@@ -187,11 +187,11 @@
 
 #pragma mark - VIEW STUFF
 -(void)presentSelectedViewController{
-    for (VIEW* sub in self.subviews) {
-        [sub removeFromSuperview];
-    }
-    
-    [self addSubview:_selectedViewController.view];
+//    for (VIEW* sub in self.subviews) {
+//        [sub removeFromSuperview];
+//    }
+//    
+//    [self addSubview:_selectedViewController.view];
     _selectedViewController.view.frame = self.bounds;
 }
 
@@ -259,6 +259,13 @@
 
     // store viewcontroller
     [_pages replaceObjectAtIndex:index withObject:pageCtrl];
+    
+    // add views to container
+    dispatch_async(dispatch_get_main_queue(), ^{
+
+        pageCtrl.view.frame = CGRectOffset(self.bounds, self.frame.size.width, 0);
+        [self addSubview:pageCtrl.view];
+    });
 }
 
 
@@ -295,7 +302,9 @@
                                 forKey:_freeViewController];
     }
     
-    [freeViewCtrlForPageId addObject:[_pages objectAtIndex:index]];
+    VIEW_CONTROLLER* viewCtrl = [_pages objectAtIndex:index];
+    [viewCtrl.view removeFromSuperview];
+    [freeViewCtrlForPageId addObject:viewCtrl];
 }
 
 @end
