@@ -21,13 +21,12 @@
            onContainerView:(VIEW *)containerView
             withCompletion:(void (^)())completion{
 
-    float destOffset = currentView.frame.size.width * ((toIdx > fromIdx) ? 1. : -1.);
+    float destOffset = containerView.bounds.size.width * ((toIdx > fromIdx) ? 1. : -1.);
     
-    nextView.frame = CGRectOffset(currentView.frame, destOffset, 0);
+    nextView.frame = CGRectOffset(containerView.bounds, destOffset, 0);
 
         
 #if TARGET_OS_IPHONE
-    [containerView addSubview:nextView];
 
     [UIView animateWithDuration:duration delay:0. options:UIViewAnimationOptionCurveEaseInOut
                      animations:^{
@@ -37,21 +36,15 @@
                          
                      } completion:^(BOOL finished) {
                          
-                         [currentView removeFromSuperview];
                          completion();
                      }];
 #else
-    [containerView addSubview:nextView
-                   positioned:NSWindowBelow
-                   relativeTo:currentView];
-
     [[NSAnimationContext currentContext] setDuration:duration];
     [[NSAnimationContext currentContext] setTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut]];    
     [NSAnimationContext runAnimationGroup:^(NSAnimationContext *context) {
         [[currentView animator] setFrame:CGRectOffset(currentView.frame, -destOffset, 0)];
         [[nextView animator] setFrame:containerView.bounds];
     } completionHandler:^{
-        [currentView removeFromSuperview];
         completion();
     }];
 #endif

@@ -123,6 +123,8 @@
                                                                 toNextView:nextView
                                                            onContainerView:self
                                                             withCompletion:^(){
+                                                                currentView.frame = [self parkingPosition];
+                                                                
                                                                 _selectedIndex = selectedIndex;
                                                                 _selectedViewController = [_pages objectAtIndex:_selectedIndex];
                                                                 _temporaryDisabled = FALSE;
@@ -187,11 +189,7 @@
 
 #pragma mark - VIEW STUFF
 -(void)presentSelectedViewController{
-//    for (VIEW* sub in self.subviews) {
-//        [sub removeFromSuperview];
-//    }
-//    
-//    [self addSubview:_selectedViewController.view];
+
     _selectedViewController.view.frame = self.bounds;
 }
 
@@ -263,7 +261,7 @@
     // add views to container
     dispatch_async(dispatch_get_main_queue(), ^{
 
-        pageCtrl.view.frame = CGRectOffset(self.bounds, self.frame.size.width, 0);
+        pageCtrl.view.frame = [self parkingPosition];
         [self addSubview:pageCtrl.view];
     });
 }
@@ -305,6 +303,12 @@
     VIEW_CONTROLLER* viewCtrl = [_pages objectAtIndex:index];
     [viewCtrl.view removeFromSuperview];
     [freeViewCtrlForPageId addObject:viewCtrl];
+}
+
+// view controllers currently added but not in transition are "parked" somewhere to the right side of the container
+-(RECT)parkingPosition{
+
+    return CGRectOffset(self.bounds, self.bounds.size.width * PARKING_X_OFFSET_MULTIPLICATOR, 0);
 }
 
 @end

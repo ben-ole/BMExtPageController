@@ -25,7 +25,13 @@
 
 #import <QuartzCore/QuartzCore.h>
 
-#define PAGE_CONTROLLER_PRELOAD_RANGE 1
+#ifndef PAGE_CONTROLLER_PRELOAD_RANGE
+    #define PAGE_CONTROLLER_PRELOAD_RANGE 1
+#endif
+
+#ifndef PARKING_X_OFFSET_MULTIPLICATOR
+    #define PARKING_X_OFFSET_MULTIPLICATOR  1.
+#endif
 
 @protocol BMExtendablePageControllerDelegate;
 @protocol BMExtendablePageTransition;

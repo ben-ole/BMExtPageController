@@ -41,43 +41,30 @@
     _completionBlock = completion;
     _currentValue = 0.;
 
-#if TARGET_OS_IPHONE
     _currentViewStartFrame = _containerView.bounds;
     
     _nextView.frame = CGRectOffset(_containerView.bounds, _containerView.bounds.size.width, 0);
     _nextViewStartFrame = _nextView.frame;
-//    [_containerView addSubview:_nextView];
     
     _prevView.frame = CGRectOffset(_containerView.bounds, - _containerView.bounds.size.width, 0);
     _prevViewStartFrame = _prevView.frame;
-//    [_containerView addSubview:_prevView];
-#endif
     
 }
 
 -(void)updateTransitionWithValue:(float)value{
-    
-    // ensure boundaries
-//    value = MAX(-1.0,MIN(1.0, value));
-    
-    NSLog(@"value: %f",value);
-    
-    float size = _containerView.frame.size.width;
+        
+    float size = _containerView.bounds.size.width;
     float newOffset = size * value;
     
-#if TARGET_OS_IPHONE
     _currentView.frame = CGRectOffset(_currentViewStartFrame, newOffset, 0);
     _nextView.frame = CGRectOffset(_nextViewStartFrame, newOffset, 0);
     _prevView.frame = CGRectOffset(_prevViewStartFrame, newOffset, 0);
-#endif
     
     _currentValue = value;
 }
 
 -(void)finishTransitionWithRelativeIndex:(int)index{
-    
-    NSLog(@"move: %i",index);
-    
+        
     float size = _containerView.frame.size.width;
     float newOffset = size;
     VIEW* destinationView;
@@ -108,23 +95,19 @@
                          _prevView.frame = CGRectOffset(_prevViewStartFrame, newOffset, 0);
                  } completion:^(BOOL finished) {
                      
-//                     if (destinationView == _nextView) {
-//
-//                         [_currentView removeFromSuperview];
-//                         [_prevView removeFromSuperview];
-//                         
-//                     }else if(destinationView == _prevView){
-//                         
-//                         [_currentView removeFromSuperview];
-//                         [_nextView removeFromSuperview];
-//                     }else{
-//                         
-//                         [_nextView removeFromSuperview];
-//                         [_prevView removeFromSuperview];
-//                     }
-                     
                      _completionBlock(destinationView);
                  }];
+#else
+    
+    [[NSAnimationContext currentContext] setDuration:duration];
+    [NSAnimationContext runAnimationGroup:^(NSAnimationContext *context) {
+        [[_currentView animator] setFrame:CGRectOffset(_currentViewStartFrame, newOffset, 0)];
+        [[_nextView animator] setFrame:CGRectOffset(_nextViewStartFrame, newOffset, 0)];
+        [[_prevView animator] setFrame:CGRectOffset(_prevViewStartFrame, newOffset, 0)];
+    } completionHandler:^{
+        
+        _completionBlock(destinationView);
+    }];
 #endif
 }
 
@@ -144,6 +127,15 @@
                      } completion:^(BOOL finished) {
                          
                      }];
+#else
+    [[NSAnimationContext currentContext] setDuration:duration];
+    [NSAnimationContext runAnimationGroup:^(NSAnimationContext *context) {
+        [[_currentView animator] setFrame:_currentViewStartFrame];
+        [[_nextView animator] setFrame:_nextViewStartFrame];
+        [[_prevView animator] setFrame:_prevViewStartFrame];        
+    } completionHandler:^{
+
+    }];
 #endif
 }
 
