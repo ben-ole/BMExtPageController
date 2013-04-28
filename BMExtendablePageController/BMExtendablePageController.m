@@ -62,6 +62,8 @@
     _arrangedObjects = nil;
     _pages = [[NSMutableArray alloc] init];
     _freeViewController = [[NSMutableDictionary alloc] init];
+    
+    self.translatesAutoresizingMaskIntoConstraints = NO;
 }
 
 #pragma mark - PUBLIC
@@ -190,7 +192,15 @@
 #pragma mark - VIEW STUFF
 -(void)presentSelectedViewController{
 
-    _selectedViewController.view.frame = self.bounds;
+//    _selectedViewController.view.frame = self.bounds;
+    UIView* currentView = _selectedViewController.view;
+    
+    currentView.translatesAutoresizingMaskIntoConstraints = NO;
+    
+    [self addConstraint:[NSLayoutConstraint constraintWithItem:currentView attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeLeft multiplier:1.0 constant:0.]];
+    [self addConstraint:[NSLayoutConstraint constraintWithItem:currentView attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeRight multiplier:1.0 constant:0.]];
+    [self addConstraint:[NSLayoutConstraint constraintWithItem:currentView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeTop multiplier:1.0 constant:0.]];
+    [self addConstraint:[NSLayoutConstraint constraintWithItem:currentView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeBottom multiplier:1.0 constant:0.]];
 }
 
 
