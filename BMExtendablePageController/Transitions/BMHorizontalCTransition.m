@@ -15,12 +15,6 @@
     VIEW* _prevView;
     VIEW* _nextView;
     
-#if TARGET_OS_IPHONE
-    CGRect  _currentViewStartFrame;
-    CGRect  _nextViewStartFrame;
-    CGRect  _prevViewStartFrame;
-#endif
-    
     void (^_completionBlock)(VIEW* nowActiveView);
     float _currentValue;
     
@@ -78,7 +72,7 @@
 
 -(void)finishTransitionWithRelativeIndex:(int)index{
         
-    float size = _containerView.frame.size.width;
+    float size = _containerView.bounds.size.width;
     float newOffset = size;
     VIEW* destinationView;
     
@@ -114,12 +108,11 @@
     
     [[NSAnimationContext currentContext] setDuration:duration];
     [NSAnimationContext runAnimationGroup:^(NSAnimationContext *context) {
-        [[_currentView animator] setFrame:CGRectOffset(_currentViewStartFrame, newOffset, 0)];
-        [[_nextView animator] setFrame:CGRectOffset(_nextViewStartFrame, newOffset, 0)];
-        [[_prevView animator] setFrame:CGRectOffset(_prevViewStartFrame, newOffset, 0)];
-    } completionHandler:^{
-        [self bindViewToContainerLayout:destinationView];
         
+        [_currentAlignmentConstraint setConstant:newOffset];
+    } completionHandler:^{
+        
+        [self bindViewToContainerLayout:destinationView];
         _completionBlock(destinationView);
     }];
 #endif
@@ -135,22 +128,19 @@
                           delay:0. options:UIViewAnimationOptionCurveEaseInOut
                      animations:^{
                          
-                         _currentView.frame = _currentViewStartFrame;
-                         _nextView.frame = _nextViewStartFrame;
-                         _prevView.frame = _prevViewStartFrame;
+                         [_currentAlignmentConstraint setConstant:0.];
+
                      } completion:^(BOOL finished) {
-                         _currentView.translatesAutoresizingMaskIntoConstraints = FALSE;
-                         _nextView.translatesAutoresizingMaskIntoConstraints = FALSE;
-                         _prevView.translatesAutoresizingMaskIntoConstraints = FALSE;
+
                          [self bindViewToContainerLayout:_currentView];
                      }];
 #else
     [[NSAnimationContext currentContext] setDuration:duration];
     [NSAnimationContext runAnimationGroup:^(NSAnimationContext *context) {
-        [[_currentView animator] setFrame:_currentViewStartFrame];
-        [[_nextView animator] setFrame:_nextViewStartFrame];
-        [[_prevView animator] setFrame:_prevViewStartFrame];        
+        
+        [_currentAlignmentConstraint setConstant:0.];
     } completionHandler:^{
+        
          [self bindViewToContainerLayout:_currentView];
     }];
 #endif
