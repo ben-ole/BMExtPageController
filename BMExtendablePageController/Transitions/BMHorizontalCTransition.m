@@ -55,22 +55,14 @@
     [_containerView addConstraint:[NSLayoutConstraint constraintWithItem:_currentView attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:_containerView attribute:NSLayoutAttributeHeight multiplier:1.0 constant:0.]];
     
     // remove any existing constraints for prev and following views
-    [self stickView:_nextView nextToSibling:_currentView isNext:YES];
-    [self stickView:_prevView nextToSibling:_currentView isNext:NO];
+    if (_nextView)
+        [self stickView:_nextView nextToSibling:_currentView isNext:YES];
+
+    if (_prevView)
+        [self stickView:_prevView nextToSibling:_currentView isNext:NO];
     
     _completionBlock = completion;
     _currentValue = 0.;
-
-//    _currentViewStartFrame = _containerView.bounds;
-//    
-//    _nextView.frame = CGRectOffset(_containerView.bounds, _containerView.bounds.size.width, 0);
-//    _nextViewStartFrame = _nextView.frame;
-//    _nextView.backgroundColor = [UIColor yellowColor];
-//    NSLog(@"nextViewFrame: %@",NSStringFromCGRect(_nextViewStartFrame));
-//    [_nextView setNeedsUpdateConstraints];
-//    
-//    _prevView.frame = CGRectOffset(_containerView.bounds, - _containerView.bounds.size.width, 0);
-//    _prevViewStartFrame = _prevView.frame;
     
 }
 
@@ -81,10 +73,6 @@
 
     [_currentAlignmentConstraint setConstant:newOffset];
     
-//    _currentView.frame = CGRectOffset(_currentViewStartFrame, newOffset, 0);
-//    _nextView.frame = CGRectOffset(_nextViewStartFrame, newOffset, 0);
-//    _prevView.frame = CGRectOffset(_prevViewStartFrame, newOffset, 0);
-//    
     _currentValue = value;
 }
 
@@ -207,8 +195,7 @@
     [_containerView addConstraint:[NSLayoutConstraint constraintWithItem:aView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:sibling attribute:NSLayoutAttributeTop multiplier:1.0 constant:0.]];
     [_containerView addConstraint:[NSLayoutConstraint constraintWithItem:aView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:sibling attribute:NSLayoutAttributeBottom multiplier:1.0 constant:0.]];
     [_containerView addConstraint:[NSLayoutConstraint constraintWithItem:aView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:sibling attribute:NSLayoutAttributeWidth multiplier:1 constant:0.]];
-    
-    
+
 }
 
 @end
