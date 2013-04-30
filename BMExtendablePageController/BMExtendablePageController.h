@@ -30,7 +30,7 @@
 #endif
 
 #ifndef PARKING_X_OFFSET_MULTIPLICATOR
-    #define PARKING_X_OFFSET_MULTIPLICATOR  3.
+    #define PARKING_X_OFFSET_MULTIPLICATOR  10.
 #endif
 
 @protocol BMExtendablePageControllerDelegate;
