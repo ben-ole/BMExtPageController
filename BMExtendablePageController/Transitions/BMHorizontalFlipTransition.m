@@ -49,8 +49,13 @@
     [[NSAnimationContext currentContext] setTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut]];    
     [NSAnimationContext runAnimationGroup:^(NSAnimationContext *context) {
         
-        [currentAlignmentConstraint setConstant:destOffset];
+        [[currentAlignmentConstraint animator] setConstant:destOffset];
+        
     } completionHandler:^{
+        
+        [NSLayoutConstraint removeConstraintsFromSuperView:currentView];
+        [NSLayoutConstraint fillSuperView:nextView];
+        
         completion();
     }];
 #endif

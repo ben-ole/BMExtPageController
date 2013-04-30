@@ -10,7 +10,7 @@
 
 @implementation NSLayoutConstraint (PlacementHelper)
 
-+(void)removeConstraintsFromSuperView:(UIView *)aView{
++(void)removeConstraintsFromSuperView:(VIEW *)aView{
     
     if(!aView || !aView.superview) return;
     
@@ -28,7 +28,7 @@
     
 }
 
-+(void)stickView:(UIView *)aView nextToSibling:(UIView *)sibling direction:(BM_LAYOUT_DIRECTION)direction{
++(void)stickView:(VIEW *)aView nextToSibling:(VIEW *)sibling direction:(BM_LAYOUT_DIRECTION)direction{
     
     if(!aView || !aView.superview || !sibling) return;
     
@@ -54,7 +54,7 @@
     
 }
 
-+(NSLayoutConstraint*)fillSuperView:(UIView *)aView{
++(NSLayoutConstraint*)fillSuperView:(VIEW *)aView{
     
     if(!aView || !aView.superview) return;
     

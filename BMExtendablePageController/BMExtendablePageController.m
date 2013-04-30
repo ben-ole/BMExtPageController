@@ -193,7 +193,7 @@
 -(void)presentSelectedViewController{
 
 //    _selectedViewController.view.frame = self.bounds;
-    UIView* currentView = _selectedViewController.view;
+    VIEW* currentView = _selectedViewController.view;
     
     currentView.translatesAutoresizingMaskIntoConstraints = NO;
     
