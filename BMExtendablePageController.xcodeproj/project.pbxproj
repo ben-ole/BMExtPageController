@@ -15,6 +15,9 @@
 		43ABDEE81722FC5400262AEC /* BMExtendablePageControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 43ABDEE71722FC5400262AEC /* BMExtendablePageControllerTests.m */; };
 		43ABDEF91722FD7900262AEC /* BMExtendablePageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43ABDEF21722FD7900262AEC /* BMExtendablePageController.m */; };
 		43ABDEFA1722FD7900262AEC /* BMExtendablePageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43ABDEF21722FD7900262AEC /* BMExtendablePageController.m */; };
+		43B1A411172FAF990067394A /* NSLayoutConstraint+PlacementHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 43B1A40F172FAF990067394A /* NSLayoutConstraint+PlacementHelper.h */; };
+		43B1A412172FAF990067394A /* NSLayoutConstraint+PlacementHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 43B1A410172FAF990067394A /* NSLayoutConstraint+PlacementHelper.m */; };
+		43B1A413172FAF990067394A /* NSLayoutConstraint+PlacementHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 43B1A410172FAF990067394A /* NSLayoutConstraint+PlacementHelper.m */; };
 		43FFF5E217268BE7006E9301 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43ABDED81722FC5400262AEC /* SenTestingKit.framework */; };
 		43FFF5E617268BE7006E9301 /* BMExtendablePageControllerOSX.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 43FFF5CF17268BE7006E9301 /* BMExtendablePageControllerOSX.dylib */; };
 		43FFF5EC17268BE7006E9301 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 43FFF5EA17268BE7006E9301 /* InfoPlist.strings */; };
@@ -83,6 +86,8 @@
 		43ABDEE71722FC5400262AEC /* BMExtendablePageControllerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BMExtendablePageControllerTests.m; sourceTree = "<group>"; };
 		43ABDEF11722FD7900262AEC /* BMExtendablePageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMExtendablePageController.h; sourceTree = "<group>"; };
 		43ABDEF21722FD7900262AEC /* BMExtendablePageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMExtendablePageController.m; sourceTree = "<group>"; };
+		43B1A40F172FAF990067394A /* NSLayoutConstraint+PlacementHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSLayoutConstraint+PlacementHelper.h"; sourceTree = "<group>"; };
+		43B1A410172FAF990067394A /* NSLayoutConstraint+PlacementHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSLayoutConstraint+PlacementHelper.m"; sourceTree = "<group>"; };
 		43FFF5CF17268BE7006E9301 /* BMExtendablePageControllerOSX.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = BMExtendablePageControllerOSX.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		43FFF5E117268BE7006E9301 /* BMExtendablePageControllerOSXTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BMExtendablePageControllerOSXTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		43FFF5E917268BE7006E9301 /* BMExtendablePageControllerOSXTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BMExtendablePageControllerOSXTests-Info.plist"; sourceTree = "<group>"; };
@@ -192,6 +197,7 @@
 		43ABDECB1722FC5400262AEC /* BMExtendablePageController */ = {
 			isa = PBXGroup;
 			children = (
+				43B1A40E172FAE130067394A /* Helper */,
 				43FFF6021726929E006E9301 /* Transitions */,
 				43ABDEF11722FD7900262AEC /* BMExtendablePageController.h */,
 				43ABDEF21722FD7900262AEC /* BMExtendablePageController.m */,
@@ -225,6 +231,15 @@
 				43ABDEE31722FC5400262AEC /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		43B1A40E172FAE130067394A /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				43B1A40F172FAF990067394A /* NSLayoutConstraint+PlacementHelper.h */,
+				43B1A410172FAF990067394A /* NSLayoutConstraint+PlacementHelper.m */,
+			);
+			name = Helper;
 			sourceTree = "<group>";
 		};
 		43FFF5E717268BE7006E9301 /* BMExtendablePageControllerOSXTests */ = {
@@ -273,6 +288,7 @@
 				43FFF60C17269321006E9301 /* BMFoldTransition.h in Headers */,
 				43FFF60F17269321006E9301 /* BMHorizontalCTransition.h in Headers */,
 				43FFF6221726A738006E9301 /* BMHorizontalFlipTransition.h in Headers */,
+				43B1A411172FAF990067394A /* NSLayoutConstraint+PlacementHelper.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -438,6 +454,7 @@
 				43FFF60D17269321006E9301 /* BMFoldTransition.m in Sources */,
 				43FFF61017269321006E9301 /* BMHorizontalCTransition.m in Sources */,
 				43FFF6231726A738006E9301 /* BMHorizontalFlipTransition.m in Sources */,
+				43B1A412172FAF990067394A /* NSLayoutConstraint+PlacementHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -459,6 +476,7 @@
 				43FFF60E17269321006E9301 /* BMFoldTransition.m in Sources */,
 				43FFF61117269321006E9301 /* BMHorizontalCTransition.m in Sources */,
 				43FFF6241726A738006E9301 /* BMHorizontalFlipTransition.m in Sources */,
+				43B1A413172FAF990067394A /* NSLayoutConstraint+PlacementHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -727,6 +745,7 @@
 				43FFF5F117268BE7006E9301 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		43FFF5F517268BE7006E9301 /* Build configuration list for PBXNativeTarget "BMExtendablePageControllerOSXTests" */ = {
 			isa = XCConfigurationList;
@@ -735,6 +754,7 @@
 				43FFF5F317268BE7006E9301 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

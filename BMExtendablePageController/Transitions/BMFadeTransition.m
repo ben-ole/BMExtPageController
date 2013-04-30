@@ -7,6 +7,7 @@
 //
 
 #import "BMFadeTransition.h"
+#import "NSLayoutConstraint+PlacementHelper.h"
 
 @implementation BMFadeTransition
 
@@ -17,11 +18,11 @@
 
 -(void)transitionFromIndex:(int)fromIdx toIndex:(int)toIdx withDuration:(float)duration andCurrenView:(VIEW *)currentView toNextView:(VIEW *)nextView onContainerView:(VIEW *)containerView withCompletion:(void (^)())completion{
 
+    [NSLayoutConstraint fillSuperView:nextView];
 
     if (toIdx > fromIdx) {  // forward
         // insert new view controller behind and fade current out
 
-        nextView.frame = containerView.bounds;
         [containerView sendSubviewToBack:nextView];
         
 #if TARGET_OS_IPHONE
@@ -47,8 +48,6 @@
         
     }else{
         // insert new view controller on top and fade in
-        
-        nextView.frame = containerView.bounds;
         [containerView bringSubviewToFront:nextView];
 
 #if TARGET_OS_IPHONE

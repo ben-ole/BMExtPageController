@@ -7,6 +7,7 @@
 //
 
 #import "BMHorizontalFlipTransition.h"
+#import "NSLayoutConstraint+PlacementHelper.h"
 
 @implementation BMHorizontalFlipTransition
 
@@ -21,18 +22,23 @@
            onContainerView:(VIEW *)containerView
             withCompletion:(void (^)())completion{
 
-    float destOffset = containerView.bounds.size.width * ((toIdx > fromIdx) ? 1. : -1.);
+    // ensure currentView fills superview
+    NSLayoutConstraint* currentAlignmentConstraint = [NSLayoutConstraint fillSuperView:currentView];
     
-    nextView.frame = CGRectOffset(containerView.bounds, destOffset, 0);
-
-        
+    // bound next view to current view
+    [NSLayoutConstraint stickView:nextView
+                    nextToSibling:currentView
+                        direction:(toIdx > fromIdx ? BM_LAYOUT_DIRECTION_RIGHT : BM_LAYOUT_DIRECTION_LEFT)];
+    
+    float destOffset = containerView.bounds.size.width * ((toIdx > fromIdx) ? -1. : 1.);
+    
+    // animate transition
 #if TARGET_OS_IPHONE
 
     [UIView animateWithDuration:duration delay:0. options:UIViewAnimationOptionCurveEaseInOut
                      animations:^{
                          
-                         currentView.frame = CGRectOffset(currentView.frame, -destOffset, 0);
-                         nextView.frame = containerView.bounds;
+                         [currentAlignmentConstraint setConstant:destOffset];
                          
                      } completion:^(BOOL finished) {
                          
@@ -42,12 +48,14 @@
     [[NSAnimationContext currentContext] setDuration:duration];
     [[NSAnimationContext currentContext] setTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut]];    
     [NSAnimationContext runAnimationGroup:^(NSAnimationContext *context) {
-        [[currentView animator] setFrame:CGRectOffset(currentView.frame, -destOffset, 0)];
-        [[nextView animator] setFrame:containerView.bounds];
+        
+        [currentAlignmentConstraint setConstant:destOffset];
     } completionHandler:^{
         completion();
     }];
 #endif
 }
+
+
 
 @end

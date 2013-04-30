@@ -7,6 +7,7 @@
 //
 
 #import "BMHorizontalCTransition.h"
+#import "NSLayoutConstraint+PlacementHelper.h"
 
 @implementation BMHorizontalCTransition{
     
@@ -34,27 +35,15 @@
     _currentView = currentView;
     _nextView = nextView;
     _prevView = previousView;
-    
-    _containerView.translatesAutoresizingMaskIntoConstraints = FALSE;
-    _currentView.translatesAutoresizingMaskIntoConstraints = FALSE;
-    _nextView.translatesAutoresizingMaskIntoConstraints = FALSE;
-    _prevView.translatesAutoresizingMaskIntoConstraints = FALSE;
-    
-    [self removeConstraintsFromSuperView:_currentView];
-    _currentAlignmentConstraint = [NSLayoutConstraint constraintWithItem:_currentView attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:_containerView attribute:NSLayoutAttributeCenterX multiplier:1.0 constant:0.];
-    [_containerView addConstraint:_currentAlignmentConstraint];
-    
-    [_containerView addConstraint:[NSLayoutConstraint constraintWithItem:_currentView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:_containerView attribute:NSLayoutAttributeWidth multiplier:1.0 constant:0.]];
-    
-    [_containerView addConstraint:[NSLayoutConstraint constraintWithItem:_currentView attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:_containerView attribute:NSLayoutAttributeHeight multiplier:1.0 constant:0.]];
-    
-    // remove any existing constraints for prev and following views
-    if (_nextView)
-        [self stickView:_nextView nextToSibling:_currentView isNext:YES];
 
-    if (_prevView)
-        [self stickView:_prevView nextToSibling:_currentView isNext:NO];
+    // ensure currentView fills container
+    _currentAlignmentConstraint = [NSLayoutConstraint fillSuperView:_currentView];
     
+    // bind next and prev view right and left to current view
+    [NSLayoutConstraint stickView:_nextView nextToSibling:_currentView direction:BM_LAYOUT_DIRECTION_RIGHT];
+
+    [NSLayoutConstraint stickView:_prevView nextToSibling:_currentView direction:BM_LAYOUT_DIRECTION_LEFT];
+
     _completionBlock = completion;
     _currentValue = 0.;
     
@@ -101,7 +90,7 @@
                          
                  } completion:^(BOOL finished) {
                      
-                     [self bindViewToContainerLayout:destinationView];
+                     [NSLayoutConstraint fillSuperView:destinationView];                     
                     _completionBlock(destinationView);                     
                  }];
 #else
@@ -112,7 +101,7 @@
         [_currentAlignmentConstraint setConstant:newOffset];
     } completionHandler:^{
         
-        [self bindViewToContainerLayout:destinationView];
+        [NSLayoutConstraint fillSuperView:destinationView];
         _completionBlock(destinationView);
     }];
 #endif
@@ -132,7 +121,7 @@
 
                      } completion:^(BOOL finished) {
 
-                         [self bindViewToContainerLayout:_currentView];
+                         [NSLayoutConstraint fillSuperView:_currentView];
                      }];
 #else
     [[NSAnimationContext currentContext] setDuration:duration];
@@ -141,51 +130,12 @@
         [_currentAlignmentConstraint setConstant:0.];
     } completionHandler:^{
         
-         [self bindViewToContainerLayout:_currentView];
+        [NSLayoutConstraint fillSuperView:_currentView];
     }];
 #endif
 }
 
 #pragma mark - HELPER
--(void)bindViewToContainerLayout:(VIEW*)aView{
-    [self removeConstraintsFromSuperView:aView];
-    
-    [_containerView addConstraint:[NSLayoutConstraint constraintWithItem:aView attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:_containerView attribute:NSLayoutAttributeLeft multiplier:1.0 constant:0.]];
-    [_containerView addConstraint:[NSLayoutConstraint constraintWithItem:aView attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:_containerView attribute:NSLayoutAttributeRight multiplier:1.0 constant:0.]];
-    [_containerView addConstraint:[NSLayoutConstraint constraintWithItem:aView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:_containerView attribute:NSLayoutAttributeTop multiplier:1.0 constant:0.]];
-    [_containerView addConstraint:[NSLayoutConstraint constraintWithItem:aView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:_containerView attribute:NSLayoutAttributeBottom multiplier:1.0 constant:0.]];
-}
 
--(void)removeConstraintsFromSuperView:(VIEW*)aView{
-    
-    CGRect currentFrame = aView.frame;
-    
-    NSMutableArray* relatedConstraints = [[NSMutableArray alloc] init];
-    for (NSLayoutConstraint* constr in aView.superview.constraints) {
-        
-        if (constr.firstItem == aView || constr.secondItem == aView) {
-            [relatedConstraints addObject:constr];
-        }
-    }
-    
-    [aView.superview removeConstraints:relatedConstraints];
-    
-    aView.frame = currentFrame;
-}
-
--(void)stickView:(VIEW*)aView nextToSibling:(VIEW*)sibling isNext:(Boolean)isNext{
-    [self removeConstraintsFromSuperView:aView];
-    
-    if(isNext){
-        [_containerView addConstraint:[NSLayoutConstraint constraintWithItem:aView attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:sibling attribute:NSLayoutAttributeRight multiplier:1.0 constant:0.]];
-    }else{
-        [_containerView addConstraint:[NSLayoutConstraint constraintWithItem:aView attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:sibling attribute:NSLayoutAttributeLeft multiplier:1.0 constant:0.]];
-    }
-    
-    [_containerView addConstraint:[NSLayoutConstraint constraintWithItem:aView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:sibling attribute:NSLayoutAttributeTop multiplier:1.0 constant:0.]];
-    [_containerView addConstraint:[NSLayoutConstraint constraintWithItem:aView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:sibling attribute:NSLayoutAttributeBottom multiplier:1.0 constant:0.]];
-    [_containerView addConstraint:[NSLayoutConstraint constraintWithItem:aView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:sibling attribute:NSLayoutAttributeWidth multiplier:1 constant:0.]];
-
-}
 
 @end
