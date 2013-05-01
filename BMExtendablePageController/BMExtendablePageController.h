@@ -53,6 +53,10 @@
  */
 @property(retain, readonly) VIEW_CONTROLLER *selectedViewController;
 
+/** Set loggingEnabled to TRUE (default is FALSE) if you like to get information about the pageControllers' cache and reload mechanism.
+ */
+@property(assign,nonatomic) Boolean loggingEnabled;
+
 /** Convenience init method as a delegate is required for any use of the page controller.
  */
 -(id)initWithDelegate:(id<BMExtendablePageControllerDelegate>)aDelegate;
