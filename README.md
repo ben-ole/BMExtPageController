@@ -1,14 +1,14 @@
 # BMExtendablePageController
 
-A replacement for UIPageController / NSPageController, because we need **custom transitions**!
+A replacement for *UIPageController* / *NSPageController*, because we need **custom transitions**!
 
-BMExtPageController is a **drop in - replacement** and mirrors almost all functionalities found in UIPageController so if you’ve been starting a project already and you feel limited with default transition styles and behavior offered - give BMExtPageController a try.
+BMExtPageController is a **drop in - replacement** and mirrors almost all functionalities found in *UIPageController* so if you’ve been starting a project already and you feel limited with default transition styles and behavior offered - give BMExtPageController a try.
 
 ## Features offered
 * iOS and OSX ready
 * Two kinds of transitions offered:
 	* Basic transition
-	* Continuous transitions - e. g. attach a panning gesture to take control over the transition
+	* Continuous transitions - e. g. attach a panning gesture to take control over the transition timing
 * Custom transitions
 	* use one of the built in transitions, which currently support:
 		* *Basic transition*: Fading
@@ -24,27 +24,27 @@ BMExtPageController is a **drop in - replacement** and mirrors almost all functi
 * No further dependencies
 
 ## Project Integration
-Use cocoapods and the following dependency to your Podfile:
+Use cocoapods and put the following dependency to your Podfile:
 
 ``` ruby
-	...
-	pod 'BMExtendablePageController'
+pod 'BMExtendablePageController'
 ``` 
 
 ## Example Usage
 
-### 01. Create Instanc
+### 01. Create Instance
 Create an instance of *BMExtendablePageController*  by dragging an *UIView/NSView* in your storyboard/xib or create one in code. Anyway, you need to provide a **delegate** implementing the _BMExtendablePageControllerDelegate_ protocol and assign an *NSArray* to the _arrangedObjects_ property containing data for each page.
 
 ``` objective-c		
-		BMExtendablePageController *pageController = [[BMExtendablePageController alloc] 	
-		  																		initWithDelegate:self 
-												arrangedObjects:@[@„page01“,@„page02“,@„page03“] 														  completed:^{
-                												// Do what ever!
-                										  }];
+BMExtendablePageController *pageController = [[BMExtendablePageController alloc] 
+                                               initWithDelegate:self	
+                                                arrangedObjects:@[@„page01“,@„page02“,@„page03“] 
+                                                      completed:^{
+                                                        // page load completed - do what ever you want.
+                                                      }];
 ```
 
-### 02. Implement Delegate
+### 02. Delegate Implementation
 
 ``` objective-c		
 // return identifiers ( to support recycling )
@@ -81,25 +81,27 @@ prepareViewController:(UIViewController *)viewController withObject:(id)object{
 
 In case you want a **basic transition** you simply call
 ``` objective-c
-	    // next page
-	    [_pageController nextPageWithTransitionStyle:[BMHorizontalFlipTransition transition]];
+
+// next page
+[_pageController nextPageWithTransitionStyle:[BMHorizontalFlipTransition transition]];
 	  
-	  // or previous page
-	   [_pageController prevPageWithTransitionStyle:[BMHorizontalFlipTransition 
+// or previous page
+[_pageController prevPageWithTransitionStyle:[BMHorizontalFlipTransition 
 	   transition]];
 	   
-	   // or any page
-       [_pageController setSelectedIndex:104 withTransition:[BMFadeTransition transition]];	   
+// or any page
+[_pageController setSelectedIndex:104 withTransition:[BMFadeTransition transition]];	   
 ```
 *Please note: you are responsible to stay within your index boundaries.*
 
 Or attach a **continuous transition** to the page controller (e.g. on touch down)
 ``` objective-c		
-    	_currentTransition = [_pageController attachContinuouseTransition:	[BMHorizontalCTransition transition]];
+_currentTransition = [_pageController attachContinuouseTransition:	[BMHorizontalCTransition transition]];
 ```
-and now update *_currentTransition* whenever needed - for example on *scrollViewDidScroll:*
+and now update *_currentTransition* whenever needed - e. g. on *scrollViewDidScroll:*
+
 ``` objective-c
-	   [_currentTransition updateTransitionWithValue:normalizedIndex];
+[_currentTransition updateTransitionWithValue:normalizedIndex];	// -1.0 < normalizedIndex < +1.0
 ```	
 
 ##LICENSE
