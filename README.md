@@ -108,7 +108,7 @@ and now update *_currentTransition* whenever needed - e. g. on *scrollViewDidScr
 
 *MIT License*
 
-Copyright (C) 2012 by Spaceman Labs
+Copyright (C) 2013 by Benjamin Müller
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
