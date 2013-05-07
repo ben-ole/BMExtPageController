@@ -32,6 +32,8 @@ pod 'BMExtendablePageController'
 
 ## Example Usage
 
+The way how you provide content for BMExtandablePageController is identical to the *Bookmode* discussed in the *NSPageController* [Reference](http://developer.apple.com/library/Mac/#documentation/AppKit/Reference/NSPageController_Class/Reference/Reference.html#//apple_ref/doc/uid/TP40012265-CH1-SW21)
+
 ### 01. Create Instance
 Create an instance of *BMExtendablePageController*  by dragging an *UIView/NSView* in your storyboard/xib or create one in code. Anyway, you need to provide a **delegate** implementing the _BMExtendablePageControllerDelegate_ protocol and assign an *NSArray* to the _arrangedObjects_ property containing data for each page.
 
