@@ -6,6 +6,8 @@
 //
 //
 
+#import "BMExtendablePageController.h"
+
 typedef enum {
     BM_LAYOUT_DIRECTION_RIGHT = 0,
     BM_LAYOUT_DIRECTION_LEFT,

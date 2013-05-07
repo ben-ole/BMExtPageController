@@ -7,6 +7,7 @@
 //
 
 #import "BMExtendablePageController.h"
+#import "NSLayoutConstraint+PlacementHelper.h"
 
 @implementation BMExtendablePageController{
     NSMutableArray* _pages;
@@ -60,6 +61,7 @@
     _temporaryDisabled = false;
     _selectedIndex = 0;
     _arrangedObjects = nil;
+    _loggingEnabled = FALSE;
     _pages = [[NSMutableArray alloc] init];
     _freeViewController = [[NSMutableDictionary alloc] init];
     
@@ -192,16 +194,9 @@
 #pragma mark - VIEW STUFF
 -(void)presentSelectedViewController{
 
-//    _selectedViewController.view.frame = self.bounds;
     VIEW* currentView = _selectedViewController.view;
-    
-    currentView.translatesAutoresizingMaskIntoConstraints = NO;
-    
-    
-    [self addConstraint:[NSLayoutConstraint constraintWithItem:currentView attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeLeft multiplier:1.0 constant:0.]];
-    [self addConstraint:[NSLayoutConstraint constraintWithItem:currentView attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeRight multiplier:1.0 constant:0.]];
-    [self addConstraint:[NSLayoutConstraint constraintWithItem:currentView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeTop multiplier:1.0 constant:0.]];
-    [self addConstraint:[NSLayoutConstraint constraintWithItem:currentView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeBottom multiplier:1.0 constant:0.]];
+        
+    [NSLayoutConstraint fillSuperView:currentView];
 }
 
 
@@ -236,7 +231,8 @@
             // now process the currently active indices
             int startIndx = (int) MAX(0, _selectedIndex-PAGE_CONTROLLER_PRELOAD_RANGE);
             int stopIdx = (int) MIN(_arrangedObjects.count, _selectedIndex + PAGE_CONTROLLER_PRELOAD_RANGE +1);
-            NSLog(@"loading active indices at %i - %i",startIndx,stopIdx);
+            
+            if(_loggingEnabled) NSLog(@"loading active indices at %i - %i",startIndx,stopIdx-1);
             
             for (int idx=startIndx; idx<stopIdx; idx++) {
                 id obj = [_pages objectAtIndex:idx];
@@ -260,7 +256,7 @@
     if (![[_pages objectAtIndex:index] isKindOfClass:[NSNull class]])
         return;
     
-    NSLog(@"load page with idx: %i",index);
+    if(_loggingEnabled) NSLog(@"load page with idx: %i",index);
 
     // get a viewcontroller for index
     VIEW_CONTROLLER* pageCtrl = [self requireViewControllerForIndex:index];
@@ -298,7 +294,7 @@
 
 -(void)depositViewControllerWithIndex:(int)index{
     
-    NSLog(@"deposit page with idx: %i",index);
+    if(_loggingEnabled) NSLog(@"deposit page with idx: %i",index);
     
     NSString* pageId = [_delegate pageController:self identifierForIndex:index];
     

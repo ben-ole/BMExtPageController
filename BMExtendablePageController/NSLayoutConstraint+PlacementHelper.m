@@ -56,7 +56,7 @@
 
 +(NSLayoutConstraint*)fillSuperView:(VIEW *)aView{
     
-    if(!aView || !aView.superview) return;
+    if(!aView || !aView.superview) return nil;
     
     aView.translatesAutoresizingMaskIntoConstraints = FALSE;
     [NSLayoutConstraint removeConstraintsFromSuperView:aView];

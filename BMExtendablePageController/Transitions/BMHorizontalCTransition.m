@@ -60,7 +60,7 @@
 }
 
 -(void)finishTransitionWithRelativeIndex:(int)index{
-        
+    
     float size = _containerView.bounds.size.width;
     float newOffset = size;
     VIEW* destinationView;
@@ -82,15 +82,20 @@
     float duration = HORIZONTAL_TRANSITION_DURATION_DEFAULT * fabsf(_currentValue - (float)index);
 
 #if TARGET_OS_IPHONE
+    
     [UIView animateWithDuration:duration
                           delay:0. options:UIViewAnimationOptionCurveEaseInOut
                      animations:^{
-                     
                          [_currentAlignmentConstraint setConstant:newOffset];
+                         [_containerView layoutIfNeeded];
                          
                  } completion:^(BOOL finished) {
                      
-                     [NSLayoutConstraint fillSuperView:destinationView];                     
+                     [NSLayoutConstraint removeConstraintsFromSuperView:_prevView];
+                     [NSLayoutConstraint removeConstraintsFromSuperView:_nextView];
+                     [NSLayoutConstraint removeConstraintsFromSuperView:_currentView];
+                     [NSLayoutConstraint fillSuperView:destinationView];
+                     [_containerView layoutIfNeeded];
                     _completionBlock(destinationView);                     
                  }];
 #else
@@ -98,7 +103,7 @@
     [[NSAnimationContext currentContext] setDuration:duration];
     [NSAnimationContext runAnimationGroup:^(NSAnimationContext *context) {
         
-        [_currentAlignmentConstraint setConstant:newOffset];
+        [[_currentAlignmentConstraint animator] setConstant:newOffset];
     } completionHandler:^{
         
         [NSLayoutConstraint fillSuperView:destinationView];
