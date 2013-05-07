@@ -40,7 +40,7 @@
 
 @interface BMExtendablePageController : VIEW
 
-@property(weak) IBOutlet id<BMExtendablePageControllerDelegate> delegate;
+@property(unsafe_unretained) IBOutlet id<BMExtendablePageControllerDelegate> delegate;
 
 /** Array of all displayed objects (after sorting and potentially filtering by you). The delegate will be asked for snapshots as they are needed.
  */
