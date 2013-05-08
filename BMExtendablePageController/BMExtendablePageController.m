@@ -133,6 +133,8 @@
                                                                 _selectedViewController = [_pages objectAtIndex:_selectedIndex];
                                                                 _temporaryDisabled = FALSE;
                                                                 [self updatePageCache:nil];
+                                                                
+                                                                [_delegate pageController:self didTransitionToObject:[_arrangedObjects objectAtIndex:_selectedIndex]];
                                                             }];
 
 }
