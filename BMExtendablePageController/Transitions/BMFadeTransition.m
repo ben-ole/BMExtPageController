@@ -35,7 +35,9 @@
             currentView.alpha = 0.;
             nextView.alpha = 1.;
         } completion:^(BOOL finished) {
-            
+                             
+            [NSLayoutConstraint removeConstraintsFromSuperView:currentView];
+
             completion();
             currentView.alpha = 1.;
         }];
