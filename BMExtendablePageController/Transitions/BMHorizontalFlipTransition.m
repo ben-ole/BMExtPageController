@@ -29,6 +29,7 @@
     [NSLayoutConstraint stickView:nextView
                     nextToSibling:currentView
                         direction:(toIdx > fromIdx ? BM_LAYOUT_DIRECTION_RIGHT : BM_LAYOUT_DIRECTION_LEFT)];
+    [containerView layoutIfNeeded];    
     
     float destOffset = containerView.bounds.size.width * ((toIdx > fromIdx) ? -1. : 1.);
     
@@ -39,8 +40,12 @@
                      animations:^{
                          
                          [currentAlignmentConstraint setConstant:destOffset];
+                         [containerView layoutIfNeeded];
                          
                      } completion:^(BOOL finished) {
+                         
+                         [NSLayoutConstraint removeConstraintsFromSuperView:currentView];
+                         [NSLayoutConstraint fillSuperView:nextView];                         
                          
                          completion();
                      }];
