@@ -1,7 +1,7 @@
 # Be sure to run `pod spec lint BMExtendablePageController.podspec' to ensure this is a
 Pod::Spec.new do |s|
   s.name         = "BMExtendablePageController"
-  s.version      = "0.1.0"
+  s.version      = "0.1.1"
   s.summary      = "An UIPageController replacement supporting custom and continuous transitions."
   s.description  = <<-DESC
                     A replacement for UIPageController / NSPageController, because we need custom transitions!
@@ -30,7 +30,7 @@ No further dependencies
   s.homepage     = "https://github.com/elchbenny/BMExtPageController"
   s.license      = 'MIT'
   s.author       = { "Benjamin Müller" => "elchbenny@googlemail.com" }
-  s.source       = { :git => "https://github.com/elchbenny/BMExtPageController.git", :tag => "0.1.0" }
+  s.source       = { :git => "https://github.com/elchbenny/BMExtPageController.git", :tag => "0.1.1" }
 
   s.ios.deployment_target = '5.0'
   s.osx.deployment_target = '10.7'
