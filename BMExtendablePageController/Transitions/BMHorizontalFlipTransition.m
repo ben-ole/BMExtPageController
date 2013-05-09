@@ -29,12 +29,12 @@
     [NSLayoutConstraint stickView:nextView
                     nextToSibling:currentView
                         direction:(toIdx > fromIdx ? BM_LAYOUT_DIRECTION_RIGHT : BM_LAYOUT_DIRECTION_LEFT)];
-    [containerView layoutIfNeeded];    
     
     float destOffset = containerView.bounds.size.width * ((toIdx > fromIdx) ? -1. : 1.);
     
     // animate transition
 #if TARGET_OS_IPHONE
+    [containerView layoutIfNeeded];    
 
     [UIView animateWithDuration:duration delay:0. options:UIViewAnimationOptionCurveEaseInOut
                      animations:^{
