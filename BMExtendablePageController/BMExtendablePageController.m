@@ -177,6 +177,8 @@
                                     }
                                     
                                     [self updatePageCache:nil];
+                                    
+                                    [_delegate pageController:self didTransitionToObject:[_arrangedObjects objectAtIndex:_selectedIndex]];
     }];
     
     return transition;
