@@ -43,6 +43,8 @@
 		43FFF6221726A738006E9301 /* BMHorizontalFlipTransition.h in Headers */ = {isa = PBXBuildFile; fileRef = 43FFF6201726A738006E9301 /* BMHorizontalFlipTransition.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		43FFF6231726A738006E9301 /* BMHorizontalFlipTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 43FFF6211726A738006E9301 /* BMHorizontalFlipTransition.m */; };
 		43FFF6241726A738006E9301 /* BMHorizontalFlipTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 43FFF6211726A738006E9301 /* BMHorizontalFlipTransition.m */; };
+		95487DBB17413168002532C8 /* BMVerticalFlipTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 95487DBA17413168002532C8 /* BMVerticalFlipTransition.m */; };
+		95487DBC17413195002532C8 /* BMVerticalFlipTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 95487DBA17413168002532C8 /* BMVerticalFlipTransition.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -109,6 +111,8 @@
 		43FFF61E17269A81006E9301 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		43FFF6201726A738006E9301 /* BMHorizontalFlipTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMHorizontalFlipTransition.h; sourceTree = "<group>"; };
 		43FFF6211726A738006E9301 /* BMHorizontalFlipTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMHorizontalFlipTransition.m; sourceTree = "<group>"; };
+		95487DB917413168002532C8 /* BMVerticalFlipTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMVerticalFlipTransition.h; sourceTree = "<group>"; };
+		95487DBA17413168002532C8 /* BMVerticalFlipTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMVerticalFlipTransition.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -264,6 +268,8 @@
 		43FFF6021726929E006E9301 /* Transitions */ = {
 			isa = PBXGroup;
 			children = (
+				95487DB917413168002532C8 /* BMVerticalFlipTransition.h */,
+				95487DBA17413168002532C8 /* BMVerticalFlipTransition.m */,
 				43FFF60317269321006E9301 /* BMFadeTransition.h */,
 				43FFF60417269321006E9301 /* BMFadeTransition.m */,
 				43FFF60517269321006E9301 /* BMFoldTransition.h */,
@@ -455,6 +461,7 @@
 				43FFF61017269321006E9301 /* BMHorizontalCTransition.m in Sources */,
 				43FFF6231726A738006E9301 /* BMHorizontalFlipTransition.m in Sources */,
 				43B1A412172FAF990067394A /* NSLayoutConstraint+PlacementHelper.m in Sources */,
+				95487DBB17413168002532C8 /* BMVerticalFlipTransition.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -477,6 +484,7 @@
 				43FFF61117269321006E9301 /* BMHorizontalCTransition.m in Sources */,
 				43FFF6241726A738006E9301 /* BMHorizontalFlipTransition.m in Sources */,
 				43B1A413172FAF990067394A /* NSLayoutConstraint+PlacementHelper.m in Sources */,
+				95487DBC17413195002532C8 /* BMVerticalFlipTransition.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
