@@ -50,16 +50,20 @@
                          completion();
                      }];
 #else
+    [containerView layoutSubtreeIfNeeded];
+    
     [[NSAnimationContext currentContext] setDuration:duration];
     [[NSAnimationContext currentContext] setTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut]];    
     [NSAnimationContext runAnimationGroup:^(NSAnimationContext *context) {
         
         [[currentAlignmentConstraint animator] setConstant:destOffset];
+        [containerView layoutSubtreeIfNeeded];
         
     } completionHandler:^{
         
         [NSLayoutConstraint removeConstraintsFromSuperView:currentView];
         [NSLayoutConstraint fillSuperView:nextView];
+        [containerView layoutSubtreeIfNeeded];
         
         completion();
     }];
