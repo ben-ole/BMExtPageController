@@ -176,6 +176,8 @@
                                         _selectedIndex--;
                                     }
                                     
+                                    _selectedViewController = [_pages objectAtIndex:_selectedIndex];
+                                    
                                     [self updatePageCache:nil];
                                     
                                     [_delegate pageController:self didTransitionToObject:[_arrangedObjects objectAtIndex:_selectedIndex]];
