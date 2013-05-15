@@ -27,9 +27,6 @@
 		43FFF60917269321006E9301 /* BMFadeTransition.h in Headers */ = {isa = PBXBuildFile; fileRef = 43FFF60317269321006E9301 /* BMFadeTransition.h */; };
 		43FFF60A17269321006E9301 /* BMFadeTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 43FFF60417269321006E9301 /* BMFadeTransition.m */; };
 		43FFF60B17269321006E9301 /* BMFadeTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 43FFF60417269321006E9301 /* BMFadeTransition.m */; };
-		43FFF60C17269321006E9301 /* BMFoldTransition.h in Headers */ = {isa = PBXBuildFile; fileRef = 43FFF60517269321006E9301 /* BMFoldTransition.h */; };
-		43FFF60D17269321006E9301 /* BMFoldTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 43FFF60617269321006E9301 /* BMFoldTransition.m */; };
-		43FFF60E17269321006E9301 /* BMFoldTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 43FFF60617269321006E9301 /* BMFoldTransition.m */; };
 		43FFF60F17269321006E9301 /* BMHorizontalCTransition.h in Headers */ = {isa = PBXBuildFile; fileRef = 43FFF60717269321006E9301 /* BMHorizontalCTransition.h */; };
 		43FFF61017269321006E9301 /* BMHorizontalCTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 43FFF60817269321006E9301 /* BMHorizontalCTransition.m */; };
 		43FFF61117269321006E9301 /* BMHorizontalCTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 43FFF60817269321006E9301 /* BMHorizontalCTransition.m */; };
@@ -98,8 +95,6 @@
 		43FFF5EE17268BE7006E9301 /* BMExtendablePageControllerOSXTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BMExtendablePageControllerOSXTests.m; sourceTree = "<group>"; };
 		43FFF60317269321006E9301 /* BMFadeTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMFadeTransition.h; sourceTree = "<group>"; };
 		43FFF60417269321006E9301 /* BMFadeTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMFadeTransition.m; sourceTree = "<group>"; };
-		43FFF60517269321006E9301 /* BMFoldTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMFoldTransition.h; sourceTree = "<group>"; };
-		43FFF60617269321006E9301 /* BMFoldTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMFoldTransition.m; sourceTree = "<group>"; };
 		43FFF60717269321006E9301 /* BMHorizontalCTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMHorizontalCTransition.h; sourceTree = "<group>"; };
 		43FFF60817269321006E9301 /* BMHorizontalCTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMHorizontalCTransition.m; sourceTree = "<group>"; };
 		43FFF612172699F3006E9301 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -272,8 +267,6 @@
 				95487DBA17413168002532C8 /* BMVerticalFlipTransition.m */,
 				43FFF60317269321006E9301 /* BMFadeTransition.h */,
 				43FFF60417269321006E9301 /* BMFadeTransition.m */,
-				43FFF60517269321006E9301 /* BMFoldTransition.h */,
-				43FFF60617269321006E9301 /* BMFoldTransition.m */,
 				43FFF60717269321006E9301 /* BMHorizontalCTransition.h */,
 				43FFF60817269321006E9301 /* BMHorizontalCTransition.m */,
 				43FFF6201726A738006E9301 /* BMHorizontalFlipTransition.h */,
@@ -291,7 +284,6 @@
 			files = (
 				43FFF5FF17268DAD006E9301 /* BMExtendablePageController.h in Headers */,
 				43FFF60917269321006E9301 /* BMFadeTransition.h in Headers */,
-				43FFF60C17269321006E9301 /* BMFoldTransition.h in Headers */,
 				43FFF60F17269321006E9301 /* BMHorizontalCTransition.h in Headers */,
 				43FFF6221726A738006E9301 /* BMHorizontalFlipTransition.h in Headers */,
 				43B1A411172FAF990067394A /* NSLayoutConstraint+PlacementHelper.h in Headers */,
@@ -457,7 +449,6 @@
 			files = (
 				43ABDEF91722FD7900262AEC /* BMExtendablePageController.m in Sources */,
 				43FFF60A17269321006E9301 /* BMFadeTransition.m in Sources */,
-				43FFF60D17269321006E9301 /* BMFoldTransition.m in Sources */,
 				43FFF61017269321006E9301 /* BMHorizontalCTransition.m in Sources */,
 				43FFF6231726A738006E9301 /* BMHorizontalFlipTransition.m in Sources */,
 				43B1A412172FAF990067394A /* NSLayoutConstraint+PlacementHelper.m in Sources */,
@@ -480,7 +471,6 @@
 			files = (
 				43FFF5F717268C03006E9301 /* BMExtendablePageController.m in Sources */,
 				43FFF60B17269321006E9301 /* BMFadeTransition.m in Sources */,
-				43FFF60E17269321006E9301 /* BMFoldTransition.m in Sources */,
 				43FFF61117269321006E9301 /* BMHorizontalCTransition.m in Sources */,
 				43FFF6241726A738006E9301 /* BMHorizontalFlipTransition.m in Sources */,
 				43B1A413172FAF990067394A /* NSLayoutConstraint+PlacementHelper.m in Sources */,

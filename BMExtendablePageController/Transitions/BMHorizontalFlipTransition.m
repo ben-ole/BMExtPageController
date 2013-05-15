@@ -34,27 +34,36 @@
     
     // animate transition
 #if TARGET_OS_IPHONE
+    [containerView layoutIfNeeded];    
 
     [UIView animateWithDuration:duration delay:0. options:UIViewAnimationOptionCurveEaseInOut
                      animations:^{
                          
                          [currentAlignmentConstraint setConstant:destOffset];
+                         [containerView layoutIfNeeded];
                          
                      } completion:^(BOOL finished) {
+                         
+                         [NSLayoutConstraint removeConstraintsFromSuperView:currentView];
+                         [NSLayoutConstraint fillSuperView:nextView];                         
                          
                          completion();
                      }];
 #else
+    [containerView layoutSubtreeIfNeeded];
+    
     [[NSAnimationContext currentContext] setDuration:duration];
     [[NSAnimationContext currentContext] setTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut]];    
     [NSAnimationContext runAnimationGroup:^(NSAnimationContext *context) {
         
         [[currentAlignmentConstraint animator] setConstant:destOffset];
+        [containerView layoutSubtreeIfNeeded];
         
     } completionHandler:^{
         
         [NSLayoutConstraint removeConstraintsFromSuperView:currentView];
         [NSLayoutConstraint fillSuperView:nextView];
+        [containerView layoutSubtreeIfNeeded];
         
         completion();
     }];

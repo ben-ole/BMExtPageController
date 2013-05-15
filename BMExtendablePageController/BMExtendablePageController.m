@@ -127,6 +127,7 @@
                                                                 toNextView:nextView
                                                            onContainerView:self
                                                             withCompletion:^(){
+                                                                
                                                                 currentView.frame = [self parkingPosition];
                                                                 
                                                                 _selectedIndex = selectedIndex;
@@ -175,6 +176,7 @@
                                     }else if(nowActiveView == prevView){
                                         _selectedIndex--;
                                     }
+                                     _selectedViewController = [_pages objectAtIndex:_selectedIndex];
                                     
                                     _selectedViewController = [_pages objectAtIndex:_selectedIndex];
                                     
@@ -187,12 +189,6 @@
 }
 
 #pragma mark - PROPERTIES
--(void)setBounds:(RECT)aRect{
-    [super setBounds:aRect];
-    
-    _selectedViewController.view.frame = self.bounds;
-}
-
 -(void)setSelectedIndex:(NSInteger)selectedIndex{
     [self setSelectedIndex:selectedIndex withTransition:nil];
 }
