@@ -135,7 +135,8 @@
                                                                 _temporaryDisabled = FALSE;
                                                                 [self updatePageCache:nil];
                                                                 
-                                                                [_delegate pageController:self didTransitionToObject:[_arrangedObjects objectAtIndex:_selectedIndex]];
+                                                                if(_delegate && [_delegate respondsToSelector:@selector(pageController:didTransitionToObject:)])
+                                                                    [_delegate pageController:self didTransitionToObject:[_arrangedObjects objectAtIndex:_selectedIndex]];
                                                             }];
 
 }
@@ -180,7 +181,8 @@
                                     
                                     [self updatePageCache:nil];
                                     
-                                    [_delegate pageController:self didTransitionToObject:[_arrangedObjects objectAtIndex:_selectedIndex]];
+                                    if(_delegate && [_delegate respondsToSelector:@selector(pageController:didTransitionToObject:)])
+                                        [_delegate pageController:self didTransitionToObject:[_arrangedObjects objectAtIndex:_selectedIndex]];
     }];
     
     return transition;
