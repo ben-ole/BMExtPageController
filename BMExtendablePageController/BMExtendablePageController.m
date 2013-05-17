@@ -79,6 +79,8 @@
     
     [_pages removeAllObjects];
     
+    _selectedIndex = 0;
+    
     for (int i=0; i<_arrangedObjects.count; i++) {
         [_pages addObject:[NSNull null]];
     }
