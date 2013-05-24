@@ -29,9 +29,11 @@
     
     float destOffset = containerView.bounds.size.width * ((toIdx > fromIdx) ? -1. : 1.);
     
+    [NSLayoutConstraint fillSuperView:nextView];
+    [nextView layout];
+    
     CGImageRef currImg = [currentView imageRepresentation];
     
-    nextView.frame = CGRectOffset(currentView.bounds, -destOffset, 0.);
     CGImageRef nextImg = [nextView imageRepresentation];
     
     // create animation layer
@@ -59,7 +61,6 @@
     
     // do actual scene change
     [NSLayoutConstraint removeConstraintsFromSuperView:currentView];    
-    [NSLayoutConstraint fillSuperView:nextView];
     
     // animate transition
     CABasicAnimation* slideAnimation = [CABasicAnimation animationWithKeyPath: @"transform.translation.x"];

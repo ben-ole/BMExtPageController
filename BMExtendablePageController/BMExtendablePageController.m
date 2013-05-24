@@ -279,7 +279,6 @@
 
         pageCtrl.view.frame = [self parkingPosition];
         [self addSubview:pageCtrl.view];
-
     });
 }
 

@@ -43,49 +43,12 @@
     return nil;
 #else
     
-    [self setWantsLayer:YES];
-    [self.layer display];
-    CGContextRef ctx = NULL;
+    NSBitmapImageRep* bitmap = [self bitmapImageRepForCachingDisplayInRect:self.bounds];
     
-    CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
-
-    int bitmapByteCount;
-    int bitmapBytesPerRow;
+    [self cacheDisplayInRect:self.bounds toBitmapImageRep:bitmap];
     
-    int pixelsHigh = (int)self.layer.bounds.size.height;
-    int pixelsWide = (int)self.layer.bounds.size.width;
+    return    bitmap.CGImage;
     
-    NSLog(@"w: %i h: %i",pixelsWide,pixelsHigh);
-    
-    bitmapBytesPerRow   = (pixelsWide * 4);
-    bitmapByteCount     = (bitmapBytesPerRow * pixelsHigh);
-    
-    ctx = CGBitmapContextCreate (NULL,
-                                 pixelsWide,
-                                 pixelsHigh,
-                                 8,
-                                 bitmapBytesPerRow,
-                                 colorSpace,
-                                 kCGImageAlphaPremultipliedLast);
-    
-    if (ctx == NULL){
-        NSLog(@"Failed to create context.");
-        return nil;
-    }
-    
-    [self.layer display];
-    
-    CGImageRef img = CGBitmapContextCreateImage(ctx);
-    NSBitmapImageRep *bitmap = [[NSBitmapImageRep alloc] initWithCGImage:img];
-    
-    
-    NSData *imageData = [bitmap representationUsingType:NSPNGFileType properties:nil];
-    [imageData writeToFile:@"/Users/Benjamin/Desktop/test/test.png" atomically:NO];
-
-    CGColorSpaceRelease( colorSpace );
-//    CGContextRelease(ctx);
-    
-    return img;
 
 #endif
 }
