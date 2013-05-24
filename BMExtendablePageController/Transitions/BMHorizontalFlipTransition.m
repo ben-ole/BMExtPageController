@@ -30,7 +30,6 @@
     float destOffset = containerView.bounds.size.width * ((toIdx > fromIdx) ? -1. : 1.);
     
     [NSLayoutConstraint fillSuperView:nextView];
-    [nextView layout];
     
     CGImageRef currImg = [currentView imageRepresentation];
     
@@ -38,7 +37,7 @@
     
     // create animation layer
     CALayer* animationLayer = [CALayer layer];
-    animationLayer.frame = CGRectOffset(currentView.bounds, 0., -3.);
+    animationLayer.frame = currentView.bounds;
     
     // add a layer for current view to animationLayer
     CALayer* currentLayer = [CALayer layer];
@@ -54,6 +53,7 @@
 
     // add layer to container
     #if !TARGET_OS_IPHONE
+        animationLayer.frame = CGRectOffset(currentView.bounds, 0., -3.);   // strange offset
         [containerView setWantsLayer:YES];
     #endif
     

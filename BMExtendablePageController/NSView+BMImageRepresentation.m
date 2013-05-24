@@ -7,6 +7,7 @@
 //
 
 #import "NSView+BMImageRepresentation.h"
+#import <QuartzCore/QuartzCore.h>
 
 @implementation VIEW (BMImageRepresentation)
 
@@ -14,33 +15,20 @@
 - (CGImageRef)imageRepresentation {
 	
 #if TARGET_OS_IPHONE
-    #warning to be implemented!
     
-//    CGRect offscreenRect = self.bounds;
-//    NSBitmapImageRep* offscreenRep = nil;
-//    
-//    offscreenRep = [[NSBitmapImageRep alloc] initWithBitmapDataPlanes:nil
-//                                                           pixelsWide:offscreenRect.size.width
-//                                                           pixelsHigh:offscreenRect.size.height
-//                                                        bitsPerSample:8
-//                                                      samplesPerPixel:4
-//                                                             hasAlpha:YES
-//                                                             isPlanar:NO
-//                                                       colorSpaceName:NSCalibratedRGBColorSpace
-//                                                         bitmapFormat:0
-//                                                          bytesPerRow:(4 * offscreenRect.size.width)
-//                                                         bitsPerPixel:32];
-//    
-//    [NSGraphicsContext saveGraphicsState];
-//    [NSGraphicsContext setCurrentContext:[NSGraphicsContext
-//                                          graphicsContextWithBitmapImageRep:offscreenRep]];
-//    
-//    [self display];
-//    
-//    [NSGraphicsContext restoreGraphicsState];
-//    
-//    return offscreenRep.CGImage;
-    return nil;
+    UIGraphicsBeginImageContext(self.bounds.size);
+    
+    CGContextRef ctx = UIGraphicsGetCurrentContext();
+    [[UIColor blackColor] set];
+    CGContextFillRect(ctx, self.bounds);
+    
+    [self.layer renderInContext:ctx];
+    
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+
+    UIGraphicsEndImageContext();
+    
+    return newImage.CGImage;
 #else
     
     NSBitmapImageRep* bitmap = [self bitmapImageRepForCachingDisplayInRect:self.bounds];
@@ -48,8 +36,6 @@
     [self cacheDisplayInRect:self.bounds toBitmapImageRep:bitmap];
     
     return    bitmap.CGImage;
-    
-
 #endif
 }
 @end

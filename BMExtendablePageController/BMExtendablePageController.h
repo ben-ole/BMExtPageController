@@ -10,7 +10,6 @@
     #import <Foundation/Foundation.h>
     #import <TargetConditionals.h>
     #import <QuartzCore/QuartzCore.h>
-
     #if TARGET_OS_IPHONE
         #import <UIKit/UIKit.h>
         #define VIEW_CONTROLLER UIViewController
