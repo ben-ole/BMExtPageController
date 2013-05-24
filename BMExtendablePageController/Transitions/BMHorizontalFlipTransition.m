@@ -8,7 +8,6 @@
 
 #import "BMHorizontalFlipTransition.h"
 #import "NSLayoutConstraint+PlacementHelper.h"
-#import <QuartzCore/QuartzCore.h>
 #import "CAAnimation+Blocks.h"
 #import "NSView+BMImageRepresentation.h"
 
@@ -24,7 +23,7 @@
               withDuration:(float)duration
              andCurrenView:(VIEW *)currentView
                 toNextView:(VIEW *)nextView
-           onContainerView:(NSView *)containerView
+           onContainerView:(VIEW *)containerView
             withCompletion:(void (^)())completion{
     
     
@@ -38,49 +37,31 @@
     // create animation layer
     CALayer* animationLayer = [CALayer layer];
     animationLayer.frame = CGRectOffset(currentView.bounds, 0., -3.);
-    animationLayer.backgroundColor = [NSColor redColor].CGColor;
     
     // add a layer for current view to animationLayer
     CALayer* currentLayer = [CALayer layer];
-    currentLayer.backgroundColor = [NSColor greenColor].CGColor;
     [currentLayer setContents:(__bridge id)(currImg)];
     currentLayer.frame = currentView.bounds;
     [animationLayer addSublayer:currentLayer];
     
     // add a layer for next view to animationLayer
     CALayer* nextLayer = [CALayer layer];
-    nextLayer.backgroundColor = [NSColor blueColor].CGColor;
     [nextLayer setContents:(__bridge id)(nextImg)];
     nextLayer.frame = CGRectOffset(nextView.bounds, -destOffset, 0.);
     [animationLayer addSublayer:nextLayer];
 
-    [containerView setWantsLayer:YES];
+    // add layer to container
+    #if !TARGET_OS_IPHONE
+        [containerView setWantsLayer:YES];
+    #endif
+    
     [containerView.layer addSublayer:animationLayer];
-        
+    
     // do actual scene change
     [NSLayoutConstraint removeConstraintsFromSuperView:currentView];    
     [NSLayoutConstraint fillSuperView:nextView];
-
     
     // animate transition
-#if TARGET_OS_IPHONE
-    [containerView layoutIfNeeded];
-
-    [UIView animateWithDuration:duration delay:0. options:UIViewAnimationOptionCurveEaseInOut
-                     animations:^{
-                         
-                         [currentAlignmentConstraint setConstant:destOffset];
-                         [containerView layoutIfNeeded];
-                         
-                     } completion:^(BOOL finished) {
-                         
-                         [NSLayoutConstraint removeConstraintsFromSuperView:currentView];
-                         [NSLayoutConstraint fillSuperView:nextView];                         
-                         
-                         completion();
-                     }];
-#else
-    
     CABasicAnimation* slideAnimation = [CABasicAnimation animationWithKeyPath: @"transform.translation.x"];
     slideAnimation.fromValue = [NSNumber numberWithFloat:0.0];
     slideAnimation.toValue = [NSNumber numberWithFloat:destOffset];
@@ -95,8 +76,7 @@
         completion();
     }];
     [animationLayer addAnimation:slideAnimation forKey:@"transform.translation.x"];
-    
-#endif
+
 }
 
 @end
