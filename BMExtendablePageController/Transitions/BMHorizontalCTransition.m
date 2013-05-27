@@ -65,11 +65,11 @@
     float newOffset = size;
     VIEW* destinationView;
     
-    if (index == -1) {
+    if (index == +1) {
         // move to prev view
         newOffset *= -1.0;
         destinationView = _nextView;
-    }else if(index == +1){
+    }else if(index == -1){
         // move to next view
         newOffset *= +1.0;
         destinationView = _prevView;
@@ -79,7 +79,7 @@
         destinationView = _currentView;
     }
 
-    float duration = HORIZONTAL_TRANSITION_DURATION_DEFAULT * fabsf(_currentValue - (float)index);
+    float duration = HORIZONTAL_TRANSITION_DURATION_DEFAULT * fabsf(-_currentValue - (float)index);
 
 #if TARGET_OS_IPHONE
     

@@ -110,6 +110,10 @@
     NSAssert(selectedIndex < _pages.count, @"selected index beyond bounds (was %i but max is %i)",(int)selectedIndex,(int)_arrangedObjects.count-1);
     
     VIEW* currentView = [(VIEW_CONTROLLER*)[_pages objectAtIndex:_selectedIndex] view];
+    
+    // check if next page is preloaded otherwise load it now
+    if([[_pages objectAtIndex:selectedIndex] isKindOfClass:[NSNull class]]) [self loadPageWithIndex:selectedIndex];
+    
     VIEW* nextView = [(VIEW_CONTROLLER*)[_pages objectAtIndex:selectedIndex] view];
     
     if (! transition) {
