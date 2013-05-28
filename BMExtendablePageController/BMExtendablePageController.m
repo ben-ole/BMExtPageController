@@ -277,13 +277,20 @@
     // store viewcontroller
     [_pages replaceObjectAtIndex:index withObject:pageCtrl];
     
-    
     // add views to container
-    dispatch_async(dispatch_get_main_queue(), ^{
-
+    if(dispatch_get_current_queue() == dispatch_get_main_queue())
+    {
         pageCtrl.view.frame = [self parkingPosition];
         [self addSubview:pageCtrl.view];
-    });
+    }
+    else
+    {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            pageCtrl.view.frame = [self parkingPosition];
+            [self addSubview:pageCtrl.view];
+        });
+    }
 }
 
 
