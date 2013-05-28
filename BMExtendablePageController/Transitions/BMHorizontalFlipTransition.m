@@ -35,6 +35,8 @@
     
     CGImageRef nextImg = [nextView imageRepresentation];
     
+    [nextView setHidden:YES];
+    
     // create animation layer
     CALayer* animationLayer = [CALayer layer];
     animationLayer.frame = currentView.bounds;
@@ -74,6 +76,7 @@
 
     [slideAnimation setCompletion:^(BOOL finished) {
         [animationLayer removeFromSuperlayer];
+        [nextView setHidden:NO];
         completion();
     }];
     [animationLayer addAnimation:slideAnimation forKey:@"transform.translation.x"];
