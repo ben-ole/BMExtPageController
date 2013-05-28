@@ -117,7 +117,8 @@
     VIEW* nextView = [(VIEW_CONTROLLER*)[_pages objectAtIndex:selectedIndex] view];
     
     // inform delegate that we're going to transition views
-    [_delegate pageControllerWillStartTransition:self];
+    if(_delegate && [_delegate respondsToSelector:@selector(pageControllerWillStartTransition:)])
+        [_delegate pageControllerWillStartTransition:self];
     
     if (! transition) {
         _selectedIndex = selectedIndex;
@@ -165,7 +166,7 @@
     }
 }
 
--(id<BMExtendableContinuousePageTransition>)attachContinuouseTransition:(id<BMExtendableContinuousePageTransition>)transition{
+-(id<BMExtendableContinuousPageTransition>)attachContinuousTransition:(id<BMExtendableContinuousPageTransition>)transition{
     
     VIEW* currentView = [(VIEW_CONTROLLER*)[_pages objectAtIndex:_selectedIndex] view];
     
@@ -178,7 +179,8 @@
         prevView = [(VIEW_CONTROLLER*)[_pages objectAtIndex:_selectedIndex-1] view];
     
     // inform delegate that we're going to transition views
-    [_delegate pageControllerWillStartTransition:self];
+    if(_delegate && [_delegate respondsToSelector:@selector(pageControllerWillStartTransition:)])
+        [_delegate pageControllerWillStartTransition:self];
     
     [transition beginTransitionWithCurrentView:currentView
                                       nextView:nextView prevView:prevView

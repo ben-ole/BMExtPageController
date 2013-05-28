@@ -22,7 +22,7 @@
     NSLayoutConstraint* _currentAlignmentConstraint;
 }
 
-+ (id<BMExtendableContinuousePageTransition>)transition
++ (id<BMExtendableContinuousPageTransition>)transition
 {
     return [[BMVerticalCTransition alloc] init];
 }

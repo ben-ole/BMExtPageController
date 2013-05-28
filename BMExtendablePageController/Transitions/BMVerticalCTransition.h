@@ -13,6 +13,6 @@
 #define HORIZONTAL_TRANSITION_LOWER_LIMIT_DEFAULT   -0.5
 #define HORIZONTAL_TRANSITION_UPPER_LIMIT_DEFAULT   +0.5
 
-@interface BMVerticalCTransition : NSObject <BMExtendableContinuousePageTransition>
+@interface BMVerticalCTransition : NSObject <BMExtendableContinuousPageTransition>
 
 @end

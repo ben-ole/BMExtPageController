@@ -24,7 +24,7 @@
 
 
 
-+(id<BMExtendableContinuousePageTransition>)transition{
++(id<BMExtendableContinuousPageTransition>)transition{
     return [[BMHorizontalCTransition alloc] init];
 }
 

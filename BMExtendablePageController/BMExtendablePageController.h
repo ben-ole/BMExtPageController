@@ -35,7 +35,7 @@
 
 @protocol BMExtendablePageControllerDelegate;
 @protocol BMExtendablePageTransition;
-@protocol BMExtendableContinuousePageTransition;
+@protocol BMExtendableContinuousPageTransition;
 
 
 @interface BMExtendablePageController : VIEW
@@ -84,7 +84,7 @@
 -(void)setArrangedObjects:(NSArray *)arrangedObjects completed:(void (^)())completion;
 
 /** Use this method to attach a continuouse transition to the page controller. Use the returning reference to push subsequent updates to this transition and call finishTransition: or cancelTransition: to complete the processs.*/
--(id<BMExtendableContinuousePageTransition>)attachContinuouseTransition:(id<BMExtendableContinuousePageTransition>)transition;
+-(id<BMExtendableContinuousPageTransition>)attachContinuousTransition:(id<BMExtendableContinuousPageTransition>)transition;
 
 @end
 
@@ -142,7 +142,7 @@
 
 @end
 
-@protocol BMExtendableContinuousePageTransition <NSObject>
+@protocol BMExtendableContinuousPageTransition <NSObject>
 @required
 
 /** setup a transition. The completion block expects an argument to be filled with the proper prevView/nextView/currentView depending on the movement direction */
@@ -164,7 +164,7 @@
 -(void)finishTransitionWithRelativeIndex:(int)idx;
 
 /** Implement this method for easy access to a default version of the transition.*/
-+(id<BMExtendableContinuousePageTransition>)transition;
++(id<BMExtendableContinuousPageTransition>)transition;
 
 @optional
 
