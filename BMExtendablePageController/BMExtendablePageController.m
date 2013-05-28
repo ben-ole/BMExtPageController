@@ -116,6 +116,9 @@
     
     VIEW* nextView = [(VIEW_CONTROLLER*)[_pages objectAtIndex:selectedIndex] view];
     
+    // inform delegate that we're going to transition views
+    [_delegate pageControllerWillStartTransition:self];
+    
     if (! transition) {
         _selectedIndex = selectedIndex;
         _temporaryDisabled = FALSE;
@@ -173,6 +176,9 @@
     VIEW* prevView = nil;
     if (_selectedIndex > 0)
         prevView = [(VIEW_CONTROLLER*)[_pages objectAtIndex:_selectedIndex-1] view];
+    
+    // inform delegate that we're going to transition views
+    [_delegate pageControllerWillStartTransition:self];
     
     [transition beginTransitionWithCurrentView:currentView
                                       nextView:nextView prevView:prevView
@@ -286,7 +292,7 @@
     else
     {
         dispatch_async(dispatch_get_main_queue(), ^{
-            
+
             pageCtrl.view.frame = [self parkingPosition];
             [self addSubview:pageCtrl.view];
         });

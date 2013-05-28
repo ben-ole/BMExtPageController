@@ -121,7 +121,7 @@
 - (void)pageController:(BMExtendablePageController *)pageController didTransitionToObject:(id)object;
 
 /** This message is sent when the user begins a transition wither via swipe gesture of one of the navigation IBAction methods. */
-- (void)pageControllerWillStartLiveTransition:(BMExtendablePageController *)pageController;
+- (void)pageControllerWillStartTransition:(BMExtendablePageController *)pageController;
 
 /** This message is sent when a transition animation completes either via swipe gesture or one of the navigation IBAction methods. Your content view is still hidden and you must call -completeTransition; on pageController when your content is ready to show. If completed successfully, a pageController:didTransitionToRepresentedObject: will already have been sent.
  */
