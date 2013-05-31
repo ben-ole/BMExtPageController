@@ -23,8 +23,6 @@
     #endif
 #endif
 
-#import <QuartzCore/QuartzCore.h>
-
 #ifndef PAGE_CONTROLLER_PRELOAD_RANGE
     #define PAGE_CONTROLLER_PRELOAD_RANGE 1
 #endif
@@ -133,12 +131,17 @@
 @protocol BMExtendablePageTransition <NSObject>
 @required
 
--(void)transitionFromIndex:(int)fromIdx toIndex:(int)toIdx withDuration:(float)duration andCurrenView:(VIEW*)currentView toNextView:(VIEW*)nextView onContainerView:(VIEW*)containerView withCompletion:(void (^)())completion;
+/**
+ * time for the transition to complete.
+ */
+@property float duration;
+
+-(void)transitionFromIndex:(int)fromIdx toIndex:(int)toIdx andCurrenView:(VIEW*)currentView toNextView:(VIEW*)nextView onContainerView:(VIEW*)containerView withCompletion:(void (^)())completion;
 
 @optional
 
 /** Implement this method for easy access to a default version of the transition.*/
-+(id<BMExtendablePageTransition>)transition;
++(id<BMExtendablePageTransition>)transitionWithDuration:(float)time;
 
 @end
 

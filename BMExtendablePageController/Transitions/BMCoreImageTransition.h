@@ -8,8 +8,6 @@
 
 #import <Foundation/Foundation.h>
 #import "BMExtendablePageController.h"
-#import <QuartzCore/QuartzCore.h>
-
 
 @interface BMCoreImageTransition : NSObject<BMExtendablePageTransition>
 
@@ -22,11 +20,12 @@
 /**
  * Convenience method to easily create an instance of BMCoreImageTransition.
  */
-+(id<BMExtendablePageTransition>)transitionWithCATransition:(CATransition*)coreImageTransition;
++(id<BMExtendablePageTransition>)transitionWithCATransition:(CATransition*)coreImageTransition inDuration:(float)time;
 
 
 /**
  * This is an example implementation of a ribble transition which you cann pass to transitionWithCATransition:
+    OSX only - using private API on iOS.
  */
 +(CATransition*)ribbleTransitionWithRect:(RECT)rect;
 

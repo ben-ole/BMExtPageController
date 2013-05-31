@@ -112,7 +112,7 @@
     VIEW* currentView = [(VIEW_CONTROLLER*)[_pages objectAtIndex:_selectedIndex] view];
     
     // check if next page is preloaded otherwise load it now
-    if([[_pages objectAtIndex:selectedIndex] isKindOfClass:[NSNull class]]) [self loadPageWithIndex:selectedIndex];
+    if([[_pages objectAtIndex:selectedIndex] isKindOfClass:[NSNull class]]) [self loadPageWithIndex:(int)selectedIndex];
     
     VIEW* nextView = [(VIEW_CONTROLLER*)[_pages objectAtIndex:selectedIndex] view];
     
@@ -133,7 +133,6 @@
     
     [((id <BMExtendablePageTransition>) transition) transitionFromIndex:(int)_selectedIndex
                                                                    toIndex:(int)selectedIndex
-                                                              withDuration:0.8
                                                              andCurrenView:currentView
                                                                 toNextView:nextView
                                                            onContainerView:self

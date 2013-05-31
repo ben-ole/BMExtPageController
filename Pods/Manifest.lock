@@ -1,0 +1,10 @@
+PODS:
+  - CAAnimationBlocks (0.0.1)
+
+DEPENDENCIES:
+  - CAAnimationBlocks (~> 0.0.1)
+
+SPEC CHECKSUMS:
+  CAAnimationBlocks: b70f877c5b92734abef270152187d3287d84e8f8
+
+COCOAPODS: 0.20.2

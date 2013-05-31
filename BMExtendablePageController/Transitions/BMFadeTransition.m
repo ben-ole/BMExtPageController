@@ -9,16 +9,24 @@
 #import "BMFadeTransition.h"
 #import "NSLayoutConstraint+PlacementHelper.h"
 
-@implementation BMFadeTransition{
+@implementation BMFadeTransition
 
-}
+@synthesize duration=_duration;
 
-+(id<BMExtendablePageTransition>)transition{
++(id<BMExtendablePageTransition>)transitionWithDuration:(float)time{
     
-    return [[BMFadeTransition alloc] init];
+    BMFadeTransition* trans = [[BMFadeTransition alloc] init];
+    trans.duration = time;
+    
+    return trans;
 }
 
--(void)transitionFromIndex:(int)fromIdx toIndex:(int)toIdx withDuration:(float)duration andCurrenView:(VIEW *)currentView toNextView:(VIEW *)nextView onContainerView:(VIEW *)containerView withCompletion:(void (^)())completion{
+-(void)transitionFromIndex:(int)fromIdx
+                   toIndex:(int)toIdx
+             andCurrenView:(VIEW *)currentView
+                toNextView:(VIEW *)nextView
+           onContainerView:(VIEW *)containerView
+            withCompletion:(void (^)())completion{
 
     [NSLayoutConstraint fillSuperView:currentView];
         
@@ -28,7 +36,7 @@
         [NSLayoutConstraint fillSuperView:nextView];
         nextView.alpha = 0.;
 
-        [UIView animateWithDuration:duration animations:^{
+        [UIView animateWithDuration:self.duration animations:^{
             currentView.alpha = 0.;
             nextView.alpha = 1.;
         } completion:^(BOOL finished) {
@@ -45,7 +53,7 @@
         [NSLayoutConstraint fillSuperView:nextView];
         
         
-        [[NSAnimationContext currentContext] setDuration:duration];
+        [[NSAnimationContext currentContext] setDuration:self.duration];
         [NSAnimationContext runAnimationGroup:^(NSAnimationContext *context) {
             [[currentView animator] setAlphaValue:0.];
             [[nextView animator] setAlphaValue:1.];

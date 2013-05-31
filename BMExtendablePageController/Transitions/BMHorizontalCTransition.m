@@ -29,7 +29,11 @@
 }
 
 #pragma mark - Custom Continuouse Transition
--(void)beginTransitionWithCurrentView:(VIEW *)currentView nextView:(VIEW *)nextView prevView:(VIEW *)previousView onContainerView:(VIEW *)containerView withCompletion:(void (^)(VIEW *nowActiveView))completion{
+-(void)beginTransitionWithCurrentView:(VIEW *)currentView
+                             nextView:(VIEW *)nextView
+                             prevView:(VIEW *)previousView
+                      onContainerView:(VIEW *)containerView
+                       withCompletion:(void (^)(VIEW *nowActiveView))completion{
  
     _containerView = containerView;
     _currentView = currentView;

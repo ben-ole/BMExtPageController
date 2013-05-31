@@ -38,6 +38,7 @@
 {
     self.completion = nil;
     self.start = nil;
+    [super dealloc];
 }
 
 - (void)animationDidStart:(CAAnimation *)anim
@@ -68,6 +69,7 @@
         CAAnimationDelegate *delegate = [[CAAnimationDelegate alloc] init];
         delegate.completion = completion;
         self.delegate = delegate;
+        [delegate release];
     }
 }
 
@@ -85,6 +87,7 @@
         CAAnimationDelegate *delegate = [[CAAnimationDelegate alloc] init];
         delegate.start = start;
         self.delegate = delegate;
+        [delegate release];
     }
 }
 

@@ -1,7 +1,7 @@
 # Be sure to run `pod spec lint BMExtendablePageController.podspec' to ensure this is a
 Pod::Spec.new do |s|
   s.name         = "BMExtendablePageController"
-  s.version      = "0.1.1"
+  s.version      = "0.2.0"
   s.summary      = "An UIPageController replacement supporting custom and continuous transitions."
   s.description  = <<-DESC
                     A replacement for UIPageController / NSPageController, because we need custom transitions!
@@ -38,7 +38,10 @@ No further dependencies
   s.source_files = 'BMExtendablePageController', 'BMExtendablePageController/**/*.{h,m}'
   s.resources = 'BMExtendablePageController/Transitions/assets/*.*'
   
-  s.framework  = 'QuartzCore'
+  s.osx.framework  = 'QuartzCore'
+  s.ios.frameworks = 'QuartzCore', 'CoreImage'
 
-  s.requires_arc = true
+  s.requires_arc = true       
+  
+  s.dependency 'CAAnimationBlocks', '~> 0.0.1'
 end

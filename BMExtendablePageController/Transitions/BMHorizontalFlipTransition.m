@@ -8,19 +8,22 @@
 
 #import "BMHorizontalFlipTransition.h"
 #import "NSLayoutConstraint+PlacementHelper.h"
-#import "CAAnimation+Blocks.h"
+#import <CAAnimationBlocks/CAAnimation+Blocks.h>
 #import "NSView+BMImageRepresentation.h"
 
-@implementation BMHorizontalFlipTransition{
+@implementation BMHorizontalFlipTransition
 
-}
+@synthesize duration=_duration;
 
-+(id<BMExtendablePageTransition>)transition{
-    return [[BMHorizontalFlipTransition alloc] init];
++(id<BMExtendablePageTransition>)transitionWithDuration:(float)time{
+    
+    BMHorizontalFlipTransition* trans = [[BMHorizontalFlipTransition alloc] init];
+    trans.duration = time;
+    
+    return trans;
 }
 
 -(void)transitionFromIndex:(int)fromIdx toIndex:(int)toIdx
-              withDuration:(float)duration
              andCurrenView:(VIEW *)currentView
                 toNextView:(VIEW *)nextView
            onContainerView:(VIEW *)containerView
@@ -69,7 +72,7 @@
     slideAnimation.fromValue = [NSNumber numberWithFloat:0.0];
     slideAnimation.toValue = [NSNumber numberWithFloat:destOffset];
     slideAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
-    slideAnimation.duration = duration;
+    slideAnimation.duration = self.duration;
     slideAnimation.repeatCount = 0;
     slideAnimation.removedOnCompletion = NO;
     slideAnimation.fillMode = kCAFillModeForwards;

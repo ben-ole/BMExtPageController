@@ -11,13 +11,17 @@
 
 @implementation BMVerticalFlipTransition
 
-+(id<BMExtendablePageTransition>)transition
-{
-    return [[BMVerticalFlipTransition alloc] init];
+@synthesize duration=_duration;
+
++(id<BMExtendablePageTransition>)transitionWithDuration:(float)time{
+
+    BMVerticalFlipTransition* trans = [[BMVerticalFlipTransition alloc] init];
+    trans.duration = time;
+    
+    return trans;
 }
 
 -(void)transitionFromIndex:(int)fromIdx toIndex:(int)toIdx
-              withDuration:(float)duration
              andCurrenView:(VIEW *)currentView
                 toNextView:(VIEW *)nextView
            onContainerView:(VIEW *)containerView
@@ -36,7 +40,7 @@
     // animate transition
 #if TARGET_OS_IPHONE
 
-    [UIView animateWithDuration:duration delay:0. options:UIViewAnimationOptionCurveEaseInOut
+    [UIView animateWithDuration:self.duration delay:0. options:UIViewAnimationOptionCurveEaseInOut
                      animations:^{
                          
                          [currentAlignmentConstraint setConstant:destOffset];
@@ -46,7 +50,7 @@
                          completion();
                      }];
 #else
-    [[NSAnimationContext currentContext] setDuration:duration];
+    [[NSAnimationContext currentContext] setDuration:self.duration];
     [[NSAnimationContext currentContext] setTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut]];    
     [NSAnimationContext runAnimationGroup:^(NSAnimationContext *context) {
         
