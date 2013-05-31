@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		430D981B175501090044D514 /* BMCoreImageTransition.h in Headers */ = {isa = PBXBuildFile; fileRef = 430D9819175501090044D514 /* BMCoreImageTransition.h */; };
+		430D981D175501090044D514 /* BMCoreImageTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 430D981A175501090044D514 /* BMCoreImageTransition.m */; };
 		43752F01174B8FAE00104776 /* CAAnimation+Blocks.h in Headers */ = {isa = PBXBuildFile; fileRef = 43752EFF174B8FAE00104776 /* CAAnimation+Blocks.h */; };
 		43752F02174B8FAE00104776 /* CAAnimation+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 43752F00174B8FAE00104776 /* CAAnimation+Blocks.m */; };
 		43752F03174B8FAE00104776 /* CAAnimation+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 43752F00174B8FAE00104776 /* CAAnimation+Blocks.m */; };
@@ -80,6 +82,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		430D9819175501090044D514 /* BMCoreImageTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMCoreImageTransition.h; sourceTree = "<group>"; };
+		430D981A175501090044D514 /* BMCoreImageTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMCoreImageTransition.m; sourceTree = "<group>"; };
 		43752EFF174B8FAE00104776 /* CAAnimation+Blocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CAAnimation+Blocks.h"; sourceTree = "<group>"; };
 		43752F00174B8FAE00104776 /* CAAnimation+Blocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CAAnimation+Blocks.m"; sourceTree = "<group>"; };
 		43752F04174BB7E000104776 /* NSView+BMImageRepresentation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSView+BMImageRepresentation.h"; sourceTree = "<group>"; };
@@ -95,6 +99,7 @@
 		43ABDEE71722FC5400262AEC /* BMExtendablePageControllerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BMExtendablePageControllerTests.m; sourceTree = "<group>"; };
 		43ABDEF11722FD7900262AEC /* BMExtendablePageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMExtendablePageController.h; sourceTree = "<group>"; };
 		43ABDEF21722FD7900262AEC /* BMExtendablePageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMExtendablePageController.m; sourceTree = "<group>"; };
+		43B0A0F71758DCBE00C08C38 /* restrictedshine.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = restrictedshine.tiff; sourceTree = "<group>"; };
 		43B1A40F172FAF990067394A /* NSLayoutConstraint+PlacementHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSLayoutConstraint+PlacementHelper.h"; sourceTree = "<group>"; };
 		43B1A410172FAF990067394A /* NSLayoutConstraint+PlacementHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSLayoutConstraint+PlacementHelper.m"; sourceTree = "<group>"; };
 		43FFF5CF17268BE7006E9301 /* BMExtendablePageControllerOSX.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = BMExtendablePageControllerOSX.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -242,6 +247,14 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		43B0A0F61758DC9700C08C38 /* assets */ = {
+			isa = PBXGroup;
+			children = (
+				43B0A0F71758DCBE00C08C38 /* restrictedshine.tiff */,
+			);
+			path = assets;
+			sourceTree = "<group>";
+		};
 		43B1A40E172FAE130067394A /* Helper */ = {
 			isa = PBXGroup;
 			children = (
@@ -277,6 +290,7 @@
 		43FFF6021726929E006E9301 /* Transitions */ = {
 			isa = PBXGroup;
 			children = (
+				43B0A0F61758DC9700C08C38 /* assets */,
 				95487DB917413168002532C8 /* BMVerticalFlipTransition.h */,
 				95487DBA17413168002532C8 /* BMVerticalFlipTransition.m */,
 				43FFF60317269321006E9301 /* BMFadeTransition.h */,
@@ -285,6 +299,8 @@
 				43FFF60817269321006E9301 /* BMHorizontalCTransition.m */,
 				43FFF6201726A738006E9301 /* BMHorizontalFlipTransition.h */,
 				43FFF6211726A738006E9301 /* BMHorizontalFlipTransition.m */,
+				430D9819175501090044D514 /* BMCoreImageTransition.h */,
+				430D981A175501090044D514 /* BMCoreImageTransition.m */,
 			);
 			path = Transitions;
 			sourceTree = "<group>";
@@ -303,6 +319,7 @@
 				43B1A411172FAF990067394A /* NSLayoutConstraint+PlacementHelper.h in Headers */,
 				43752F01174B8FAE00104776 /* CAAnimation+Blocks.h in Headers */,
 				43752F06174BB7E000104776 /* NSView+BMImageRepresentation.h in Headers */,
+				430D981B175501090044D514 /* BMCoreImageTransition.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -495,6 +512,7 @@
 				95487DBC17413195002532C8 /* BMVerticalFlipTransition.m in Sources */,
 				43752F03174B8FAE00104776 /* CAAnimation+Blocks.m in Sources */,
 				43752F08174BB7E000104776 /* NSView+BMImageRepresentation.m in Sources */,
+				430D981D175501090044D514 /* BMCoreImageTransition.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

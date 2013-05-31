@@ -30,13 +30,14 @@ No further dependencies
   s.homepage     = "https://github.com/elchbenny/BMExtPageController"
   s.license      = 'MIT'
   s.author       = { "Benjamin Müller" => "elchbenny@googlemail.com" }
-  s.source       = { :git => "https://github.com/elchbenny/BMExtPageController.git", :tag => "0.1.1" }
+  s.source       = { :git => "https://github.com/elchbenny/BMExtPageController.git", :tag => "0.2.0" }
 
   s.ios.deployment_target = '5.0'
   s.osx.deployment_target = '10.7'
 
   s.source_files = 'BMExtendablePageController', 'BMExtendablePageController/**/*.{h,m}'
-
+  s.resources = 'BMExtendablePageController/Transitions/assets/*.*'
+  
   s.framework  = 'QuartzCore'
 
   s.requires_arc = true
