@@ -104,10 +104,15 @@
     
     if(_temporaryDisabled) return;
     
-    _temporaryDisabled = TRUE;
-    
     // check bounds
-    NSAssert(selectedIndex < _pages.count, @"selected index beyond bounds (was %i but max is %i)",(int)selectedIndex,(int)_arrangedObjects.count-1);
+    if(selectedIndex >= _pages.count || selectedIndex < 0){
+        if (_delegate && [_delegate respondsToSelector:@selector(pageController:invalidIndex:)]) {
+            [_delegate pageController:self invalidIndex:selectedIndex];
+        }
+        return;
+    }
+    
+    _temporaryDisabled = TRUE;    
     
     VIEW* currentView = [(VIEW_CONTROLLER*)[_pages objectAtIndex:_selectedIndex] view];
     
@@ -153,16 +158,12 @@
 
 -(void)nextPageWithTransitionStyle:(id<BMExtendablePageTransition>)transition{
     
-    if (_selectedIndex < _arrangedObjects.count - 1) {
-        [self setSelectedIndex:_selectedIndex+1 withTransition:transition];
-    }
+    [self setSelectedIndex:_selectedIndex+1 withTransition:transition];
 }
 
 -(void)prevPageWithTransitionStyle:(id<BMExtendablePageTransition>)transition{
     
-    if (_selectedIndex > 0) {
-        [self setSelectedIndex:_selectedIndex-1 withTransition:transition];
-    }
+    [self setSelectedIndex:_selectedIndex-1 withTransition:transition];
 }
 
 -(id<BMExtendableContinuousPageTransition>)attachContinuousTransition:(id<BMExtendableContinuousPageTransition>)transition{

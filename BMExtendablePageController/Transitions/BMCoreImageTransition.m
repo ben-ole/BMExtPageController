@@ -80,7 +80,7 @@
     // create transition
     CATransition *transition = [[CATransition alloc] init];
     transition.repeatCount = 0;
-    transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
+    transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
     transition.removedOnCompletion = YES;
     transition.fillMode = kCAFillModeForwards;
     transition.filter = transitionFilter;

@@ -126,6 +126,11 @@
 - (void)pageControllerDidEndLiveTransition:(BMExtendablePageController *)pageController;
 
 
+/** This message is sent when you try to set an index which is beyond the bounds.
+    Sample use case would be to detect first and last item.
+ */
+- (void)pageController:(BMExtendablePageController *)pageController invalidIndex:(int)idx;
+
 @end
 
 @protocol BMExtendablePageTransition <NSObject>
