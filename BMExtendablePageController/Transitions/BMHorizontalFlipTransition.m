@@ -58,7 +58,6 @@
 
     // add layer to container
     #if !TARGET_OS_IPHONE
-        animationLayer.frame = CGRectOffset(currentView.bounds, 0., -3.);   // strange offset
         [containerView setWantsLayer:YES];
     #endif
     
