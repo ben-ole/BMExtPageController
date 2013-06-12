@@ -112,7 +112,10 @@
         return;
     }
     
-    _temporaryDisabled = TRUE;    
+    _temporaryDisabled = TRUE;
+    
+    NSAssert(_selectedIndex < _pages.count,
+             @"_selectedIndex is %i, but there are only %i pages",_selectedIndex,_pages.count);
     
     VIEW* currentView = [(VIEW_CONTROLLER*)[_pages objectAtIndex:_selectedIndex] view];
     
