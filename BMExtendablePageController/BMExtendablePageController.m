@@ -78,13 +78,25 @@
 -(void)setArrangedObjects:(NSArray *)arrangedObjects completed:(void (^)())completion{
     _arrangedObjects = [arrangedObjects copy];
     
-    [_pages removeAllObjects];
+    // remove any views currently displayed
+    for (VIEW_CONTROLLER* vCtrl in _pages) {
+        if (![vCtrl isKindOfClass:[NSNull class]] && vCtrl.view) {
+            [vCtrl.view removeFromSuperview];
+        }
+    }
     
-    _selectedIndex = 0;
+    [_pages removeAllObjects];
+    [_freeViewController removeAllObjects];
     
     for (int i=0; i<_arrangedObjects.count; i++) {
         [_pages addObject:[NSNull null]];
     }
+    
+    // quit now, if there are no page items
+    if (_pages.count <= 0) return completion();
+    
+    // otherise load first pages
+    _selectedIndex = 0;
     
     NSAssert(_delegate, @"Make sure to assign a delegate for the page controller");
     
