@@ -206,9 +206,17 @@
                                onContainerView:self
                                 withCompletion:^(VIEW *nowActiveView) {
         
+                                    if (nowActiveView == currentView){
+                                        prevView.frame = [self parkingPosition];
+                                        nextView.frame = [self parkingPosition];
+                                    }else
+                                        currentView.frame = [self parkingPosition];
+
                                     if (nowActiveView == nextView) {
+                                        prevView.frame = [self parkingPosition];
                                         _selectedIndex++;
                                     }else if(nowActiveView == prevView){
+                                        nextView.frame = [self parkingPosition];
                                         _selectedIndex--;
                                     }
                                      _selectedViewController = [_pages objectAtIndex:_selectedIndex];
