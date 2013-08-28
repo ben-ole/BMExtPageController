@@ -93,7 +93,11 @@
     }
     
     // quit now, if there are no page items
-    if (_pages.count <= 0) return completion();
+    if (_pages.count <= 0) {
+        if(completion) completion();
+        
+        return;
+    }
     
     // otherise load first pages
     _selectedIndex = 0;
