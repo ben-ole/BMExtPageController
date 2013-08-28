@@ -45,7 +45,7 @@
 @property(copy,nonatomic) NSArray *arrangedObjects;
 
 /** The index into the arrangedObjects that is being displayed. */
-@property (readonly) NSInteger selectedIndex;
+@property (readonly) int selectedIndex;
 
 /** The viewController associated with the selected arrangedObject. May be nil if delegate is not supplying viewControllers.
  */
