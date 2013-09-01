@@ -354,9 +354,11 @@
                                 forKey:_freeViewController];
     }
     
-    VIEW_CONTROLLER* viewCtrl = [_pages objectAtIndex:index];
-    [viewCtrl.view removeFromSuperview];
-    [freeViewCtrlForPageId addObject:viewCtrl];
+    dispatch_sync(dispatch_get_main_queue(), ^{
+        VIEW_CONTROLLER* viewCtrl = [_pages objectAtIndex:index];
+        [viewCtrl.view removeFromSuperview];
+        [freeViewCtrlForPageId addObject:viewCtrl];
+    });
 }
 
 // view controllers currently added but not in transition are "parked" somewhere to the right side of the container
