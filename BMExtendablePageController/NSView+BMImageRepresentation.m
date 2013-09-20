@@ -16,9 +16,13 @@
 	
 #if TARGET_OS_IPHONE
     
-    UIGraphicsBeginImageContext(self.bounds.size);
+    CGFloat scale = [[UIScreen mainScreen] scale];  // we need to size the graphics context according to the device scale
+    
+    UIGraphicsBeginImageContext(CGSizeApplyAffineTransform(self.bounds.size, CGAffineTransformMakeScale(scale, scale)));
     
     CGContextRef ctx = UIGraphicsGetCurrentContext();
+    CGContextScaleCTM(ctx, scale, scale);
+    
     [[UIColor blackColor] set];
     CGContextFillRect(ctx, self.bounds);
     

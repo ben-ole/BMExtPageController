@@ -29,60 +29,49 @@
            onContainerView:(VIEW *)containerView
             withCompletion:(void (^)())completion{
     
+    float size = containerView.bounds.size.width;
+    float newOffset = fromIdx < toIdx ? -size : size;
     
-    float destOffset = containerView.bounds.size.width * ((toIdx > fromIdx) ? -1. : 1.);
+    // ensure currentView fills container
+    NSLayoutConstraint* currentAlignmentConstraint = [NSLayoutConstraint fillSuperView:currentView];
     
-    [NSLayoutConstraint fillSuperView:nextView];
-    
-    CGImageRef currImg = [currentView imageRepresentation];
-    
-    CGImageRef nextImg = [nextView imageRepresentation];
-    
-    [nextView setHidden:YES];
-    
-    // create animation layer
-    CALayer* animationLayer = [CALayer layer];
-    animationLayer.frame = currentView.bounds;
-    
-    // add a layer for current view to animationLayer
-    CALayer* currentLayer = [CALayer layer];
-    [currentLayer setContents:(__bridge id)(currImg)];
-    currentLayer.frame = currentView.bounds;
-    [animationLayer addSublayer:currentLayer];
-    
-    // add a layer for next view to animationLayer
-    CALayer* nextLayer = [CALayer layer];
-    [nextLayer setContents:(__bridge id)(nextImg)];
-    nextLayer.frame = CGRectOffset(nextView.bounds, -destOffset, 0.);
-    [animationLayer addSublayer:nextLayer];
+    // bind next and prev view right and left to current view
+    [NSLayoutConstraint stickView:nextView
+                    nextToSibling:currentView
+                        direction:(fromIdx < toIdx)? BM_LAYOUT_DIRECTION_RIGHT : BM_LAYOUT_DIRECTION_LEFT];
 
-    // add layer to container
-    #if !TARGET_OS_IPHONE
-        [containerView setWantsLayer:YES];
-    #endif
     
-    [containerView.layer addSublayer:animationLayer];
+#if TARGET_OS_IPHONE
+    [containerView layoutIfNeeded];
     
-    // do actual scene change
-    [NSLayoutConstraint removeConstraintsFromSuperView:currentView];    
+    [UIView animateWithDuration:_duration
+                          delay:0. options:UIViewAnimationOptionCurveEaseInOut
+                     animations:^{
+                         [currentAlignmentConstraint setConstant:newOffset];
+                         [containerView layoutIfNeeded];
+                         
+                     } completion:^(BOOL finished) {
+                         
+                         [NSLayoutConstraint removeConstraintsFromSuperView:nextView];
+                         [NSLayoutConstraint removeConstraintsFromSuperView:currentView];
+                         [NSLayoutConstraint fillSuperView:nextView];
+                         
+                         [containerView layoutIfNeeded];
+                         completion();
+                     }];
+#else
     
-    // animate transition
-    CABasicAnimation* slideAnimation = [CABasicAnimation animationWithKeyPath: @"transform.translation.x"];
-    slideAnimation.fromValue = [NSNumber numberWithFloat:0.0];
-    slideAnimation.toValue = [NSNumber numberWithFloat:destOffset];
-    slideAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
-    slideAnimation.duration = self.duration;
-    slideAnimation.repeatCount = 0;
-    slideAnimation.removedOnCompletion = NO;
-    slideAnimation.fillMode = kCAFillModeForwards;
-
-    [slideAnimation setCompletion:^(BOOL finished) {
-        [animationLayer removeFromSuperlayer];
-        [nextView setHidden:NO];
-        completion();
+    [[NSAnimationContext currentContext] setDuration:duration];
+    [NSAnimationContext runAnimationGroup:^(NSAnimationContext *context) {
+        
+        [[_currentAlignmentConstraint animator] setConstant:newOffset];
+    } completionHandler:^{
+        
+        [NSLayoutConstraint fillSuperView:destinationView];
+        _completionBlock(destinationView);
     }];
-    [animationLayer addAnimation:slideAnimation forKey:@"transform.translation.x"];
-
+#endif
+    
 }
 
 @end
