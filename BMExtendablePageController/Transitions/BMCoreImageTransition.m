@@ -49,6 +49,8 @@
     }];
     
 #if ! TARGET_OS_IPHONE
+    containerView.layerUsesCoreImageFilters = YES;
+    
     [containerView setAnimations:[NSDictionary dictionaryWithObject:self.coreImageTransition forKey:@"subviews"]];
 
     // do actual scene change
