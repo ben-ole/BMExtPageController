@@ -51,10 +51,21 @@
 #if ! TARGET_OS_IPHONE
     containerView.layerUsesCoreImageFilters = YES;
     
-    [containerView setAnimations:[NSDictionary dictionaryWithObject:self.coreImageTransition forKey:@"subviews"]];
+    [nextView setWantsLayer:YES];
+    [currentView setWantsLayer:YES];
+    [containerView setWantsLayer:YES];
+    
+    [containerView setAnimations:@{@"subviews":self.coreImageTransition}];
+    [NSLayoutConstraint fillSuperView:nextView];
+    
+    [NSAnimationContext beginGrouping];
+        [[NSAnimationContext currentContext] setCompletionHandler:^{
+            completion();
+        }];
+        
+        [[containerView animator] addSubview:nextView];
+    [NSAnimationContext endGrouping];
 
-    // do actual scene change
-    [[containerView animator] addSubview:nextView];
 #else
     containerView.layer.masksToBounds = YES;
     [containerView.layer addAnimation:self.coreImageTransition forKey:kCATransition];
