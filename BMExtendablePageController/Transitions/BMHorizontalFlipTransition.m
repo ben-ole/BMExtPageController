@@ -28,7 +28,8 @@
                 toNextView:(VIEW *)nextView
            onContainerView:(VIEW *)containerView
             withCompletion:(void (^)())completion{
-    
+
+#if TARGET_OS_IPHONE
     float size = containerView.bounds.size.width;
     float newOffset = fromIdx < toIdx ? -size : size;
     
@@ -39,9 +40,7 @@
     [NSLayoutConstraint stickView:nextView
                     nextToSibling:currentView
                         direction:(fromIdx < toIdx)? BM_LAYOUT_DIRECTION_RIGHT : BM_LAYOUT_DIRECTION_LEFT];
-
     
-#if TARGET_OS_IPHONE
     [containerView layoutIfNeeded];
     
     [UIView animateWithDuration:_duration
@@ -60,16 +59,29 @@
                          completion();
                      }];
 #else
+
+    [nextView setWantsLayer:YES];
+    [currentView setWantsLayer:YES];
+    [containerView setWantsLayer:YES];
+
     
-    [[NSAnimationContext currentContext] setDuration:duration];
-    [NSAnimationContext runAnimationGroup:^(NSAnimationContext *context) {
-        
-        [[_currentAlignmentConstraint animator] setConstant:newOffset];
-    } completionHandler:^{
-        
-        [NSLayoutConstraint fillSuperView:destinationView];
-        _completionBlock(destinationView);
-    }];
+    CATransition* transition = [CATransition animation];
+    transition.type = kCATransitionMoveIn;
+    transition.subtype = (toIdx < fromIdx) ? kCATransitionFromLeft : kCATransitionFromRight;
+    transition.duration = self.duration;
+    transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+    
+    [containerView setAnimations:@{@"subviews":transition}];
+    [NSLayoutConstraint fillSuperView:nextView];
+
+    [NSAnimationContext beginGrouping];
+        [[NSAnimationContext currentContext] setCompletionHandler:^{
+            completion();
+        }];
+    
+        [[containerView animator] addSubview:nextView];
+    [NSAnimationContext endGrouping];
+    
 #endif
     
 }
