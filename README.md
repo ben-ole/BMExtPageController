@@ -1,3 +1,5 @@
+**This project is not maintained anymore!**
+
 # BMExtendablePageController
 
 A replacement for *UIPageController* / *NSPageController*, because we need **custom transitions**!
